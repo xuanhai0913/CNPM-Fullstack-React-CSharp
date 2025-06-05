@@ -1,0 +1,162 @@
+@{
+    ViewData["Title"] = "Quản trị hệ thống";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2><i class="fas fa-cogs"></i> Bảng điều khiển Admin</h2>
+        <p class="text-muted">Chào mừng bạn đến với trang quản trị hệ thống SPRM</p>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4>150</h4>
+                        <p class="mb-0">Tổng người dùng</p>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-users fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4>45</h4>
+                        <p class="mb-0">Dự án hoạt động</p>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-project-diagram fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-warning text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4>23</h4>
+                        <p class="mb-0">Đề xuất chờ duyệt</p>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-file-alt fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-info text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4>12</h4>
+                        <p class="mb-0">Báo cáo tháng này</p>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-chart-line fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-tools"></i> Quản lý hệ thống</h5>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <a asp-action="ManageUsers" class="list-group-item list-group-item-action">
+                        <i class="fas fa-users text-primary"></i> Quản lý người dùng
+                    </a>
+                    <a asp-action="SystemSettings" class="list-group-item list-group-item-action">
+                        <i class="fas fa-cog text-secondary"></i> Cài đặt hệ thống
+                    </a>
+                    <a asp-action="Reports" class="list-group-item list-group-item-action">
+                        <i class="fas fa-chart-bar text-success"></i> Báo cáo thống kê
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-bell"></i> Hoạt động gần đây</h5>
+            </div>
+            <div class="card-body">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-primary"></div>
+                        <div class="timeline-content">
+                            <h6 class="mb-1">Dự án mới được tạo</h6>
+                            <p class="mb-0 text-muted small">2 giờ trước</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-success"></div>
+                        <div class="timeline-content">
+                            <h6 class="mb-1">Đề xuất được phê duyệt</h6>
+                            <p class="mb-0 text-muted small">4 giờ trước</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-warning"></div>
+                        <div class="timeline-content">
+                            <h6 class="mb-1">Người dùng mới đăng ký</h6>
+                            <p class="mb-0 text-muted small">6 giờ trước</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .timeline-item:not(:last-child):before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 17px;
+            width: 2px;
+            height: calc(100% - 12px);
+            background-color: #dee2e6;
+        }
+    </style>
+}

@@ -1,0 +1,14 @@
+/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/obj/Debug/net8.0/SPRM.Data.csproj.AssemblyReference.cache
+/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/obj/Debug/net8.0/SPRM.Data.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/obj/Debug/net8.0/SPRM.Data.AssemblyInfoInputs.cache
+/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/obj/Debug/net8.0/SPRM.Data.AssemblyInfo.cs
+/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/obj/Debug/net8.0/SPRM.Data.csproj.CoreCompileInputs.cache
+/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/bin/Debug/net8.0/SPRM.Data.deps.json
+/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/bin/Debug/net8.0/SPRM.Data.runtimeconfig.json
+/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/bin/Debug/net8.0/SPRM.Data.dll
+/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/bin/Debug/net8.0/SPRM.Data.pdb
+/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/obj/Debug/net8.0/SPRM.Data.dll
+/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/obj/Debug/net8.0/refint/SPRM.Data.dll
+/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/obj/Debug/net8.0/SPRM.Data.pdb
+/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/obj/Debug/net8.0/SPRM.Data.genruntimeconfig.cache
+/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/obj/Debug/net8.0/ref/SPRM.Data.dll
