@@ -47,10 +47,10 @@
                     <thead>
                         <tr>
                             <th>Tên dự án</th>
-                            <th>Mô tả</th>
+                            <th>Loại & Lĩnh vực</th>
                             <th>Trạng thái</th>
-                            <th>Ngày bắt đầu</th>
-                            <th>Ngày kết thúc</th>
+                            <th>Ưu tiên</th>
+                            <th>Thời gian</th>
                             <th>Thao tác</th>
                         </tr>
                     </thead>
@@ -65,32 +65,94 @@
                                         </div>
                                         <div>
                                             <strong>@Html.DisplayFor(modelItem => item.Name)</strong>
+                                            <br><small class="text-muted text-truncate d-inline-block" style="max-width: 200px;">
+                                                @(string.IsNullOrEmpty(item.Description) ? "Không có mô tả" : item.Description)
+                                            </small>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <span class="text-muted text-truncate d-inline-block" style="max-width: 200px;">
-                                        @(string.IsNullOrEmpty(item.Description) ? "Không có mô tả" : item.Description)
-                                    </span>
-                                </td>
-                                <td>
-                                    @{
-                                        string badgeClass = "bg-info";
-                                        if (item.Status == "Đã hoàn thành") badgeClass = "bg-success";
-                                        else if (item.Status == "Tạm dừng") badgeClass = "bg-warning";
-                                    }
-                                    <span class="badge @badgeClass rounded-pill">@Html.DisplayFor(modelItem => item.Status)</span>
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <i class="far fa-calendar-alt text-muted me-2"></i>
-                                        <span>@item.StartDate.ToString("dd/MM/yyyy")</span>
+                                    <div>
+                                        <span class="badge bg-soft-info text-info mb-1 category-badge">
+                                            <i class="fas fa-tag me-1"></i>
+                                            @{
+                                                string categoryDisplay = item.ProjectCategory switch
+                                                {
+                                                    "Research" => "Nghiên cứu",
+                                                    "Development" => "Phát triển",
+                                                    "Thesis" => "Luận văn",
+                                                    "Other" => "Khác",
+                                                    _ => item.ProjectCategory ?? "Chưa xác định"
+                                                };
+                                            }
+                                            @categoryDisplay
+                                        </span><br>
+                                        <small class="text-muted field-tag">
+                                            <i class="fas fa-graduation-cap me-1"></i>
+                                            @{
+                                                string fieldDisplay = item.FieldOfStudy switch
+                                                {
+                                                    "IT" => "Công nghệ thông tin",
+                                                    "Engineering" => "Kỹ thuật",
+                                                    "Business" => "Kinh doanh", 
+                                                    "Science" => "Khoa học",
+                                                    "Medicine" => "Y học",
+                                                    "Education" => "Giáo dục",
+                                                    "Other" => "Khác",
+                                                    _ => item.FieldOfStudy ?? "Chưa xác định"
+                                                };
+                                            }
+                                            @fieldDisplay
+                                        </small>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <i class="far fa-calendar-check text-muted me-2"></i>
-                                        <span>@(item.EndDate.HasValue ? item.EndDate.Value.ToString("dd/MM/yyyy") : "Chưa xác định")</span>
+                                    @{
+                                        string badgeClass = item.Status switch
+                                        {
+                                            "Planning" => "bg-secondary",
+                                            "InProgress" => "bg-primary", 
+                                            "Completed" => "bg-success",
+                                            "OnHold" => "bg-warning",
+                                            "Cancelled" => "bg-danger",
+                                            _ => "bg-info"
+                                        };
+                                        string statusDisplay = item.Status switch
+                                        {
+                                            "Planning" => "Lập kế hoạch",
+                                            "InProgress" => "Đang thực hiện",
+                                            "Completed" => "Hoàn thành", 
+                                            "OnHold" => "Tạm dừng",
+                                            "Cancelled" => "Đã hủy",
+                                            _ => item.Status ?? "Không xác định"
+                                        };
+                                    }
+                                    <span class="badge @badgeClass rounded-pill">@statusDisplay</span>
+                                </td>
+                                <td>
+                                    @{
+                                        var priorityInfo = item.PriorityLevel switch
+                                        {
+                                            "High" => new { Class = "text-danger", Icon = "fas fa-angle-double-up", Display = "Cao" },
+                                            "Medium" => new { Class = "text-warning", Icon = "fas fa-minus", Display = "Trung bình" },
+                                            "Low" => new { Class = "text-success", Icon = "fas fa-angle-double-down", Display = "Thấp" },
+                                            _ => new { Class = "text-muted", Icon = "fas fa-question", Display = "Chưa xác định" }
+                                        };
+                                    }
+                                    <span class="priority-indicator @priorityInfo.Class fw-bold">
+                                        <i class="@priorityInfo.Icon me-1"></i>@priorityInfo.Display
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="d-flex flex-column">
+                                        <small class="text-muted">
+                                            <i class="far fa-calendar-alt me-1"></i>
+                                            Bắt đầu: @item.StartDate.ToString("dd/MM/yyyy")
+                                        </small>
+                                        <small class="text-muted">  
+                                            <i class="far fa-calendar-check me-1"></i>
+                                            Kết thúc: @(item.EndDate.HasValue ? item.EndDate.Value.ToString("dd/MM/yyyy") : "Chưa xác định")
+                                        </small>
                                     </div>
                                 </td>
                                 <td>
@@ -145,4 +207,51 @@
             });
         });
     </script>
+}
+
+@section Styles {
+    <style>
+        .priority-high {
+            color: #ef476f;
+            font-weight: 600;
+        }
+        
+        .priority-medium {
+            color: #f9c74f; 
+            font-weight: 600;
+        }
+        
+        .priority-low {
+            color: #06d6a0;
+            font-weight: 600;
+        }
+        
+        .category-badge {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+        }
+        
+        .field-tag {
+            color: #6c757d;
+            font-size: 0.8rem;
+        }
+        
+        .table tbody tr:hover {
+            background-color: rgba(67, 97, 238, 0.03);
+            transform: scale(1.01);
+            transition: all 0.2s ease;
+        }
+        
+        .project-icon {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.1) 0%, rgba(67, 97, 238, 0.2) 100%);
+        }
+        
+        .priority-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+    </style>
 }
