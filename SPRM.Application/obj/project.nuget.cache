@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "o5fKAEmDXMM=",
+  "dgSpecHash": "I/BAKa7b0XQ=",
   "success": true,
-  "projectFilePath": "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Application/SPRM.Application.csproj",
+  "projectFilePath": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Application/SPRM.Application.csproj",
   "expectedPackageFiles": [
     "/Users/nguyenhai/.nuget/packages/automapper/14.0.0/automapper.14.0.0.nupkg.sha512",
     "/Users/nguyenhai/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",

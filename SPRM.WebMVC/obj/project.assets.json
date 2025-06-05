@@ -5248,11 +5248,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.WebMVC/SPRM.WebMVC.csproj",
+      "projectUniqueName": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/SPRM.WebMVC.csproj",
       "projectName": "SPRM.WebMVC",
-      "projectPath": "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.WebMVC/SPRM.WebMVC.csproj",
+      "projectPath": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/SPRM.WebMVC.csproj",
       "packagesPath": "/Users/nguyenhai/.nuget/packages/",
-      "outputPath": "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.WebMVC/obj/",
+      "outputPath": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/nguyenhai/.nuget/NuGet/NuGet.Config"
@@ -5267,11 +5267,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Business/SPRM.Business.csproj": {
-              "projectPath": "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Business/SPRM.Business.csproj"
+            "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Business/SPRM.Business.csproj": {
+              "projectPath": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Business/SPRM.Business.csproj"
             },
-            "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/SPRM.Data.csproj": {
-              "projectPath": "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/SPRM.Data.csproj"
+            "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Data/SPRM.Data.csproj": {
+              "projectPath": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Data/SPRM.Data.csproj"
             }
           }
         }

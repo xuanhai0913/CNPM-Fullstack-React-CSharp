@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Application/SPRM.Application.csproj": {}
+    "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Application/SPRM.Application.csproj": {}
   },
   "projects": {
-    "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Application/SPRM.Application.csproj": {
+    "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Application/SPRM.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Application/SPRM.Application.csproj",
+        "projectUniqueName": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Application/SPRM.Application.csproj",
         "projectName": "SPRM.Application",
-        "projectPath": "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Application/SPRM.Application.csproj",
+        "projectPath": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Application/SPRM.Application.csproj",
         "packagesPath": "/Users/nguyenhai/.nuget/packages/",
-        "outputPath": "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Application/obj/",
+        "outputPath": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Application/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/nguyenhai/.nuget/NuGet/NuGet.Config"
@@ -26,8 +26,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Business/SPRM.Business.csproj": {
-                "projectPath": "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Business/SPRM.Business.csproj"
+              "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Business/SPRM.Business.csproj": {
+                "projectPath": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Business/SPRM.Business.csproj"
               }
             }
           }
@@ -88,14 +88,14 @@
         }
       }
     },
-    "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Business/SPRM.Business.csproj": {
+    "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Business/SPRM.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Business/SPRM.Business.csproj",
+        "projectUniqueName": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Business/SPRM.Business.csproj",
         "projectName": "SPRM.Business",
-        "projectPath": "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Business/SPRM.Business.csproj",
+        "projectPath": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Business/SPRM.Business.csproj",
         "packagesPath": "/Users/nguyenhai/.nuget/packages/",
-        "outputPath": "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Business/obj/",
+        "outputPath": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Business/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/nguyenhai/.nuget/NuGet/NuGet.Config"
@@ -110,8 +110,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/SPRM.Data.csproj": {
-                "projectPath": "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/SPRM.Data.csproj"
+              "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Data/SPRM.Data.csproj": {
+                "projectPath": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Data/SPRM.Data.csproj"
               }
             }
           }
@@ -157,14 +157,14 @@
         }
       }
     },
-    "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/SPRM.Data.csproj": {
+    "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Data/SPRM.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/SPRM.Data.csproj",
+        "projectUniqueName": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Data/SPRM.Data.csproj",
         "projectName": "SPRM.Data",
-        "projectPath": "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/SPRM.Data.csproj",
+        "projectPath": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Data/SPRM.Data.csproj",
         "packagesPath": "/Users/nguyenhai/.nuget/packages/",
-        "outputPath": "/Users/nguyenhai/Library/CloudStorage/OneDrive-ut.edu.vn/SPRM_3Layer/SPRM.Data/obj/",
+        "outputPath": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.Data/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/nguyenhai/.nuget/NuGet/NuGet.Config"

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SPRM.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+83a0e68464fe0096354599c17fe629f9239babd7")]
 [assembly: System.Reflection.AssemblyProductAttribute("SPRM.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SPRM.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
