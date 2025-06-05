@@ -2,128 +2,366 @@
     ViewData["Title"] = "Quản trị hệ thống";
 }
 
-<div class="row">
-    <div class="col-md-12">
-        <h2><i class="fas fa-cogs"></i> Bảng điều khiển Admin</h2>
-        <p class="text-muted">Chào mừng bạn đến với trang quản trị hệ thống SPRM</p>
+<div class="container-fluid p-0">
+    <div class="d-flex justify-content-between align-items-center mb-4" data-aos="fade-up">
+        <div>
+            <h2 class="fw-bold mb-1"><i class="fas fa-tachometer-alt text-primary me-2"></i>Bảng điều khiển Admin</h2>
+            <p class="text-muted">Chào mừng bạn đến với trang quản trị hệ thống SPRM</p>
+        </div>
+        <div>
+            <button class="btn btn-primary">
+                <i class="fas fa-download me-2"></i> Xuất báo cáo
+            </button>
+        </div>
     </div>
-</div>
 
-<div class="row mb-4">
-    <div class="col-md-3">
-        <div class="card bg-primary text-white">
-            <div class="card-body">
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <h4>150</h4>
-                        <p class="mb-0">Tổng người dùng</p>
+    <div class="row mb-4">
+        <div class="col-xl-3 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                <div class="card-body p-0">
+                    <div class="bg-gradient-primary text-white p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="fw-bold mb-0">Tổng người dùng</h5>
+                            <div class="stats-icon bg-soft-light rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="fas fa-users text-white"></i>
+                            </div>
+                        </div>
+                        <h2 class="display-6 fw-bold mb-0">150</h2>
+                        <div class="mt-2 d-flex align-items-center">
+                            <span class="badge bg-success me-2">
+                                <i class="fas fa-arrow-up me-1"></i>12%
+                            </span>
+                            <span class="text-white-50 small">So với tháng trước</span>
+                        </div>
                     </div>
-                    <div class="align-self-center">
-                        <i class="fas fa-users fa-2x"></i>
+                    <div class="px-4 py-3 bg-white d-flex justify-content-between align-items-center">
+                        <a href="#" class="text-decoration-none text-primary small fw-semibold">Chi tiết</a>
+                        <span class="text-muted small">30 người dùng mới trong tháng</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                <div class="card-body p-0">
+                    <div class="bg-gradient-success text-white p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="fw-bold mb-0">Dự án hoạt động</h5>
+                            <div class="stats-icon bg-soft-light rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="fas fa-project-diagram text-white"></i>
+                            </div>
+                        </div>
+                        <h2 class="display-6 fw-bold mb-0">45</h2>
+                        <div class="mt-2 d-flex align-items-center">
+                            <span class="badge bg-success me-2">
+                                <i class="fas fa-arrow-up me-1"></i>8%
+                            </span>
+                            <span class="text-white-50 small">So với tháng trước</span>
+                        </div>
+                    </div>
+                    <div class="px-4 py-3 bg-white d-flex justify-content-between align-items-center">
+                        <a href="#" class="text-decoration-none text-success small fw-semibold">Chi tiết</a>
+                        <span class="text-muted small">10 dự án mới trong tháng</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="300">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                <div class="card-body p-0">
+                    <div class="bg-gradient-warning text-white p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="fw-bold mb-0">Đề xuất chờ duyệt</h5>
+                            <div class="stats-icon bg-soft-light rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="fas fa-file-alt text-white"></i>
+                            </div>
+                        </div>
+                        <h2 class="display-6 fw-bold mb-0">23</h2>
+                        <div class="mt-2 d-flex align-items-center">
+                            <span class="badge bg-danger me-2">
+                                <i class="fas fa-arrow-up me-1"></i>15%
+                            </span>
+                            <span class="text-white-50 small">So với tháng trước</span>
+                        </div>
+                    </div>
+                    <div class="px-4 py-3 bg-white d-flex justify-content-between align-items-center">
+                        <a href="#" class="text-decoration-none text-warning small fw-semibold">Chi tiết</a>
+                        <span class="text-muted small">7 đề xuất cần duyệt gấp</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="400">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                <div class="card-body p-0">
+                    <div class="bg-gradient-info text-white p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="fw-bold mb-0">Báo cáo tháng này</h5>
+                            <div class="stats-icon bg-soft-light rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="fas fa-chart-line text-white"></i>
+                            </div>
+                        </div>
+                        <h2 class="display-6 fw-bold mb-0">12</h2>
+                        <div class="mt-2 d-flex align-items-center">
+                            <span class="badge bg-success me-2">
+                                <i class="fas fa-arrow-up me-1"></i>5%
+                            </span>
+                            <span class="text-white-50 small">So với tháng trước</span>
+                        </div>
+                    </div>
+                    <div class="px-4 py-3 bg-white d-flex justify-content-between align-items-center">
+                        <a href="#" class="text-decoration-none text-info small fw-semibold">Chi tiết</a>
+                        <span class="text-muted small">3 báo cáo mới hôm nay</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-md-3">
-        <div class="card bg-success text-white">
-            <div class="card-body">
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <h4>45</h4>
-                        <p class="mb-0">Dự án hoạt động</p>
-                    </div>
-                    <div class="align-self-center">
-                        <i class="fas fa-project-diagram fa-2x"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card bg-warning text-white">
-            <div class="card-body">
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <h4>23</h4>
-                        <p class="mb-0">Đề xuất chờ duyệt</p>
-                    </div>
-                    <div class="align-self-center">
-                        <i class="fas fa-file-alt fa-2x"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card bg-info text-white">
-            <div class="card-body">
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <h4>12</h4>
-                        <p class="mb-0">Báo cáo tháng này</p>
-                    </div>
-                    <div class="align-self-center">
-                        <i class="fas fa-chart-line fa-2x"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-                <h5><i class="fas fa-tools"></i> Quản lý hệ thống</h5>
+    <div class="row mb-4">
+        <div class="col-xl-8 mb-4 mb-xl-0" data-aos="fade-up" data-aos-delay="100">
+            <div class="card border-0 shadow-sm rounded-4 h-100">
+                <div class="card-header bg-transparent py-3 d-flex justify-content-between align-items-center">
+                    <h5 class="fw-bold mb-0">
+                        <i class="fas fa-chart-area text-primary me-2"></i> Thống kê dự án
+                    </h5>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary active">Tuần</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Tháng</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Năm</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container" style="height: 300px;">
+                        <div class="d-flex align-items-center justify-content-center h-100 text-muted">
+                            <div class="text-center">
+                                <i class="fas fa-chart-area fa-3x mb-3"></i>
+                                <p>Biểu đồ thống kê dự án theo thời gian</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                <div class="list-group list-group-flush">
-                    <a asp-action="ManageUsers" class="list-group-item list-group-item-action">
-                        <i class="fas fa-users text-primary"></i> Quản lý người dùng
-                    </a>
-                    <a asp-action="DatabaseManagement" class="list-group-item list-group-item-action">
-                        <i class="fas fa-database text-warning"></i> Quản lý Database
-                    </a>
-                    <a asp-action="SystemSettings" class="list-group-item list-group-item-action">
-                        <i class="fas fa-cog text-secondary"></i> Cài đặt hệ thống
-                    </a>
-                    <a asp-action="Reports" class="list-group-item list-group-item-action">
-                        <i class="fas fa-chart-bar text-success"></i> Báo cáo thống kê
-                    </a>
+        </div>
+        <div class="col-xl-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card border-0 shadow-sm rounded-4 h-100">
+                <div class="card-header bg-transparent py-3">
+                    <h5 class="fw-bold mb-0">
+                        <i class="fas fa-bell text-primary me-2"></i> Hoạt động gần đây
+                    </h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="timeline p-4">
+                        <div class="timeline-item">
+                            <div class="timeline-marker bg-primary"></div>
+                            <div class="timeline-content">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <h6 class="fw-bold mb-0">Dự án mới được tạo</h6>
+                                    <span class="badge bg-soft-primary text-primary">2h trước</span>
+                                </div>
+                                <p class="text-muted mb-0 small">Nguyễn Văn A đã tạo dự án mới "Nghiên cứu ứng dụng AI trong y tế"</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker bg-success"></div>
+                            <div class="timeline-content">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <h6 class="fw-bold mb-0">Đề xuất được phê duyệt</h6>
+                                    <span class="badge bg-soft-success text-success">4h trước</span>
+                                </div>
+                                <p class="text-muted mb-0 small">Đề xuất "Phát triển ứng dụng mobile học tập" đã được phê duyệt</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker bg-warning"></div>
+                            <div class="timeline-content">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <h6 class="fw-bold mb-0">Người dùng mới đăng ký</h6>
+                                    <span class="badge bg-soft-warning text-warning">6h trước</span>
+                                </div>
+                                <p class="text-muted mb-0 small">5 người dùng mới đã đăng ký tài khoản trên hệ thống</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker bg-info"></div>
+                            <div class="timeline-content">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <h6 class="fw-bold mb-0">Cập nhật hệ thống</h6>
+                                    <span class="badge bg-soft-info text-info">1 ngày trước</span>
+                                </div>
+                                <p class="text-muted mb-0 small">Hệ thống đã được cập nhật lên phiên bản mới nhất</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent text-center py-3">
+                    <a href="#" class="text-decoration-none">Xem tất cả hoạt động</a>
                 </div>
             </div>
         </div>
     </div>
-    
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-                <h5><i class="fas fa-bell"></i> Hoạt động gần đây</h5>
+
+    <div class="row" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-xl-4 mb-4 mb-xl-0">
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+                <div class="card-header bg-transparent py-3">
+                    <h5 class="fw-bold mb-0">
+                        <i class="fas fa-tools text-primary me-2"></i> Quản lý hệ thống
+                    </h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="list-group list-group-flush">
+                        <a asp-action="ManageUsers" class="list-group-item list-group-item-action d-flex align-items-center py-3 px-4">
+                            <div class="icon-box bg-soft-primary rounded-3 me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                <i class="fas fa-users text-primary"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1 fw-semibold">Quản lý người dùng</h6>
+                                <p class="text-muted mb-0 small">Thêm, sửa, xóa tài khoản người dùng</p>
+                            </div>
+                        </a>
+                        <a asp-action="DatabaseManagement" class="list-group-item list-group-item-action d-flex align-items-center py-3 px-4">
+                            <div class="icon-box bg-soft-warning rounded-3 me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                <i class="fas fa-database text-warning"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1 fw-semibold">Quản lý Database</h6>
+                                <p class="text-muted mb-0 small">Sao lưu, phục hồi và tối ưu dữ liệu</p>
+                            </div>
+                        </a>
+                        <a asp-action="SystemSettings" class="list-group-item list-group-item-action d-flex align-items-center py-3 px-4">
+                            <div class="icon-box bg-soft-secondary rounded-3 me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                <i class="fas fa-cog text-secondary"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1 fw-semibold">Cài đặt hệ thống</h6>
+                                <p class="text-muted mb-0 small">Tùy chỉnh cấu hình và tham số hệ thống</p>
+                            </div>
+                        </a>
+                        <a asp-action="Reports" class="list-group-item list-group-item-action d-flex align-items-center py-3 px-4">
+                            <div class="icon-box bg-soft-success rounded-3 me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                <i class="fas fa-chart-bar text-success"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1 fw-semibold">Báo cáo thống kê</h6>
+                                <p class="text-muted mb-0 small">Xem và xuất báo cáo về hoạt động hệ thống</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-marker bg-primary"></div>
-                        <div class="timeline-content">
-                            <h6 class="mb-1">Dự án mới được tạo</h6>
-                            <p class="mb-0 text-muted small">2 giờ trước</p>
+        </div>
+        
+        <div class="col-xl-4 mb-4 mb-xl-0">
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+                <div class="card-header bg-transparent py-3 d-flex justify-content-between align-items-center">
+                    <h5 class="fw-bold mb-0">
+                        <i class="fas fa-tasks text-primary me-2"></i> Công việc cần xử lý
+                    </h5>
+                    <span class="badge bg-primary">8 việc</span>
+                </div>
+                <div class="card-body p-4">
+                    <div class="todo-list">
+                        <div class="todo-item d-flex align-items-center mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="todo1">
+                            </div>
+                            <label class="ms-2 flex-grow-1" for="todo1">
+                                <span class="fw-semibold d-block">Duyệt đề xuất dự án mới</span>
+                                <span class="text-muted small">Hạn: Hôm nay</span>
+                            </label>
+                            <span class="badge bg-danger">Gấp</span>
+                        </div>
+                        <div class="todo-item d-flex align-items-center mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="todo2">
+                            </div>
+                            <label class="ms-2 flex-grow-1" for="todo2">
+                                <span class="fw-semibold d-block">Cập nhật quy trình đánh giá</span>
+                                <span class="text-muted small">Hạn: Ngày mai</span>
+                            </label>
+                            <span class="badge bg-warning">Quan trọng</span>
+                        </div>
+                        <div class="todo-item d-flex align-items-center mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="todo3">
+                            </div>
+                            <label class="ms-2 flex-grow-1" for="todo3">
+                                <span class="fw-semibold d-block">Kiểm tra báo cáo tháng</span>
+                                <span class="text-muted small">Hạn: 10/06/2025</span>
+                            </label>
+                            <span class="badge bg-info">Bình thường</span>
+                        </div>
+                        <div class="todo-item d-flex align-items-center">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="todo4">
+                            </div>
+                            <label class="ms-2 flex-grow-1" for="todo4">
+                                <span class="fw-semibold d-block">Gửi thông báo cập nhật</span>
+                                <span class="text-muted small">Hạn: 15/06/2025</span>
+                            </label>
+                            <span class="badge bg-info">Bình thường</span>
                         </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker bg-success"></div>
-                        <div class="timeline-content">
-                            <h6 class="mb-1">Đề xuất được phê duyệt</h6>
-                            <p class="mb-0 text-muted small">4 giờ trước</p>
+                </div>
+                <div class="card-footer bg-transparent text-center py-3">
+                    <a href="#" class="text-decoration-none">Xem tất cả công việc</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xl-4">
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+                <div class="card-header bg-transparent py-3">
+                    <h5 class="fw-bold mb-0">
+                        <i class="fas fa-server text-primary me-2"></i> Trạng thái hệ thống
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="fw-semibold">CPU</span>
+                            <span class="badge bg-success">Tốt</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-1">
+                            <span class="text-muted small">25% đang sử dụng</span>
+                            <span class="text-muted small">2.5 GHz</span>
                         </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker bg-warning"></div>
-                        <div class="timeline-content">
-                            <h6 class="mb-1">Người dùng mới đăng ký</h6>
-                            <p class="mb-0 text-muted small">6 giờ trước</p>
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="fw-semibold">Bộ nhớ</span>
+                            <span class="badge bg-warning">Trung bình</span>
                         </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-1">
+                            <span class="text-muted small">65% đang sử dụng</span>
+                            <span class="text-muted small">10.4 GB / 16 GB</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="fw-semibold">Lưu trữ</span>
+                            <span class="badge bg-success">Tốt</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-1">
+                            <span class="text-muted small">40% đang sử dụng</span>
+                            <span class="text-muted small">400 GB / 1 TB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent py-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="text-success fw-semibold"><i class="fas fa-circle text-success me-2"></i>Hệ thống hoạt động bình thường</span>
+                        <button class="btn btn-sm btn-outline-primary">Làm mới</button>
                     </div>
                 </div>
             </div>
@@ -133,33 +371,34 @@
 
 @section Styles {
     <style>
-        .timeline {
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+        
+        .bg-gradient-success {
+            background: linear-gradient(135deg, var(--success) 0%, #05b184 100%);
+        }
+        
+        .bg-gradient-warning {
+            background: linear-gradient(135deg, var(--warning) 0%, #e9b73d 100%);
+        }
+        
+        .bg-gradient-info {
+            background: linear-gradient(135deg, var(--info) 0%, #3ab5d9 100%);
+        }
+        
+        .stats-icon {
+            width: 48px;
+            height: 48px;
+        }
+        
+        .chart-container {
             position: relative;
-            padding-left: 20px;
+            min-height: 250px;
         }
         
-        .timeline-item {
-            position: relative;
-            padding-bottom: 20px;
-        }
-        
-        .timeline-marker {
-            position: absolute;
-            left: -30px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-        
-        .timeline-item:not(:last-child):before {
-            content: '';
-            position: absolute;
-            left: -24px;
-            top: 17px;
-            width: 2px;
-            height: calc(100% - 12px);
-            background-color: #dee2e6;
+        .todo-list .todo-item:last-child {
+            margin-bottom: 0 !important;
         }
     </style>
 }

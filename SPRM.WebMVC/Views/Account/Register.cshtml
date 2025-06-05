@@ -4,84 +4,148 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="row justify-content-center">
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="text-center">Đăng ký tài khoản SPRM</h3>
-            </div>
-            <div class="card-body">
-                <form asp-action="Register" method="post">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label asp-for="Username" class="form-label">Tên đăng nhập <span class="text-danger">*</span></label>
-                                <input asp-for="Username" class="form-control" placeholder="Nhập tên đăng nhập" />
-                                <span asp-validation-for="Username" class="text-danger"></span>
-                            </div>
+<div class="container py-5">
+    <div class="row justify-content-center" data-aos="fade-up">
+        <div class="col-lg-8 col-md-10">
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                <div class="card-body p-5">
+                    <div class="text-center mb-4">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-soft-success rounded-circle mb-3" style="width: 60px; height: 60px;">
+                            <i class="fas fa-user-plus text-success fs-3"></i>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label asp-for="Email" class="form-label">Email <span class="text-danger">*</span></label>
-                                <input asp-for="Email" type="email" class="form-control" placeholder="Nhập email" />
-                                <span asp-validation-for="Email" class="text-danger"></span>
-                            </div>
-                        </div>
+                        <h3 class="fw-bold">Đăng ký tài khoản</h3>
+                        <p class="text-muted">Tạo tài khoản mới trong hệ thống SPRM</p>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label asp-for="Password" class="form-label">Mật khẩu <span class="text-danger">*</span></label>
-                                <input asp-for="Password" type="password" class="form-control" placeholder="Nhập mật khẩu" />
-                                <span asp-validation-for="Password" class="text-danger"></span>
+                    <form asp-action="Register" method="post" class="needs-validation">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger rounded-3 p-3 mb-4" role="alert"></div>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <div class="form-group">
+                                    <label asp-for="Username" class="form-label fw-semibold">Tên đăng nhập <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light text-primary"><i class="fas fa-user"></i></span>
+                                        <input asp-for="Username" class="form-control py-2" placeholder="Nhập tên đăng nhập" autofocus />
+                                    </div>
+                                    <span asp-validation-for="Username" class="text-danger mt-1 d-block"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Email" class="form-label fw-semibold">Email <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light text-primary"><i class="fas fa-envelope"></i></span>
+                                        <input asp-for="Email" type="email" class="form-control py-2" placeholder="Nhập email" />
+                                    </div>
+                                    <span asp-validation-for="Email" class="text-danger mt-1 d-block"></span>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label class="form-label">Xác nhận mật khẩu <span class="text-danger">*</span></label>
-                                <input type="password" class="form-control" placeholder="Nhập lại mật khẩu" />
+
+                        <div class="row mb-4">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <div class="form-group">
+                                    <label asp-for="Password" class="form-label fw-semibold">Mật khẩu <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light text-primary"><i class="fas fa-lock"></i></span>
+                                        <input asp-for="Password" type="password" class="form-control py-2" placeholder="Nhập mật khẩu" id="password" />
+                                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                    <span asp-validation-for="Password" class="text-danger mt-1 d-block"></span>
+                                    <div class="form-text">
+                                        <i class="fas fa-info-circle me-1"></i> Mật khẩu phải có ít nhất 8 ký tự, gồm chữ, số và ký tự đặc biệt
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label fw-semibold">Xác nhận mật khẩu <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light text-primary"><i class="fas fa-lock"></i></span>
+                                        <input type="password" class="form-control py-2" placeholder="Nhập lại mật khẩu" id="confirmPassword" />
+                                        <button class="btn btn-outline-secondary" type="button" id="toggleConfirmPassword">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                    <div id="passwordMatchFeedback" class="invalid-feedback">
+                                        Mật khẩu không khớp
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label asp-for="FullName" class="form-label">Họ và tên <span class="text-danger">*</span></label>
-                                <input asp-for="FullName" class="form-control" placeholder="Nhập họ và tên" />
-                                <span asp-validation-for="FullName" class="text-danger"></span>
+                        <div class="row mb-4">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <div class="form-group">
+                                    <label asp-for="FullName" class="form-label fw-semibold">Họ và tên <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light text-primary"><i class="fas fa-id-card"></i></span>
+                                        <input asp-for="FullName" class="form-control py-2" placeholder="Nhập họ và tên" />
+                                    </div>
+                                    <span asp-validation-for="FullName" class="text-danger mt-1 d-block"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="PhoneNumber" class="form-label fw-semibold">Số điện thoại</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light text-primary"><i class="fas fa-phone"></i></span>
+                                        <input asp-for="PhoneNumber" class="form-control py-2" placeholder="Nhập số điện thoại" />
+                                    </div>
+                                    <span asp-validation-for="PhoneNumber" class="text-danger mt-1 d-block"></span>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label asp-for="PhoneNumber" class="form-label">Số điện thoại</label>
-                                <input asp-for="PhoneNumber" class="form-control" placeholder="Nhập số điện thoại" />
-                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+
+                        <div class="form-group mb-4">
+                            <label asp-for="Role" class="form-label fw-semibold">Vai trò <span class="text-danger">*</span></label>
+                            <div class="d-flex gap-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="Role" id="roleStudent" value="Student" checked>
+                                    <label class="form-check-label" for="roleStudent">
+                                        <i class="fas fa-user-graduate me-1 text-primary"></i> Sinh viên
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="Role" id="roleLecturer" value="Lecturer">
+                                    <label class="form-check-label" for="roleLecturer">
+                                        <i class="fas fa-chalkboard-teacher me-1 text-info"></i> Giảng viên
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="Role" id="roleStaff" value="Staff">
+                                    <label class="form-check-label" for="roleStaff">
+                                        <i class="fas fa-user-tie me-1 text-success"></i> Nhân viên
+                                    </label>
+                                </div>
+                            </div>
+                            <span asp-validation-for="Role" class="text-danger mt-1 d-block"></span>
+                        </div>
+
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" value="" id="agreeTerms" required>
+                            <label class="form-check-label" for="agreeTerms">
+                                Tôi đồng ý với <a href="#" class="text-decoration-none">Điều khoản dịch vụ</a> và <a href="#" class="text-decoration-none">Chính sách bảo mật</a>
+                            </label>
+                            <div class="invalid-feedback">
+                                Bạn phải đồng ý với điều khoản dịch vụ để tiếp tục
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group mb-3">
-                        <label asp-for="Role" class="form-label">Vai trò</label>
-                        <select asp-for="Role" class="form-select">
-                            <option value="Student">Sinh viên</option>
-                            <option value="Lecturer">Giảng viên</option>
-                            <option value="Staff">Nhân viên</option>
-                        </select>
-                        <span asp-validation-for="Role" class="text-danger"></span>
-                    </div>
+                        <div class="form-group mb-4">
+                            <button type="submit" class="btn btn-success w-100 py-2 fw-semibold">
+                                <i class="fas fa-user-plus me-2"></i> Đăng ký tài khoản
+                            </button>
+                        </div>
 
-                    <div class="form-group mb-3">
-                        <button type="submit" class="btn btn-success w-100">Đăng ký</button>
-                    </div>
-
-                    <div class="text-center">
-                        <p>Đã có tài khoản? <a asp-action="Login" class="text-primary">Đăng nhập ngay</a></p>
-                    </div>
-                </form>
+                        <div class="text-center">
+                            <p class="mb-0">Đã có tài khoản? <a asp-action="Login" class="fw-semibold text-decoration-none">Đăng nhập ngay</a></p>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -89,4 +153,72 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function() {
+            // Toggle password visibility
+            $('#togglePassword').click(function() {
+                const passwordInput = $('#password');
+                const icon = $(this).find('i');
+                
+                if (passwordInput.attr('type') === 'password') {
+                    passwordInput.attr('type', 'text');
+                    icon.removeClass('fa-eye').addClass('fa-eye-slash');
+                } else {
+                    passwordInput.attr('type', 'password');
+                    icon.removeClass('fa-eye-slash').addClass('fa-eye');
+                }
+            });
+            
+            $('#toggleConfirmPassword').click(function() {
+                const passwordInput = $('#confirmPassword');
+                const icon = $(this).find('i');
+                
+                if (passwordInput.attr('type') === 'password') {
+                    passwordInput.attr('type', 'text');
+                    icon.removeClass('fa-eye').addClass('fa-eye-slash');
+                } else {
+                    passwordInput.attr('type', 'password');
+                    icon.removeClass('fa-eye-slash').addClass('fa-eye');
+                }
+            });
+            
+            // Password match validation
+            $('#confirmPassword').on('keyup', function() {
+                const password = $('#password').val();
+                const confirmPassword = $(this).val();
+                
+                if (password !== confirmPassword) {
+                    $(this).addClass('is-invalid');
+                    $('#passwordMatchFeedback').show();
+                } else {
+                    $(this).removeClass('is-invalid').addClass('is-valid');
+                    $('#passwordMatchFeedback').hide();
+                }
+            });
+            
+            // Add focus animation
+            $('.form-control').on('focus', function() {
+                $(this).closest('.input-group').addClass('border-primary');
+            }).on('blur', function() {
+                $(this).closest('.input-group').removeClass('border-primary');
+            });
+            
+            // Form validation
+            (() => {
+                'use strict'
+                const forms = document.querySelectorAll('.needs-validation')
+                
+                Array.from(forms).forEach(form => {
+                    form.addEventListener('submit', event => {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+            })()
+        });
+    </script>
 }

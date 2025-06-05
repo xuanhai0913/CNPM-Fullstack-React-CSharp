@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets/SPRM.WebMVC.4fh5zl1qk6.bundle.scp.css"
     },
     {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/modern-style.css",
+      "PackagePath": "staticwebassets/css/modern-style.css"
+    },
+    {
       "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
@@ -15,6 +19,14 @@
     {
       "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
+    },
+    {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/lib/aos/aos.css",
+      "PackagePath": "staticwebassets/lib/aos/aos.css"
+    },
+    {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/lib/aos/aos.js",
+      "PackagePath": "staticwebassets/lib/aos/aos.js"
     },
     {
       "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/lib/bootstrap/LICENSE",

@@ -29,7 +29,8 @@ namespace SPRM.Business.Services
         {
             // Convert int to Guid for now - should be updated to use Guid throughout
             var guidId = Guid.NewGuid(); // This is temporary
-            return _projectRepository.GetByIdAsync(guidId).Result;
+            var project = _projectRepository.GetByIdAsync(guidId).Result;
+            return project ?? new Project(); // Return an empty project object instead of null
         }
 
         public IEnumerable<Project> GetAllProjects()

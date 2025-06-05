@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SPRM.Data;
 
@@ -11,9 +12,11 @@ using SPRM.Data;
 namespace SPRM.Data.Migrations
 {
     [DbContext(typeof(SPRMDbContext))]
-    partial class SPRMDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250605095518_AddProjectEnhancements")]
+    partial class AddProjectEnhancements
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

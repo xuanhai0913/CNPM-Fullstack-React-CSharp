@@ -1,6 +1,6 @@
 @model SPRM.Business.DTOs.ProjectDto
 @{
-    ViewData["Title"] = "Tạo dự án mới";
+    ViewData["Title"] = "Chỉnh sửa dự án";
 }
 
 <div class="container-fluid p-0">
@@ -9,14 +9,20 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-1">
                     <li class="breadcrumb-item"><a asp-action="Index" class="text-decoration-none">Dự án</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Tạo mới</li>
+                    <li class="breadcrumb-item"><a asp-action="Details" asp-route-id="@Model.Id" class="text-decoration-none">Chi tiết</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Chỉnh sửa</li>
                 </ol>
             </nav>
-            <h2 class="fw-bold mb-0">Tạo dự án mới</h2>
+            <h2 class="fw-bold mb-0">Chỉnh sửa dự án</h2>
         </div>
-        <a asp-action="Index" class="btn btn-outline-secondary">
-            <i class="fas fa-arrow-left me-2"></i> Quay lại
-        </a>
+        <div>
+            <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-outline-secondary me-2">
+                <i class="fas fa-arrow-left me-2"></i> Quay lại
+            </a>
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger">
+                <i class="fas fa-trash-alt me-2"></i> Xóa dự án
+            </a>
+        </div>
     </div>
 
     <div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -29,7 +35,8 @@
                     </h5>
                 </div>
                 <div class="card-body p-4">
-                    <form asp-action="Create" method="post">
+                    <form asp-action="Edit" method="post">
+                        <input type="hidden" asp-for="Id" />
                         <div asp-validation-summary="ModelOnly" class="alert alert-danger rounded-3 p-3" role="alert"></div>
                         
                         <div class="row">
@@ -99,13 +106,16 @@
                         <div class="form-group mb-4">
                             <label class="form-label fw-semibold d-block">Mức độ ưu tiên</label>
                             <div class="btn-group" role="group">
-                                <input type="radio" class="btn-check" name="PriorityLevel" id="priorityLow" value="Low" autocomplete="off" asp-for="PriorityLevel">
+                                <input type="radio" class="btn-check" name="PriorityLevel" id="priorityLow" value="Low" autocomplete="off" 
+                                       @(Model.PriorityLevel == "Low" ? "checked" : "")>
                                 <label class="btn btn-outline-secondary" for="priorityLow">Thấp</label>
                                 
-                                <input type="radio" class="btn-check" name="PriorityLevel" id="priorityMedium" value="Medium" autocomplete="off" asp-for="PriorityLevel" checked>
+                                <input type="radio" class="btn-check" name="PriorityLevel" id="priorityMedium" value="Medium" autocomplete="off" 
+                                       @(Model.PriorityLevel == "Medium" || string.IsNullOrEmpty(Model.PriorityLevel) ? "checked" : "")>
                                 <label class="btn btn-outline-secondary" for="priorityMedium">Trung bình</label>
                                 
-                                <input type="radio" class="btn-check" name="PriorityLevel" id="priorityHigh" value="High" autocomplete="off" asp-for="PriorityLevel">
+                                <input type="radio" class="btn-check" name="PriorityLevel" id="priorityHigh" value="High" autocomplete="off" 
+                                       @(Model.PriorityLevel == "High" ? "checked" : "")>
                                 <label class="btn btn-outline-secondary" for="priorityHigh">Cao</label>
                             </div>
                         </div>
@@ -142,11 +152,11 @@
 
                         <div class="row">
                             <div class="col-12 d-flex justify-content-between">
-                                <a asp-action="Index" class="btn btn-outline-secondary">
+                                <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-outline-secondary">
                                     <i class="fas fa-times me-2"></i> Hủy
                                 </a>
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fas fa-save me-2"></i> Lưu dự án
+                                    <i class="fas fa-save me-2"></i> Lưu thay đổi
                                 </button>
                             </div>
                         </div>
@@ -156,29 +166,45 @@
         </div>
 
         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="card border-0 shadow-sm rounded-3 mb-4 bg-soft-primary">
+            <div class="card border-0 shadow-sm rounded-3 mb-4">
                 <div class="card-header bg-transparent py-3">
                     <h5 class="fw-bold mb-0 d-flex align-items-center">
-                        <i class="fas fa-lightbulb text-primary me-2"></i>
-                        Mẹo hữu ích
+                        <i class="fas fa-history text-primary me-2"></i>
+                        Lịch sử chỉnh sửa
                     </h5>
                 </div>
-                <div class="card-body p-4">
-                    <div class="mb-3">
-                        <h6 class="fw-bold"><i class="fas fa-check-circle text-success me-2"></i> Đặt tên dự án hiệu quả</h6>
-                        <p class="text-muted mb-0 small">Tên dự án nên ngắn gọn, dễ nhớ và phản ánh rõ mục tiêu của dự án.</p>
-                    </div>
-                    <div class="mb-3">
-                        <h6 class="fw-bold"><i class="fas fa-check-circle text-success me-2"></i> Mô tả chi tiết</h6>
-                        <p class="text-muted mb-0 small">Mô tả dự án nên cụ thể và bao gồm mục tiêu, phạm vi, kết quả mong đợi.</p>
-                    </div>
-                    <div class="mb-3">
-                        <h6 class="fw-bold"><i class="fas fa-check-circle text-success me-2"></i> Lên kế hoạch thực tế</h6>
-                        <p class="text-muted mb-0 small">Đặt thời gian bắt đầu và kết thúc hợp lý, đảm bảo đủ thời gian hoàn thành dự án.</p>
-                    </div>
-                    <div>
-                        <h6 class="fw-bold"><i class="fas fa-check-circle text-success me-2"></i> Quản lý ngân sách</h6>
-                        <p class="text-muted mb-0 small">Dự toán ngân sách thực tế và bao gồm các chi phí dự kiến cho dự án.</p>
+                <div class="card-body p-0">
+                    <div class="timeline p-4">
+                        <div class="timeline-item">
+                            <div class="timeline-marker bg-primary"></div>
+                            <div class="timeline-content">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <h6 class="fw-bold mb-0">Cập nhật trạng thái</h6>
+                                    <span class="badge bg-soft-primary text-primary">2 giờ trước</span>
+                                </div>
+                                <p class="text-muted mb-0 small">Trạng thái dự án đã được thay đổi từ "Lập kế hoạch" sang "Đang thực hiện"</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker bg-info"></div>
+                            <div class="timeline-content">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <h6 class="fw-bold mb-0">Thêm thành viên</h6>
+                                    <span class="badge bg-soft-info text-info">1 ngày trước</span>
+                                </div>
+                                <p class="text-muted mb-0 small">Nguyễn Văn A đã được thêm vào dự án với vai trò Nghiên cứu viên</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker bg-success"></div>
+                            <div class="timeline-content">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <h6 class="fw-bold mb-0">Tạo dự án</h6>
+                                    <span class="badge bg-soft-success text-success">5 ngày trước</span>
+                                </div>
+                                <p class="text-muted mb-0 small">Dự án đã được tạo bởi Trần Văn B</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -186,31 +212,53 @@
             <div class="card border-0 shadow-sm rounded-3">
                 <div class="card-header bg-transparent py-3">
                     <h5 class="fw-bold mb-0 d-flex align-items-center">
-                        <i class="fas fa-link text-primary me-2"></i>
-                        Tài liệu tham khảo
+                        <i class="fas fa-users text-primary me-2"></i>
+                        Thành viên dự án
                     </h5>
                 </div>
                 <div class="card-body p-4">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item bg-transparent px-0">
-                            <a href="#" class="text-decoration-none d-flex align-items-center">
-                                <i class="fas fa-file-pdf text-danger me-2"></i>
-                                <span>Hướng dẫn quản lý dự án</span>
-                            </a>
-                        </li>
-                        <li class="list-group-item bg-transparent px-0">
-                            <a href="#" class="text-decoration-none d-flex align-items-center">
-                                <i class="fas fa-file-word text-primary me-2"></i>
-                                <span>Mẫu báo cáo dự án</span>
-                            </a>
-                        </li>
-                        <li class="list-group-item bg-transparent px-0">
-                            <a href="#" class="text-decoration-none d-flex align-items-center">
-                                <i class="fas fa-file-excel text-success me-2"></i>
-                                <span>Mẫu ngân sách dự án</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="mb-3">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="avatar-sm bg-soft-primary rounded-circle me-3 d-flex align-items-center justify-content-center">
+                                <span class="text-primary fw-bold">NT</span>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Nguyễn Thành</h6>
+                                <p class="text-muted mb-0 small">Trưởng nhóm</p>
+                            </div>
+                            <div class="ms-auto">
+                                <span class="badge bg-success">Quản lý</span>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="avatar-sm bg-soft-info rounded-circle me-3 d-flex align-items-center justify-content-center">
+                                <span class="text-info fw-bold">TVB</span>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Trần Văn B</h6>
+                                <p class="text-muted mb-0 small">Nghiên cứu viên</p>
+                            </div>
+                            <div class="ms-auto">
+                                <span class="badge bg-info">Thành viên</span>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-sm bg-soft-success rounded-circle me-3 d-flex align-items-center justify-content-center">
+                                <span class="text-success fw-bold">NVA</span>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Nguyễn Văn A</h6>
+                                <p class="text-muted mb-0 small">Phân tích dữ liệu</p>
+                            </div>
+                            <div class="ms-auto">
+                                <span class="badge bg-info">Thành viên</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-outline-primary w-100">
+                        <i class="fas fa-user-plus me-2"></i> Thêm thành viên
+                    </button>
                 </div>
             </div>
         </div>

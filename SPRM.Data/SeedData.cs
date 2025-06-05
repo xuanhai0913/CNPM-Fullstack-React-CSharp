@@ -109,7 +109,7 @@ namespace SPRM.Data
                     Budget = 150000,
                     StartDate = DateTime.UtcNow.AddDays(-30),
                     EndDate = DateTime.UtcNow.AddDays(335),
-                    Status = ProjectStatus.Active,
+                    Status = ProjectStatus.InProgress,
                     PrincipalInvestigatorId = users[1].Id,
                     CreatedAt = DateTime.UtcNow
                 },
@@ -121,7 +121,7 @@ namespace SPRM.Data
                     Budget = 200000,
                     StartDate = DateTime.UtcNow.AddDays(-60),
                     EndDate = DateTime.UtcNow.AddDays(305),
-                    Status = ProjectStatus.Active,
+                    Status = ProjectStatus.InProgress,
                     PrincipalInvestigatorId = users[2].Id,
                     CreatedAt = DateTime.UtcNow
                 },

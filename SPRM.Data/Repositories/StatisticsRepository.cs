@@ -42,7 +42,7 @@ namespace SPRM.Data.Repositories
         public async Task<Dictionary<string, object>> GetSystemStatisticsAsync()
         {
             var totalProjects = await _context.Projects.CountAsync();
-            var activeProjects = await _context.Projects.CountAsync(p => p.Status == ProjectStatus.Active);
+            var activeProjects = await _context.Projects.CountAsync(p => p.Status == ProjectStatus.InProgress);
             var totalUsers = await _context.Users.CountAsync();
             var totalProposals = await _context.Proposals.CountAsync();
             var pendingProposals = await _context.Proposals.CountAsync(p => p.Status == ProposalStatus.Pending);
