@@ -3,104 +3,220 @@
 }
 
 <!-- Hero Section -->
-<div class="hero-section bg-primary text-white rounded mb-5 p-5">
+<div class="hero-section text-white rounded-4 mb-5 p-5">
     <div class="row align-items-center">
-        <div class="col-md-8">
+        <div class="col-md-7" data-aos="fade-right">
             <h1 class="display-4 fw-bold mb-3">
-                <i class="fas fa-graduation-cap"></i> SPRM
+                <span class="d-inline-block mb-2"><i class="fas fa-graduation-cap me-2"></i>SPRM</span>
             </h1>
-            <h2 class="h3 mb-4">Hệ thống Quản lý Nghiên cứu Sinh viên</h2>
+            <h2 class="h3 mb-4 fw-light">Hệ thống Quản lý Nghiên cứu Sinh viên</h2>
             <p class="lead mb-4">
                 Nền tảng toàn diện để quản lý các dự án nghiên cứu, đề xuất và báo cáo của sinh viên. 
                 Hỗ trợ quy trình từ ý tưởng đến triển khai hoàn chỉnh.
             </p>
             @if (string.IsNullOrEmpty(Context.Session.GetString("UserId")))
             {
-                <div class="d-flex gap-3">
+                <div class="d-flex gap-3 flex-wrap">
                     <a asp-controller="Account" asp-action="Register" class="btn btn-light btn-lg">
-                        <i class="fas fa-user-plus"></i> Đăng ký ngay
+                        <i class="fas fa-user-plus me-2"></i> Đăng ký ngay
                     </a>
                     <a asp-controller="Account" asp-action="Login" class="btn btn-outline-light btn-lg">
-                        <i class="fas fa-sign-in-alt"></i> Đăng nhập
+                        <i class="fas fa-sign-in-alt me-2"></i> Đăng nhập
                     </a>
                 </div>
             }
             else
             {
                 <a asp-controller="Project" asp-action="Index" class="btn btn-light btn-lg">
-                    <i class="fas fa-project-diagram"></i> Xem dự án của bạn
+                    <i class="fas fa-project-diagram me-2"></i> Xem dự án của bạn
                 </a>
             }
         </div>
-        <div class="col-md-4 text-center">
-            <i class="fas fa-laptop-code fa-6x opacity-75"></i>
+        <div class="col-md-5 text-center d-none d-md-block" data-aos="fade-left" data-aos-delay="200">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" class="img-fluid" style="height: 220px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));" alt="SPRM Logo" />
         </div>
     </div>
 </div>
 
 <!-- Features Section -->
 <div class="row mb-5">
-    <div class="col-md-4 mb-4">
+    <div class="col-12 text-center mb-5" data-aos="fade-up">
+        <h2 class="fw-bold mb-2">Tính năng nổi bật</h2>
+        <p class="text-muted">Khám phá các công cụ mạnh mẽ của SPRM để quản lý nghiên cứu sinh viên</p>
+    </div>
+
+    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
         <div class="card h-100 border-0 shadow-sm">
             <div class="card-body text-center p-4">
                 <div class="feature-icon bg-primary text-white rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
                     <i class="fas fa-project-diagram fa-2x"></i>
                 </div>
-                <h5 class="card-title">Quản lý Dự án</h5>
-                <p class="card-text text-muted">
-                    Tạo, theo dõi và quản lý các dự án nghiên cứu từ ý tưởng ban đầu đến hoàn thành.
+                <h5 class="card-title mb-3">Quản lý Dự án</h5>
+                <p class="card-text text-muted mb-3">
+                    Tạo, theo dõi và quản lý các dự án nghiên cứu từ ý tưởng ban đầu đến hoàn thành với giao diện trực quan.
                 </p>
+                <a href="#" class="btn btn-sm btn-outline-primary">
+                    <i class="fas fa-arrow-right me-1"></i> Tìm hiểu thêm
+                </a>
             </div>
         </div>
     </div>
     
-    <div class="col-md-4 mb-4">
+    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
         <div class="card h-100 border-0 shadow-sm">
             <div class="card-body text-center p-4">
                 <div class="feature-icon bg-success text-white rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
                     <i class="fas fa-file-alt fa-2x"></i>
                 </div>
-                <h5 class="card-title">Đề xuất & Báo cáo</h5>
-                <p class="card-text text-muted">
-                    Gửi đề xuất nghiên cứu và tạo báo cáo tiến độ một cách dễ dàng và chuyên nghiệp.
+                <h5 class="card-title mb-3">Đề xuất & Báo cáo</h5>
+                <p class="card-text text-muted mb-3">
+                    Gửi đề xuất nghiên cứu và tạo báo cáo tiến độ một cách dễ dàng với các mẫu chuyên nghiệp có sẵn.
                 </p>
+                <a href="#" class="btn btn-sm btn-outline-success">
+                    <i class="fas fa-arrow-right me-1"></i> Tìm hiểu thêm
+                </a>
             </div>
         </div>
     </div>
     
-    <div class="col-md-4 mb-4">
+    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
         <div class="card h-100 border-0 shadow-sm">
             <div class="card-body text-center p-4">
                 <div class="feature-icon bg-warning text-white rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
                     <i class="fas fa-users fa-2x"></i>
                 </div>
-                <h5 class="card-title">Cộng tác</h5>
-                <p class="card-text text-muted">
-                    Làm việc nhóm hiệu quả với các công cụ cộng tác và chia sẻ tài liệu trực tuyến.
+                <h5 class="card-title mb-3">Cộng tác</h5>
+                <p class="card-text text-muted mb-3">
+                    Làm việc nhóm hiệu quả với các công cụ cộng tác thời gian thực và chia sẻ tài liệu trực tuyến.
                 </p>
+                <a href="#" class="btn btn-sm btn-outline-warning">
+                    <i class="fas fa-arrow-right me-1"></i> Tìm hiểu thêm
+                </a>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Statistics Section -->
-<div class="bg-light rounded p-5 mb-5">
+<div class="stats-section mb-5" data-aos="fade-up">
     <div class="row text-center">
-        <div class="col-md-3 mb-3">
-            <h3 class="text-primary fw-bold">150+</h3>
-            <p class="text-muted">Sinh viên tham gia</p>
+        <div class="col-md-3 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+            <div class="stats-value text-primary">150+</div>
+            <div class="stats-label">Sinh viên tham gia</div>
         </div>
-        <div class="col-md-3 mb-3">
-            <h3 class="text-success fw-bold">45</h3>
-            <p class="text-muted">Dự án đang hoạt động</p>
+        <div class="col-md-3 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="200">
+            <div class="stats-value text-success">45</div>
+            <div class="stats-label">Dự án đang hoạt động</div>
         </div>
-        <div class="col-md-3 mb-3">
-            <h3 class="text-warning fw-bold">89</h3>
-            <p class="text-muted">Dự án hoàn thành</p>
+        <div class="col-md-3 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="300">
+            <div class="stats-value text-warning">89</div>
+            <div class="stats-label">Dự án hoàn thành</div>
         </div>
-        <div class="col-md-3 mb-3">
-            <h3 class="text-info fw-bold">12</h3>
-            <p class="text-muted">Giảng viên hướng dẫn</p>
+        <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
+            <div class="stats-value text-info">12</div>
+            <div class="stats-label">Giảng viên hướng dẫn</div>
+        </div>
+    </div>
+</div>
+
+<!-- Testimonial Section -->
+<div class="row mb-5">
+    <div class="col-12 text-center mb-4" data-aos="fade-up">
+        <h2 class="fw-bold mb-2">Đánh giá từ người dùng</h2>
+        <p class="text-muted">Những trải nghiệm thực tế từ người sử dụng hệ thống SPRM</p>
+    </div>
+    
+    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                        <span class="fw-bold">NT</span>
+                    </div>
+                    <div>
+                        <h6 class="mb-0 fw-bold">Nguyễn Thành</h6>
+                        <small class="text-muted">Sinh viên ngành CNTT</small>
+                    </div>
+                </div>
+                <p class="card-text text-muted">
+                    "Hệ thống SPRM giúp tôi quản lý dự án nghiên cứu một cách hiệu quả, dễ dàng theo dõi tiến độ và cộng tác với các thành viên trong nhóm."
+                </p>
+                <div class="text-warning">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                        <span class="fw-bold">LH</span>
+                    </div>
+                    <div>
+                        <h6 class="mb-0 fw-bold">Lê Hương</h6>
+                        <small class="text-muted">Giảng viên hướng dẫn</small>
+                    </div>
+                </div>
+                <p class="card-text text-muted">
+                    "Là giảng viên, tôi đánh giá cao các tính năng quản lý và đánh giá đề xuất nghiên cứu của sinh viên. Giao diện trực quan và dễ sử dụng."
+                </p>
+                <div class="text-warning">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                        <span class="fw-bold">TM</span>
+                    </div>
+                    <div>
+                        <h6 class="mb-0 fw-bold">Trần Minh</h6>
+                        <small class="text-muted">Quản lý nghiên cứu</small>
+                    </div>
+                </div>
+                <p class="card-text text-muted">
+                    "SPRM mang lại cái nhìn tổng quan về các hoạt động nghiên cứu, giúp việc phân bổ nguồn lực và theo dõi tiến độ trở nên hiệu quả hơn."
+                </p>
+                <div class="text-warning">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action -->
+<div class="card border-0 shadow-sm rounded-4 mb-5" data-aos="fade-up">
+    <div class="card-body p-5 text-center">
+        <h2 class="fw-bold mb-3">Bắt đầu quản lý nghiên cứu ngay hôm nay</h2>
+        <p class="text-muted mb-4">Đăng ký miễn phí và trải nghiệm tất cả các tính năng của SPRM</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a asp-controller="Account" asp-action="Register" class="btn btn-primary px-4 py-2">
+                <i class="fas fa-user-plus me-2"></i> Đăng ký ngay
+            </a>
+            <a href="#" class="btn btn-outline-secondary px-4 py-2">
+                <i class="fas fa-info-circle me-2"></i> Tìm hiểu thêm
+            </a>
         </div>
     </div>
 </div>
