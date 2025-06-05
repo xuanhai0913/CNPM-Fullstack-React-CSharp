@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "Không có quyền truy cập";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white text-center">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Không có quyền truy cập</h3>
+                </div>
+                <div class="card-body text-center">
+                    <div class="mb-4">
+                        <i class="fas fa-ban fa-5x text-danger"></i>
+                    </div>
+                    
+                    <h4>Xin lỗi!</h4>
+                    <p class="lead">Bạn không có quyền truy cập vào trang này.</p>
+                    <p>Trang này chỉ dành cho <strong>Quản trị viên (Administrator)</strong>.</p>
+                    
+                    <hr>
+                    
+                    <div class="mt-4">
+                        <a href="@Url.Action("Index", "Home")" class="btn btn-primary">
+                            <i class="fas fa-home"></i> Về trang chủ
+                        </a>
+                        
+                        @if (!string.IsNullOrEmpty(Context.Session.GetString("UserId")))
+                        {
+                            <a href="@Url.Action("Profile", "Account")" class="btn btn-secondary ms-2">
+                                <i class="fas fa-user"></i> Hồ sơ của tôi
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Login", "Account")" class="btn btn-secondary ms-2">
+                                <i class="fas fa-sign-in-alt"></i> Đăng nhập
+                            </a>
+                        }
+                    </div>
+                </div>
+                <div class="card-footer text-muted text-center">
+                    Nếu bạn tin rằng đây là lỗi, vui lòng liên hệ với quản trị viên hệ thống.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

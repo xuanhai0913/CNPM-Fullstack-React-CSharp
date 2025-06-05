@@ -14,12 +14,32 @@ builder.Services.AddControllersWithViews();
 // Add AutoMapper
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-// Add session support
+// Add session support with authentication
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+});
+
+// Add authentication
+builder.Services.AddAuthentication("Cookies")
+    .AddCookie("Cookies", options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.LogoutPath = "/Account/Logout";
+        options.AccessDeniedPath = "/Account/AccessDenied";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+        options.SlidingExpiration = true;
+    });
+
+// Add authorization
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy => policy.RequireRole("Administrator"));
+    options.AddPolicy("ResearcherOnly", policy => policy.RequireRole("Researcher"));
+    options.AddPolicy("AuthenticatedUser", policy => policy.RequireAuthenticatedUser());
 });
 
 // Add Entity Framework
@@ -54,12 +74,13 @@ builder.Services.AddScoped<IProposalService, ProposalService>();
 
 var app = builder.Build();
 
-// Seed the database
-using (var scope = app.Services.CreateScope())
-{
-    var context = scope.ServiceProvider.GetRequiredService<SPRMDbContext>();
-    await SeedData.InitializeAsync(context);
-}
+// NOTE: Seed data đã được tắt theo yêu cầu người dùng
+// Uncomment để bật lại seed data nếu cần:
+// using (var scope = app.Services.CreateScope())
+// {
+//     var context = scope.ServiceProvider.GetRequiredService<SPRMDbContext>();
+//     await SeedData.InitializeAsync(context);
+// }
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -70,10 +91,14 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 app.UseSession();
-app.UseRouting();
 
+// Add authentication & authorization middleware
+app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseRouting();
 
 app.MapStaticAssets();
 

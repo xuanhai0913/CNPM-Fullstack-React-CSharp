@@ -17,20 +17,25 @@ namespace SPRM.Business.Services
         {
             _userRepository = userRepository;
             _mapper = mapper;
-        }
-
-        public async Task<bool> RegisterAsync(User user)
+        }        public async Task<bool> RegisterAsync(User user)
         {
-            // TODO: Implement password hashing and validation
+            // Hash password before saving
+            if (!string.IsNullOrEmpty(user.Password))
+            {
+                user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
+            }
+            
+            user.Id = Guid.NewGuid();
+            user.CreatedAt = DateTime.UtcNow;
+            
             await _userRepository.AddAsync(user);
             return true;
         }
 
         public async Task<User?> LoginAsync(string username, string password)
         {
-            // TODO: Implement password verification
             var user = await _userRepository.GetByUsernameAsync(username);
-            if (user != null && user.Password == password) // Simple check - should use proper hashing
+            if (user != null && BCrypt.Net.BCrypt.Verify(password, user.Password))
             {
                 return user;
             }

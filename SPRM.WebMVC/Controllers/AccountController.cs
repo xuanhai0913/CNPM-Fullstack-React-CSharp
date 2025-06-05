@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using SPRM.Business.Interfaces;
 using SPRM.Business.DTOs;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
 
 namespace SPRM.WebMVC.Controllers
 {
@@ -16,6 +19,11 @@ namespace SPRM.WebMVC.Controllers
         // GET: Account/Login
         public IActionResult Login()
         {
+            // Nếu đã đăng nhập, chuyển về trang chủ
+            if (HttpContext.User.Identity?.IsAuthenticated == true)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
@@ -29,10 +37,30 @@ namespace SPRM.WebMVC.Controllers
                 var user = await _accountService.LoginAsync(loginDto.Username, loginDto.Password);
                 if (user != null)
                 {
-                    // Store user info in session or cookie
+                    // Tạo claims cho user
+                    var claims = new List<Claim>
+                    {
+                        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                        new Claim(ClaimTypes.Name, user.Username),
+                        new Claim(ClaimTypes.Email, user.Email),
+                        new Claim(ClaimTypes.Role, user.Role),
+                        new Claim("FullName", user.FullName ?? "")
+                    };
+
+                    var claimsIdentity = new ClaimsIdentity(claims, "Cookies");
+                    var authProperties = new AuthenticationProperties
+                    {
+                        IsPersistent = false, // Không lưu cookie khi đóng browser
+                        ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30)
+                    };
+
+                    await HttpContext.SignInAsync("Cookies", new ClaimsPrincipal(claimsIdentity), authProperties);
+
+                    // Store additional info in session
                     HttpContext.Session.SetString("UserId", user.Id.ToString());
                     HttpContext.Session.SetString("UserName", user.Username);
                     HttpContext.Session.SetString("UserRole", user.Role);
+                    HttpContext.Session.SetString("FullName", user.FullName ?? "");
                     
                     return RedirectToAction("Index", "Home");
                 }
@@ -66,10 +94,21 @@ namespace SPRM.WebMVC.Controllers
 
         // POST: Account/Logout
         [HttpPost]
-        public IActionResult Logout()
+        public async Task<IActionResult> Logout()
         {
+            // Sign out of cookie authentication
+            await HttpContext.SignOutAsync("Cookies");
+            
+            // Clear session
             HttpContext.Session.Clear();
+            
             return RedirectToAction("Index", "Home");
+        }
+
+        // GET: Account/AccessDenied
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
 
         // GET: Account/Profile
