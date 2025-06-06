@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets/SPRM.WebMVC.4fh5zl1qk6.bundle.scp.css"
     },
     {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/main-content-fixes.css",
+      "PackagePath": "staticwebassets/css/main-content-fixes.css"
+    },
+    {
       "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/modern-style.css",
       "PackagePath": "staticwebassets/css/modern-style.css"
     },
@@ -19,6 +23,14 @@
     {
       "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/favicon.ico",
       "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/images/logoUTH.png",
+      "PackagePath": "staticwebassets/images/logoUTH.png"
+    },
+    {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/crud-helper.js",
+      "PackagePath": "staticwebassets/js/crud-helper.js"
     },
     {
       "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/sidebar.js",

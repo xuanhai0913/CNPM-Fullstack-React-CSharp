@@ -14,7 +14,7 @@
                     <a href="@Url.Action("Index", "Manager")" class="btn btn-outline-secondary me-2">
                         <i class="fas fa-arrow-left me-1"></i>Back to Dashboard
                     </a>
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#inviteMemberModal">
+                    <button type="button" class="btn btn-success crud-create" data-bs-toggle="modal" data-bs-target="#inviteMemberModal">
                         <i class="fas fa-user-plus me-1"></i>Invite Member
                     </button>
                 </div>
@@ -130,21 +130,30 @@
                                             </td>
                                             <td>@DateTime.Now.AddDays(-30).ToString("MMM dd, yyyy")</td>
                                             <td>
-                                                <div class="btn-group" role="group">
-                                                    <button type="button" class="btn btn-sm btn-outline-primary" 
-                                                            onclick="viewMember('@member.Id')" title="View Details">
+                                                <div class="btn-group crud-actions" role="group">
+                                                    <button type="button" class="btn btn-sm btn-outline-primary crud-view" 
+                                                            data-bs-target="#memberDetailsModal"
+                                                            data-url="@Url.Action("GetMemberDetails", "Manager")" 
+                                                            data-id="@member.Id" 
+                                                            title="View Details">
                                                         <i class="fas fa-eye"></i>
                                                     </button>
                                                     <a href="@Url.Action("AssignMember", "Manager", new { memberId = member.Id })" 
                                                        class="btn btn-sm btn-outline-success" title="Assign to Project">
                                                         <i class="fas fa-plus"></i>
                                                     </a>
-                                                    <button type="button" class="btn btn-sm btn-outline-warning" 
-                                                            onclick="editMember('@member.Id')" title="Edit Member">
+                                                    <button type="button" class="btn btn-sm btn-outline-warning crud-edit" 
+                                                            data-bs-target="#editMemberModal"
+                                                            data-url="@Url.Action("GetMember", "Manager")" 
+                                                            data-id="@member.Id" 
+                                                            title="Edit Member">
                                                         <i class="fas fa-edit"></i>
                                                     </button>
-                                                    <button type="button" class="btn btn-sm btn-outline-danger" 
-                                                            onclick="removeMember('@member.Id', '@member.FullName')" title="Remove Member">
+                                                    <button type="button" class="btn btn-sm btn-outline-danger crud-delete" 
+                                                            data-url="@Url.Action("RemoveMember", "Manager")" 
+                                                            data-id="@member.Id" 
+                                                            data-message="Are you sure you want to remove '@member.FullName' from the team?" 
+                                                            title="Remove Member">
                                                         <i class="fas fa-user-minus"></i>
                                                     </button>
                                                 </div>

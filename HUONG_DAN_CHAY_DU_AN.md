@@ -128,6 +128,16 @@ Hệ thống sẽ tự động tạo dữ liệu mẫu khi chạy lần đầu:
   - Username: admin  
   - Password: admin123
   - Role: Administrator
+- **Manager User**:
+  - Email: manager@sprm.edu
+  - Username: manager
+  - Password: manager123
+  - Role: Principal Investigator
+- **Researcher User**:
+  - Email: researcher@sprm.edu
+  - Username: researcher
+  - Password: researcher123
+  - Role: Researcher
 
 **⚠️ Lưu ý:** Dữ liệu mẫu đã được tắt theo mặc định. Để xóa hoàn toàn dữ liệu mẫu (nếu có), hãy:
 1. Đăng nhập với tài khoản admin
@@ -146,8 +156,11 @@ Hệ thống sẽ tự động tạo dữ liệu mẫu khi chạy lần đầu:
 1. **Đăng nhập Admin**: Sử dụng admin / admin123
 2. **Test phân quyền**: Truy cập menu "Quản trị" (chỉ admin thấy được)
 3. **Test đăng xuất**: Click vào dropdown user menu và chọn "Đăng xuất"
-4. **Xóa dữ liệu mẫu**: Vào Quản trị > Quản lý Database > Xóa dữ liệu mẫu
-5. **Test user thường**: Đăng ký tài khoản mới và kiểm tra không thấy menu "Quản trị"
+4. **Test đăng nhập UI**: Bấm "Đăng nhập" ở trang chủ hoặc navbar sẽ chuyển đúng sang trang login (không reload trang). Sau khi đăng nhập, trạng thái đăng nhập sẽ cập nhật ở cả trang chủ và navbar.
+5. **Xóa dữ liệu mẫu**: Vào Quản trị > Quản lý Database > Xóa dữ liệu mẫu
+6. **Test user thường**: Đăng ký tài khoản mới và kiểm tra không thấy menu "Quản trị"
+
+**Lưu ý:** Nếu bấm "Đăng nhập" mà không chuyển trang, hãy xóa cache trình duyệt và thử lại.
 
 ### 7.2 Test API (http://localhost:5037/swagger)
 1. **Mở Swagger UI**

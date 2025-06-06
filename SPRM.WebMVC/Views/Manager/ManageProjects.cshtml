@@ -14,7 +14,7 @@
                     <a href="@Url.Action("Index", "Manager")" class="btn btn-outline-secondary me-2">
                         <i class="fas fa-arrow-left me-1"></i>Back to Dashboard
                     </a>
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createProjectModal">
+                    <button type="button" class="btn btn-success crud-create" data-bs-toggle="modal" data-bs-target="#createProjectModal">
                         <i class="fas fa-plus me-1"></i>Create New Project
                     </button>
                 </div>
@@ -94,17 +94,25 @@
                                                 <span class="badge bg-info">0 members</span>
                                             </td>
                                             <td>
-                                                <div class="btn-group" role="group">
-                                                    <a href="@Url.Action("ProjectDetail", "Manager", new { id = project.Id })" 
-                                                       class="btn btn-sm btn-outline-primary" title="View Details">
+                                                <div class="btn-group crud-actions" role="group">
+                                                    <button type="button" class="btn btn-sm btn-outline-primary crud-view" 
+                                                            data-url="@Url.Action("ProjectDetail", "Manager")" 
+                                                            data-id="@project.Id" 
+                                                            title="View Details">
                                                         <i class="fas fa-eye"></i>
-                                                    </a>
-                                                    <button type="button" class="btn btn-sm btn-outline-warning" 
-                                                            onclick="editProject('@project.Id')" title="Edit Project">
+                                                    </button>
+                                                    <button type="button" class="btn btn-sm btn-outline-warning crud-edit" 
+                                                            data-bs-target="#editProjectModal"
+                                                            data-url="@Url.Action("GetProject", "Manager")" 
+                                                            data-id="@project.Id" 
+                                                            title="Edit Project">
                                                         <i class="fas fa-edit"></i>
                                                     </button>
-                                                    <button type="button" class="btn btn-sm btn-outline-danger" 
-                                                            onclick="deleteProject('@project.Id', '@project.Name')" title="Delete Project">
+                                                    <button type="button" class="btn btn-sm btn-outline-danger crud-delete" 
+                                                            data-url="@Url.Action("DeleteProject", "Manager")" 
+                                                            data-id="@project.Id" 
+                                                            data-message="Are you sure you want to delete project '@project.Name'?" 
+                                                            title="Delete Project">
                                                         <i class="fas fa-trash"></i>
                                                     </button>
                                                 </div>

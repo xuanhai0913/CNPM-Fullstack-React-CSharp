@@ -2,16 +2,17 @@
 <html lang="vi">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SPRM - Hệ thống Quản lý Nghiên cứu Sinh viên</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    <title>@ViewData["Title"] - SPRM - Hệ thống Quản lý Nghiên cứu Sinh viên</title>
+    <link rel="icon" type="image/png" href="~/images/logoUTH.png" />
+    <link rel="shortcut icon" type="image/png" href="~/images/logoUTH.png" />
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="~/lib/aos/aos.css" />    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">    <link rel="stylesheet" href="~/lib/aos/aos.css" />    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/modern-style.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/sidebar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/main-content-fixes.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SPRM.WebMVC.styles.css" asp-append-version="true" />
         @await RenderSectionAsync("Styles", required: false)
 </head>
@@ -21,14 +22,15 @@
 <body class="d-flex flex-column min-vh-100 @(hasSidebar ? "has-sidebar" : "")">
     @if (hasSidebar)
     {
-        <!-- Include Sidebar only for authenticated users -->
+        <!-- Overlay for sidebar on mobile -->
+        <div class="sidebar-overlay hidden" id="sidebarOverlay"></div>
         @await Html.PartialAsync("_Sidebar")
     }
     
     <header class="main-header">
-        <nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top">            <div class="container">
-                <a class="navbar-brand fw-bold" asp-area="" asp-controller="Home" asp-action="Index">
-                    <i class="fas fa-graduation-cap me-2"></i>SPRM
+        <nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top">            <div class="container">                <a class="navbar-brand fw-bold d-flex align-items-center" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/logoUTH.png" alt="UTH Logo" style="height: 45px; width: auto; margin-right: 12px;" />
+                    SPRM
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -146,8 +148,8 @@
     </footer>      <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/sidebar.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>    <script src="~/js/sidebar.js" asp-append-version="true"></script>
+    <script src="~/js/crud-helper.js" asp-append-version="true"></script>
     <script>
         // Initialize AOS animation library
         document.addEventListener('DOMContentLoaded', function() {

@@ -160,7 +160,8 @@ dotnet run
 ## ✨ Tính năng đã hoàn thành
 
 ### **✅ Core Features**
-- 🔐 **Authentication & Authorization**: User management với role-based access
+- 🔐 **Authentication & Authorization**: User management với role-based access, cookie authentication an toàn, kiểm tra trạng thái đăng nhập qua `User.Identity.IsAuthenticated` (không còn dùng session thủ công)
+- 🖥️ **Modern Responsive UI**: Giao diện đăng nhập/đăng xuất hiện trạng thái chính xác ở cả trang chủ và navbar. Nút "Đăng nhập" luôn chuyển đúng sang trang login, không reload trang.
 - 📊 **Project Management**: Complete CRUD cho research projects  
 - 📝 **Proposal System**: Submit và review research proposals
 - 📈 **Progress Tracking**: Milestone và task progress monitoring
@@ -267,4 +268,10 @@ Nếu có vấn đề trong quá trình cài đặt hoặc phát triển:
 - 🐛 Tạo issue trên repository  
 - 📧 Email: [xuanhai0913750452@gmail.com]
 - 💬 Discussions tab cho Q&A
+
+## 🧪 **Testing Authentication UI**
+- Khi bấm "Đăng nhập" ở trang chủ hoặc navbar, bạn sẽ được chuyển sang trang đăng nhập.
+- Sau khi đăng nhập thành công, trạng thái đăng nhập sẽ được cập nhật ở cả trang chủ và navbar.
+- Đăng xuất từ menu user sẽ chuyển về trạng thái chưa đăng nhập.
+- Nếu gặp lỗi không chuyển trang khi bấm "Đăng nhập", hãy xóa cache trình duyệt và thử lại.
 

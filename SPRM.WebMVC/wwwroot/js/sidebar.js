@@ -12,7 +12,7 @@ class SidebarManager {
             return;
         }
         
-        this.isMobile = window.innerWidth <= 768;
+        this.isMobile = window.innerWidth <= 991.98; // Thay đổi breakpoint
         this.isCollapsed = localStorage.getItem('sidebar-collapsed') === 'true';
         this.isMobileOpen = false;
         
@@ -31,6 +31,7 @@ class SidebarManager {
         this.initializeSidebar();
         this.setupSubmenuToggle();
         this.setupTooltips();
+        this.setupAnimation(); // Thêm animation setup
     }
     
     setupEventListeners() {
@@ -64,7 +65,7 @@ class SidebarManager {
     }
     
     setupResponsive() {
-        this.isMobile = window.innerWidth <= 768;
+        this.isMobile = window.innerWidth <= 991.98; // Cập nhật breakpoint
         
         if (this.isMobile) {
             this.body.classList.add('sidebar-mobile');
@@ -84,6 +85,47 @@ class SidebarManager {
                 this.sidebar?.classList.remove('collapsed');
             }
         }
+        
+        // Tối ưu hiển thị main content
+        this.optimizeMainContent();
+    }
+    
+    optimizeMainContent() {
+        const mainContent = document.querySelector('.main-content');
+        if (!mainContent) return;
+        
+        // Ensure main content has appropriate width and max-width
+        if (this.isMobile) {
+            mainContent.style.width = '100%';
+            mainContent.style.maxWidth = '100%';
+            mainContent.style.marginLeft = '0';
+        } else if (this.isCollapsed) {
+            mainContent.style.width = 'calc(100% - 80px)';
+            mainContent.style.maxWidth = 'none';
+            mainContent.style.marginLeft = '80px';
+        } else {
+            mainContent.style.width = 'calc(100% - 280px)';
+            mainContent.style.maxWidth = 'none';
+            mainContent.style.marginLeft = '280px';
+        }
+        
+        // Ensure containers inside are also responsive
+        const containers = mainContent.querySelectorAll('.container, .container-fluid');
+        containers.forEach(container => {
+            container.style.width = '100%';
+            container.style.maxWidth = '100%';
+            container.style.paddingLeft = '1rem';
+            container.style.paddingRight = '1rem';
+        });
+    }
+    
+    // Thêm method setup animation
+    setupAnimation() {
+        // Thêm stagger animation cho nav items
+        const navItems = this.sidebar?.querySelectorAll('.nav-item');
+        navItems?.forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.1}s`;
+        });
     }
     
     initializeSidebar() {
@@ -150,15 +192,23 @@ class SidebarManager {
     }
     
     handleResize() {
-        const wasMobile = this.isMobile;
-        this.isMobile = window.innerWidth <= 768;
+        const oldIsMobile = this.isMobile;
+        this.isMobile = window.innerWidth <= 991.98; // Cập nhật breakpoint
         
-        if (wasMobile !== this.isMobile) {
+        if (oldIsMobile !== this.isMobile) {
             this.setupResponsive();
             
+            // Nếu chuyển từ mobile sang desktop
             if (!this.isMobile) {
                 this.closeMobileSidebar();
             }
+            
+            // Smooth transition khi thay đổi kích thước
+            this.sidebar?.style.setProperty('transition', 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)');
+            
+            setTimeout(() => {
+                this.optimizeMainContent();
+            }, 300);
         }
     }
     
@@ -296,6 +346,30 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+// Ensure overlay is shown/hidden with sidebar on mobile
+// Patch: Listen for sidebar open/close and toggle overlay class
+(function() {
+    document.addEventListener('DOMContentLoaded', function() {
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        if (!sidebarOverlay || !window.sidebarManager) return;
+
+        // Patch open/close to also toggle overlay
+        const origOpenMobileSidebar = window.sidebarManager.openMobileSidebar.bind(window.sidebarManager);
+        const origCloseMobileSidebar = window.sidebarManager.closeMobileSidebar.bind(window.sidebarManager);
+
+        window.sidebarManager.openMobileSidebar = function() {
+            origOpenMobileSidebar();
+            sidebarOverlay.classList.remove('hidden');
+            sidebarOverlay.classList.add('active');
+        };
+        window.sidebarManager.closeMobileSidebar = function() {
+            origCloseMobileSidebar();
+            sidebarOverlay.classList.add('hidden');
+            sidebarOverlay.classList.remove('active');
+        };
+    });
+})();
 
 // Global utility functions for sidebar (with safety checks)
 window.sidebarUtils = {

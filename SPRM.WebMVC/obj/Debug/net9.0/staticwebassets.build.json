@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lg1bHR/w1kWtNw6QxkfWWtse2Ri3iLjLIFosLXJReZI=",
+  "Hash": "E8le0W7TM2zSi5WhVAQL47M/lVvg/KeLXZyUoAzRKyg=",
   "Source": "SPRM.WebMVC",
   "BasePath": "_content/SPRM.WebMVC",
   "Mode": "Default",
@@ -248,12 +248,12 @@
       "OriginalItemSpec": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/6hiyhjsuur-zpdcgupiw4.gz",
+      "Identity": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/6hiyhjsuur-rswrgq6upi.gz",
       "SourceId": "SPRM.WebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/SPRM.WebMVC",
-      "RelativePath": "css/sidebar#[.{fingerprint=zpdcgupiw4}]?.css.gz",
+      "RelativePath": "css/sidebar#[.{fingerprint=rswrgq6upi}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -262,8 +262,8 @@
       "RelatedAsset": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/sidebar.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "a0jk64bxvs",
-      "Integrity": "OuMdgISrUOYRcvyt5MDYyLpb/Btzt6gIVP3Oz7juYI4=",
+      "Fingerprint": "uusn0dpo9f",
+      "Integrity": "Kioxm1Y0mM2yvgFGBFTl/wV0MR8R6ThnvQx0ZOWTOlU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/sidebar.css"
@@ -332,12 +332,12 @@
       "OriginalItemSpec": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css"
     },
     {
-      "Identity": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/9w0ketgass-w1yaurvlnf.gz",
+      "Identity": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/9w0ketgass-gsl1ju07qy.gz",
       "SourceId": "SPRM.WebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/SPRM.WebMVC",
-      "RelativePath": "js/sidebar#[.{fingerprint=w1yaurvlnf}]?.js.gz",
+      "RelativePath": "js/sidebar#[.{fingerprint=gsl1ju07qy}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -346,8 +346,8 @@
       "RelatedAsset": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/sidebar.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "nf1d93y4l3",
-      "Integrity": "g/3pBdV4U1h84deBN7tyGpORyeWmnGxmf8Vx4qX+h6w=",
+      "Fingerprint": "0w3eytyjbm",
+      "Integrity": "0B64XgcvD5nZ8dKjyv5xs86RdZenxaBZzED0CubYRtw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/sidebar.js"
@@ -647,12 +647,12 @@
       "OriginalItemSpec": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map"
     },
     {
-      "Identity": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/fmd9vddg5r-61n19gt1b8.gz",
+      "Identity": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/fmd9vddg5r-ibr9k4k53e.gz",
       "SourceId": "SPRM.WebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/SPRM.WebMVC",
-      "RelativePath": "favicon#[.{fingerprint=61n19gt1b8}]?.ico.gz",
+      "RelativePath": "favicon#[.{fingerprint=ibr9k4k53e}]?.ico.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -661,8 +661,8 @@
       "RelatedAsset": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/favicon.ico",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "jefwejb9ld",
-      "Integrity": "+/824NtfTA0L7Mr42Fo+86YJP4R5cigdi9S7Fx5VVl4=",
+      "Fingerprint": "4du9n50mnw",
+      "Integrity": "+CwK7NtdUKZ+4JBvp26svsMXx4QXwiLsslw0vsTIxL8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/favicon.ico"
@@ -834,6 +834,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Identity": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/n9syp25uhv-lhuiu3qxi3.gz",
+      "SourceId": "SPRM.WebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/SPRM.WebMVC",
+      "RelativePath": "css/main-content-fixes#[.{fingerprint=lhuiu3qxi3}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/main-content-fixes.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "xjaewtjpla",
+      "Integrity": "7VDCTlw9RJ88QGLF2iWWA3mS83y00L+JKdJXy/qhsNE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/main-content-fixes.css"
     },
     {
       "Identity": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/ni4w2any4d-kbrnm935zg.gz",
@@ -1214,6 +1235,27 @@
       "OriginalItemSpec": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js"
     },
     {
+      "Identity": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/tewuhihrro-w375fu0y5r.gz",
+      "SourceId": "SPRM.WebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/SPRM.WebMVC",
+      "RelativePath": "js/crud-helper#[.{fingerprint=w375fu0y5r}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/crud-helper.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "8301l7jndr",
+      "Integrity": "tFcE8XrQe3pPQMu8ifkIPd/szn60uoG/xz+bt67ZHUU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/crud-helper.js"
+    },
+    {
       "Identity": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/tpknypz0e9-ausgxo2sd3.gz",
       "SourceId": "SPRM.WebMVC",
       "SourceType": "Discovered",
@@ -1508,6 +1550,27 @@
       "OriginalItemSpec": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/scopedcss/projectbundle/SPRM.WebMVC.bundle.scp.css"
     },
     {
+      "Identity": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/main-content-fixes.css",
+      "SourceId": "SPRM.WebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/",
+      "BasePath": "_content/SPRM.WebMVC",
+      "RelativePath": "css/main-content-fixes#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "lhuiu3qxi3",
+      "Integrity": "J+vVE8fASz2HbkeO4zwSNZWvHd7drKNU6J5KbO2n9m0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/main-content-fixes.css"
+    },
+    {
       "Identity": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/modern-style.css",
       "SourceId": "SPRM.WebMVC",
       "SourceType": "Discovered",
@@ -1543,8 +1606,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "zpdcgupiw4",
-      "Integrity": "ideUSYlz1JSbYGs+NG2dxXHlOPtOYlrG9NO/XAbj/EY=",
+      "Fingerprint": "rswrgq6upi",
+      "Integrity": "NYnmUJ0jdqbwsCZx0w1juCxq3m7HbT70k7oZekMk43Y=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/sidebar.css"
@@ -1585,11 +1648,53 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "61n19gt1b8",
-      "Integrity": "Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=",
+      "Fingerprint": "ibr9k4k53e",
+      "Integrity": "jpahLtrViEpygz6fqfM1hhOIKoVzVdf/4y2I07Q8iPQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/images/logoUTH.png",
+      "SourceId": "SPRM.WebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/",
+      "BasePath": "_content/SPRM.WebMVC",
+      "RelativePath": "images/logoUTH#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ibr9k4k53e",
+      "Integrity": "jpahLtrViEpygz6fqfM1hhOIKoVzVdf/4y2I07Q8iPQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/logoUTH.png"
+    },
+    {
+      "Identity": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/crud-helper.js",
+      "SourceId": "SPRM.WebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/",
+      "BasePath": "_content/SPRM.WebMVC",
+      "RelativePath": "js/crud-helper#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "w375fu0y5r",
+      "Integrity": "xCU3t6VadC/uPvRVXeg2GWQ8gbs2+sljhPmEc3pnT6Q=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/crud-helper.js"
     },
     {
       "Identity": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/sidebar.js",
@@ -1606,8 +1711,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "w1yaurvlnf",
-      "Integrity": "5CS5XwAtEtQ48SA2CSkTVU4rHhO9Z17Dd0Vp2o9n+TU=",
+      "Fingerprint": "gsl1ju07qy",
+      "Integrity": "kA89yFRIRsIxsfTXV9nrcfH92lZy9oUxSWnwZ0XqXrM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/js/sidebar.js"
@@ -2938,6 +3043,304 @@
   ],
   "Endpoints": [
     {
+      "Route": "css/main-content-fixes.css",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/n9syp25uhv-lhuiu3qxi3.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.003076923077"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "324"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7VDCTlw9RJ88QGLF2iWWA3mS83y00L+JKdJXy/qhsNE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 09:42:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"J+vVE8fASz2HbkeO4zwSNZWvHd7drKNU6J5KbO2n9m0=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-J+vVE8fASz2HbkeO4zwSNZWvHd7drKNU6J5KbO2n9m0="
+        }
+      ]
+    },
+    {
+      "Route": "css/main-content-fixes.css",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/main-content-fixes.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "662"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"J+vVE8fASz2HbkeO4zwSNZWvHd7drKNU6J5KbO2n9m0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 09:42:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-J+vVE8fASz2HbkeO4zwSNZWvHd7drKNU6J5KbO2n9m0="
+        }
+      ]
+    },
+    {
+      "Route": "css/main-content-fixes.css.gz",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/n9syp25uhv-lhuiu3qxi3.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "324"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7VDCTlw9RJ88QGLF2iWWA3mS83y00L+JKdJXy/qhsNE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 09:42:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7VDCTlw9RJ88QGLF2iWWA3mS83y00L+JKdJXy/qhsNE="
+        }
+      ]
+    },
+    {
+      "Route": "css/main-content-fixes.lhuiu3qxi3.css",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/n9syp25uhv-lhuiu3qxi3.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.003076923077"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "324"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7VDCTlw9RJ88QGLF2iWWA3mS83y00L+JKdJXy/qhsNE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 09:42:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"J+vVE8fASz2HbkeO4zwSNZWvHd7drKNU6J5KbO2n9m0=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "lhuiu3qxi3"
+        },
+        {
+          "Name": "label",
+          "Value": "css/main-content-fixes.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-J+vVE8fASz2HbkeO4zwSNZWvHd7drKNU6J5KbO2n9m0="
+        }
+      ]
+    },
+    {
+      "Route": "css/main-content-fixes.lhuiu3qxi3.css",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/main-content-fixes.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "662"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"J+vVE8fASz2HbkeO4zwSNZWvHd7drKNU6J5KbO2n9m0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 09:42:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "lhuiu3qxi3"
+        },
+        {
+          "Name": "label",
+          "Value": "css/main-content-fixes.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-J+vVE8fASz2HbkeO4zwSNZWvHd7drKNU6J5KbO2n9m0="
+        }
+      ]
+    },
+    {
+      "Route": "css/main-content-fixes.lhuiu3qxi3.css.gz",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/n9syp25uhv-lhuiu3qxi3.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "324"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7VDCTlw9RJ88QGLF2iWWA3mS83y00L+JKdJXy/qhsNE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 09:42:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "lhuiu3qxi3"
+        },
+        {
+          "Name": "label",
+          "Value": "css/main-content-fixes.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7VDCTlw9RJ88QGLF2iWWA3mS83y00L+JKdJXy/qhsNE="
+        }
+      ]
+    },
+    {
       "Route": "css/modern-style.css",
       "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/r377soxmo6-iqxgpeho28.gz",
       "Selectors": [
@@ -3237,12 +3640,12 @@
     },
     {
       "Route": "css/sidebar.css",
-      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/6hiyhjsuur-zpdcgupiw4.gz",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/6hiyhjsuur-rswrgq6upi.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000256410256"
+          "Quality": "0.000168406871"
         }
       ],
       "ResponseHeaders": [
@@ -3252,15 +3655,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3899"
+          "Value": "5937"
         },
         {
           "Name": "ETag",
-          "Value": "\"OuMdgISrUOYRcvyt5MDYyLpb/Btzt6gIVP3Oz7juYI4=\""
+          "Value": "\"Kioxm1Y0mM2yvgFGBFTl/wV0MR8R6ThnvQx0ZOWTOlU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 06 Jun 2025 08:21:43 GMT"
+          "Value": "Fri, 06 Jun 2025 09:42:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3280,13 +3683,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"ideUSYlz1JSbYGs+NG2dxXHlOPtOYlrG9NO/XAbj/EY=\""
+          "Value": "W/\"NYnmUJ0jdqbwsCZx0w1juCxq3m7HbT70k7oZekMk43Y=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ideUSYlz1JSbYGs+NG2dxXHlOPtOYlrG9NO/XAbj/EY="
+          "Value": "sha256-NYnmUJ0jdqbwsCZx0w1juCxq3m7HbT70k7oZekMk43Y="
         }
       ]
     },
@@ -3301,7 +3704,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "17839"
+          "Value": "53034"
         },
         {
           "Name": "Content-Type",
@@ -3309,11 +3712,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ideUSYlz1JSbYGs+NG2dxXHlOPtOYlrG9NO/XAbj/EY=\""
+          "Value": "\"NYnmUJ0jdqbwsCZx0w1juCxq3m7HbT70k7oZekMk43Y=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 06 Jun 2025 08:21:43 GMT"
+          "Value": "Fri, 06 Jun 2025 09:42:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3323,13 +3726,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ideUSYlz1JSbYGs+NG2dxXHlOPtOYlrG9NO/XAbj/EY="
+          "Value": "sha256-NYnmUJ0jdqbwsCZx0w1juCxq3m7HbT70k7oZekMk43Y="
         }
       ]
     },
     {
       "Route": "css/sidebar.css.gz",
-      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/6hiyhjsuur-zpdcgupiw4.gz",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/6hiyhjsuur-rswrgq6upi.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3338,7 +3741,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3899"
+          "Value": "5937"
         },
         {
           "Name": "Content-Type",
@@ -3346,11 +3749,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"OuMdgISrUOYRcvyt5MDYyLpb/Btzt6gIVP3Oz7juYI4=\""
+          "Value": "\"Kioxm1Y0mM2yvgFGBFTl/wV0MR8R6ThnvQx0ZOWTOlU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 06 Jun 2025 08:21:43 GMT"
+          "Value": "Fri, 06 Jun 2025 09:42:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3368,18 +3771,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-OuMdgISrUOYRcvyt5MDYyLpb/Btzt6gIVP3Oz7juYI4="
+          "Value": "sha256-Kioxm1Y0mM2yvgFGBFTl/wV0MR8R6ThnvQx0ZOWTOlU="
         }
       ]
     },
     {
-      "Route": "css/sidebar.zpdcgupiw4.css",
-      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/6hiyhjsuur-zpdcgupiw4.gz",
+      "Route": "css/sidebar.rswrgq6upi.css",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/6hiyhjsuur-rswrgq6upi.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000256410256"
+          "Quality": "0.000168406871"
         }
       ],
       "ResponseHeaders": [
@@ -3389,15 +3792,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3899"
+          "Value": "5937"
         },
         {
           "Name": "ETag",
-          "Value": "\"OuMdgISrUOYRcvyt5MDYyLpb/Btzt6gIVP3Oz7juYI4=\""
+          "Value": "\"Kioxm1Y0mM2yvgFGBFTl/wV0MR8R6ThnvQx0ZOWTOlU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 06 Jun 2025 08:21:43 GMT"
+          "Value": "Fri, 06 Jun 2025 09:42:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3417,13 +3820,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"ideUSYlz1JSbYGs+NG2dxXHlOPtOYlrG9NO/XAbj/EY=\""
+          "Value": "W/\"NYnmUJ0jdqbwsCZx0w1juCxq3m7HbT70k7oZekMk43Y=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "zpdcgupiw4"
+          "Value": "rswrgq6upi"
         },
         {
           "Name": "label",
@@ -3431,12 +3834,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ideUSYlz1JSbYGs+NG2dxXHlOPtOYlrG9NO/XAbj/EY="
+          "Value": "sha256-NYnmUJ0jdqbwsCZx0w1juCxq3m7HbT70k7oZekMk43Y="
         }
       ]
     },
     {
-      "Route": "css/sidebar.zpdcgupiw4.css",
+      "Route": "css/sidebar.rswrgq6upi.css",
       "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/sidebar.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3446,7 +3849,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "17839"
+          "Value": "53034"
         },
         {
           "Name": "Content-Type",
@@ -3454,11 +3857,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ideUSYlz1JSbYGs+NG2dxXHlOPtOYlrG9NO/XAbj/EY=\""
+          "Value": "\"NYnmUJ0jdqbwsCZx0w1juCxq3m7HbT70k7oZekMk43Y=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 06 Jun 2025 08:21:43 GMT"
+          "Value": "Fri, 06 Jun 2025 09:42:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3468,7 +3871,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "zpdcgupiw4"
+          "Value": "rswrgq6upi"
         },
         {
           "Name": "label",
@@ -3476,13 +3879,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ideUSYlz1JSbYGs+NG2dxXHlOPtOYlrG9NO/XAbj/EY="
+          "Value": "sha256-NYnmUJ0jdqbwsCZx0w1juCxq3m7HbT70k7oZekMk43Y="
         }
       ]
     },
     {
-      "Route": "css/sidebar.zpdcgupiw4.css.gz",
-      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/6hiyhjsuur-zpdcgupiw4.gz",
+      "Route": "css/sidebar.rswrgq6upi.css.gz",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/6hiyhjsuur-rswrgq6upi.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3491,7 +3894,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3899"
+          "Value": "5937"
         },
         {
           "Name": "Content-Type",
@@ -3499,11 +3902,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"OuMdgISrUOYRcvyt5MDYyLpb/Btzt6gIVP3Oz7juYI4=\""
+          "Value": "\"Kioxm1Y0mM2yvgFGBFTl/wV0MR8R6ThnvQx0ZOWTOlU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 06 Jun 2025 08:21:43 GMT"
+          "Value": "Fri, 06 Jun 2025 09:42:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3521,7 +3924,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "zpdcgupiw4"
+          "Value": "rswrgq6upi"
         },
         {
           "Name": "label",
@@ -3529,7 +3932,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-OuMdgISrUOYRcvyt5MDYyLpb/Btzt6gIVP3Oz7juYI4="
+          "Value": "sha256-Kioxm1Y0mM2yvgFGBFTl/wV0MR8R6ThnvQx0ZOWTOlU="
         }
       ]
     },
@@ -3832,13 +4235,13 @@
       ]
     },
     {
-      "Route": "favicon.61n19gt1b8.ico",
-      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/fmd9vddg5r-61n19gt1b8.gz",
+      "Route": "favicon.ibr9k4k53e.ico",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/fmd9vddg5r-ibr9k4k53e.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000405022276"
+          "Quality": "0.000040955072"
         }
       ],
       "ResponseHeaders": [
@@ -3848,15 +4251,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2468"
+          "Value": "24416"
         },
         {
           "Name": "ETag",
-          "Value": "\"+/824NtfTA0L7Mr42Fo+86YJP4R5cigdi9S7Fx5VVl4=\""
+          "Value": "\"+CwK7NtdUKZ+4JBvp26svsMXx4QXwiLsslw0vsTIxL8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 05 Jun 2025 06:55:29 GMT"
+          "Value": "Fri, 06 Jun 2025 09:31:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3876,13 +4279,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
+          "Value": "W/\"jpahLtrViEpygz6fqfM1hhOIKoVzVdf/4y2I07Q8iPQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "61n19gt1b8"
+          "Value": "ibr9k4k53e"
         },
         {
           "Name": "label",
@@ -3890,12 +4293,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+          "Value": "sha256-jpahLtrViEpygz6fqfM1hhOIKoVzVdf/4y2I07Q8iPQ="
         }
       ]
     },
     {
-      "Route": "favicon.61n19gt1b8.ico",
+      "Route": "favicon.ibr9k4k53e.ico",
       "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/favicon.ico",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3905,7 +4308,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5430"
+          "Value": "25798"
         },
         {
           "Name": "Content-Type",
@@ -3913,11 +4316,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
+          "Value": "\"jpahLtrViEpygz6fqfM1hhOIKoVzVdf/4y2I07Q8iPQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 05 Jun 2025 06:55:29 GMT"
+          "Value": "Fri, 06 Jun 2025 09:31:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3927,7 +4330,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "61n19gt1b8"
+          "Value": "ibr9k4k53e"
         },
         {
           "Name": "label",
@@ -3935,13 +4338,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+          "Value": "sha256-jpahLtrViEpygz6fqfM1hhOIKoVzVdf/4y2I07Q8iPQ="
         }
       ]
     },
     {
-      "Route": "favicon.61n19gt1b8.ico.gz",
-      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/fmd9vddg5r-61n19gt1b8.gz",
+      "Route": "favicon.ibr9k4k53e.ico.gz",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/fmd9vddg5r-ibr9k4k53e.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3950,7 +4353,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2468"
+          "Value": "24416"
         },
         {
           "Name": "Content-Type",
@@ -3958,11 +4361,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"+/824NtfTA0L7Mr42Fo+86YJP4R5cigdi9S7Fx5VVl4=\""
+          "Value": "\"+CwK7NtdUKZ+4JBvp26svsMXx4QXwiLsslw0vsTIxL8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 05 Jun 2025 06:55:29 GMT"
+          "Value": "Fri, 06 Jun 2025 09:31:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3980,7 +4383,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "61n19gt1b8"
+          "Value": "ibr9k4k53e"
         },
         {
           "Name": "label",
@@ -3988,18 +4391,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-+/824NtfTA0L7Mr42Fo+86YJP4R5cigdi9S7Fx5VVl4="
+          "Value": "sha256-+CwK7NtdUKZ+4JBvp26svsMXx4QXwiLsslw0vsTIxL8="
         }
       ]
     },
     {
       "Route": "favicon.ico",
-      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/fmd9vddg5r-61n19gt1b8.gz",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/fmd9vddg5r-ibr9k4k53e.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000405022276"
+          "Quality": "0.000040955072"
         }
       ],
       "ResponseHeaders": [
@@ -4009,15 +4412,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2468"
+          "Value": "24416"
         },
         {
           "Name": "ETag",
-          "Value": "\"+/824NtfTA0L7Mr42Fo+86YJP4R5cigdi9S7Fx5VVl4=\""
+          "Value": "\"+CwK7NtdUKZ+4JBvp26svsMXx4QXwiLsslw0vsTIxL8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 05 Jun 2025 06:55:29 GMT"
+          "Value": "Fri, 06 Jun 2025 09:31:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4037,13 +4440,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
+          "Value": "W/\"jpahLtrViEpygz6fqfM1hhOIKoVzVdf/4y2I07Q8iPQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+          "Value": "sha256-jpahLtrViEpygz6fqfM1hhOIKoVzVdf/4y2I07Q8iPQ="
         }
       ]
     },
@@ -4058,7 +4461,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5430"
+          "Value": "25798"
         },
         {
           "Name": "Content-Type",
@@ -4066,11 +4469,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
+          "Value": "\"jpahLtrViEpygz6fqfM1hhOIKoVzVdf/4y2I07Q8iPQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 05 Jun 2025 06:55:29 GMT"
+          "Value": "Fri, 06 Jun 2025 09:31:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4080,13 +4483,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+          "Value": "sha256-jpahLtrViEpygz6fqfM1hhOIKoVzVdf/4y2I07Q8iPQ="
         }
       ]
     },
     {
       "Route": "favicon.ico.gz",
-      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/fmd9vddg5r-61n19gt1b8.gz",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/fmd9vddg5r-ibr9k4k53e.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4095,7 +4498,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2468"
+          "Value": "24416"
         },
         {
           "Name": "Content-Type",
@@ -4103,11 +4506,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"+/824NtfTA0L7Mr42Fo+86YJP4R5cigdi9S7Fx5VVl4=\""
+          "Value": "\"+CwK7NtdUKZ+4JBvp26svsMXx4QXwiLsslw0vsTIxL8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 05 Jun 2025 06:55:29 GMT"
+          "Value": "Fri, 06 Jun 2025 09:31:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4125,18 +4528,100 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-+/824NtfTA0L7Mr42Fo+86YJP4R5cigdi9S7Fx5VVl4="
+          "Value": "sha256-+CwK7NtdUKZ+4JBvp26svsMXx4QXwiLsslw0vsTIxL8="
         }
       ]
     },
     {
-      "Route": "js/sidebar.js",
-      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/9w0ketgass-w1yaurvlnf.gz",
+      "Route": "images/logoUTH.ibr9k4k53e.png",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/images/logoUTH.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25798"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"jpahLtrViEpygz6fqfM1hhOIKoVzVdf/4y2I07Q8iPQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 09:31:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ibr9k4k53e"
+        },
+        {
+          "Name": "label",
+          "Value": "images/logoUTH.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-jpahLtrViEpygz6fqfM1hhOIKoVzVdf/4y2I07Q8iPQ="
+        }
+      ]
+    },
+    {
+      "Route": "images/logoUTH.png",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/images/logoUTH.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25798"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"jpahLtrViEpygz6fqfM1hhOIKoVzVdf/4y2I07Q8iPQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 09:31:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-jpahLtrViEpygz6fqfM1hhOIKoVzVdf/4y2I07Q8iPQ="
+        }
+      ]
+    },
+    {
+      "Route": "js/crud-helper.js",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/tewuhihrro-w375fu0y5r.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000446229362"
+          "Quality": "0.000234741784"
         }
       ],
       "ResponseHeaders": [
@@ -4146,15 +4631,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2240"
+          "Value": "4259"
         },
         {
           "Name": "ETag",
-          "Value": "\"g/3pBdV4U1h84deBN7tyGpORyeWmnGxmf8Vx4qX+h6w=\""
+          "Value": "\"tFcE8XrQe3pPQMu8ifkIPd/szn60uoG/xz+bt67ZHUU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 06 Jun 2025 08:12:42 GMT"
+          "Value": "Fri, 06 Jun 2025 09:28:32 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4174,18 +4659,324 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"5CS5XwAtEtQ48SA2CSkTVU4rHhO9Z17Dd0Vp2o9n+TU=\""
+          "Value": "W/\"xCU3t6VadC/uPvRVXeg2GWQ8gbs2+sljhPmEc3pnT6Q=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-5CS5XwAtEtQ48SA2CSkTVU4rHhO9Z17Dd0Vp2o9n+TU="
+          "Value": "sha256-xCU3t6VadC/uPvRVXeg2GWQ8gbs2+sljhPmEc3pnT6Q="
         }
       ]
     },
     {
-      "Route": "js/sidebar.js",
+      "Route": "js/crud-helper.js",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/crud-helper.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "19051"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xCU3t6VadC/uPvRVXeg2GWQ8gbs2+sljhPmEc3pnT6Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 09:28:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-xCU3t6VadC/uPvRVXeg2GWQ8gbs2+sljhPmEc3pnT6Q="
+        }
+      ]
+    },
+    {
+      "Route": "js/crud-helper.js.gz",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/tewuhihrro-w375fu0y5r.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4259"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tFcE8XrQe3pPQMu8ifkIPd/szn60uoG/xz+bt67ZHUU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 09:28:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tFcE8XrQe3pPQMu8ifkIPd/szn60uoG/xz+bt67ZHUU="
+        }
+      ]
+    },
+    {
+      "Route": "js/crud-helper.w375fu0y5r.js",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/tewuhihrro-w375fu0y5r.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000234741784"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4259"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tFcE8XrQe3pPQMu8ifkIPd/szn60uoG/xz+bt67ZHUU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 09:28:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"xCU3t6VadC/uPvRVXeg2GWQ8gbs2+sljhPmEc3pnT6Q=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "w375fu0y5r"
+        },
+        {
+          "Name": "label",
+          "Value": "js/crud-helper.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-xCU3t6VadC/uPvRVXeg2GWQ8gbs2+sljhPmEc3pnT6Q="
+        }
+      ]
+    },
+    {
+      "Route": "js/crud-helper.w375fu0y5r.js",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/crud-helper.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "19051"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xCU3t6VadC/uPvRVXeg2GWQ8gbs2+sljhPmEc3pnT6Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 09:28:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "w375fu0y5r"
+        },
+        {
+          "Name": "label",
+          "Value": "js/crud-helper.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-xCU3t6VadC/uPvRVXeg2GWQ8gbs2+sljhPmEc3pnT6Q="
+        }
+      ]
+    },
+    {
+      "Route": "js/crud-helper.w375fu0y5r.js.gz",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/tewuhihrro-w375fu0y5r.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4259"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tFcE8XrQe3pPQMu8ifkIPd/szn60uoG/xz+bt67ZHUU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 09:28:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "w375fu0y5r"
+        },
+        {
+          "Name": "label",
+          "Value": "js/crud-helper.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tFcE8XrQe3pPQMu8ifkIPd/szn60uoG/xz+bt67ZHUU="
+        }
+      ]
+    },
+    {
+      "Route": "js/sidebar.gsl1ju07qy.js",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/9w0ketgass-gsl1ju07qy.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000334448161"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2989"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0B64XgcvD5nZ8dKjyv5xs86RdZenxaBZzED0CubYRtw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 09:42:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"kA89yFRIRsIxsfTXV9nrcfH92lZy9oUxSWnwZ0XqXrM=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "gsl1ju07qy"
+        },
+        {
+          "Name": "label",
+          "Value": "js/sidebar.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-kA89yFRIRsIxsfTXV9nrcfH92lZy9oUxSWnwZ0XqXrM="
+        }
+      ]
+    },
+    {
+      "Route": "js/sidebar.gsl1ju07qy.js",
       "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/sidebar.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -4195,7 +4986,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "11328"
+          "Value": "14449"
         },
         {
           "Name": "Content-Type",
@@ -4203,121 +4994,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"5CS5XwAtEtQ48SA2CSkTVU4rHhO9Z17Dd0Vp2o9n+TU=\""
+          "Value": "\"kA89yFRIRsIxsfTXV9nrcfH92lZy9oUxSWnwZ0XqXrM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 06 Jun 2025 08:12:42 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-5CS5XwAtEtQ48SA2CSkTVU4rHhO9Z17Dd0Vp2o9n+TU="
-        }
-      ]
-    },
-    {
-      "Route": "js/sidebar.js.gz",
-      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/9w0ketgass-w1yaurvlnf.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2240"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"g/3pBdV4U1h84deBN7tyGpORyeWmnGxmf8Vx4qX+h6w=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 06 Jun 2025 08:12:42 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-g/3pBdV4U1h84deBN7tyGpORyeWmnGxmf8Vx4qX+h6w="
-        }
-      ]
-    },
-    {
-      "Route": "js/sidebar.w1yaurvlnf.js",
-      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/9w0ketgass-w1yaurvlnf.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000446229362"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2240"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"g/3pBdV4U1h84deBN7tyGpORyeWmnGxmf8Vx4qX+h6w=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 06 Jun 2025 08:12:42 GMT"
+          "Value": "Fri, 06 Jun 2025 09:42:51 GMT"
         },
         {
           "Name": "Cache-Control",
           "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"5CS5XwAtEtQ48SA2CSkTVU4rHhO9Z17Dd0Vp2o9n+TU=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "w1yaurvlnf"
+          "Value": "gsl1ju07qy"
         },
         {
           "Name": "label",
@@ -4325,13 +5016,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-5CS5XwAtEtQ48SA2CSkTVU4rHhO9Z17Dd0Vp2o9n+TU="
+          "Value": "sha256-kA89yFRIRsIxsfTXV9nrcfH92lZy9oUxSWnwZ0XqXrM="
         }
       ]
     },
     {
-      "Route": "js/sidebar.w1yaurvlnf.js",
-      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/sidebar.js",
+      "Route": "js/sidebar.gsl1ju07qy.js.gz",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/9w0ketgass-gsl1ju07qy.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4340,7 +5031,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "11328"
+          "Value": "2989"
         },
         {
           "Name": "Content-Type",
@@ -4348,56 +5039,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"5CS5XwAtEtQ48SA2CSkTVU4rHhO9Z17Dd0Vp2o9n+TU=\""
+          "Value": "\"0B64XgcvD5nZ8dKjyv5xs86RdZenxaBZzED0CubYRtw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 06 Jun 2025 08:12:42 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "w1yaurvlnf"
-        },
-        {
-          "Name": "label",
-          "Value": "js/sidebar.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-5CS5XwAtEtQ48SA2CSkTVU4rHhO9Z17Dd0Vp2o9n+TU="
-        }
-      ]
-    },
-    {
-      "Route": "js/sidebar.w1yaurvlnf.js.gz",
-      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/9w0ketgass-w1yaurvlnf.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2240"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"g/3pBdV4U1h84deBN7tyGpORyeWmnGxmf8Vx4qX+h6w=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 06 Jun 2025 08:12:42 GMT"
+          "Value": "Fri, 06 Jun 2025 09:42:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4415,7 +5061,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "w1yaurvlnf"
+          "Value": "gsl1ju07qy"
         },
         {
           "Name": "label",
@@ -4423,7 +5069,144 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-g/3pBdV4U1h84deBN7tyGpORyeWmnGxmf8Vx4qX+h6w="
+          "Value": "sha256-0B64XgcvD5nZ8dKjyv5xs86RdZenxaBZzED0CubYRtw="
+        }
+      ]
+    },
+    {
+      "Route": "js/sidebar.js",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/9w0ketgass-gsl1ju07qy.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000334448161"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2989"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0B64XgcvD5nZ8dKjyv5xs86RdZenxaBZzED0CubYRtw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 09:42:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"kA89yFRIRsIxsfTXV9nrcfH92lZy9oUxSWnwZ0XqXrM=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-kA89yFRIRsIxsfTXV9nrcfH92lZy9oUxSWnwZ0XqXrM="
+        }
+      ]
+    },
+    {
+      "Route": "js/sidebar.js",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/sidebar.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "14449"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kA89yFRIRsIxsfTXV9nrcfH92lZy9oUxSWnwZ0XqXrM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 09:42:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-kA89yFRIRsIxsfTXV9nrcfH92lZy9oUxSWnwZ0XqXrM="
+        }
+      ]
+    },
+    {
+      "Route": "js/sidebar.js.gz",
+      "AssetFile": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/9w0ketgass-gsl1ju07qy.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2989"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0B64XgcvD5nZ8dKjyv5xs86RdZenxaBZzED0CubYRtw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 09:42:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0B64XgcvD5nZ8dKjyv5xs86RdZenxaBZzED0CubYRtw="
         }
       ]
     },

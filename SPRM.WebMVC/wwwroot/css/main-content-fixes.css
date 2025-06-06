@@ -1,0 +1,24 @@
+/* Ensures that additional styling is applied to improve responsiveness and appearance */
+
+/* Custom container styles to ensure content fits properly */
+.main-content .container-fluid {
+    padding-top: 0; /* Reset any inherited top padding */
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Additional styling for hero sections and containers */
+.main-content > .container-fluid:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* Media queries for responsive behavior */
+@media (max-width: 991.98px) {
+    .main-content .container-fluid {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}

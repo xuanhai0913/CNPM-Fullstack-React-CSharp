@@ -52,11 +52,21 @@ namespace SPRM.Data
                 new User
                 {
                     Id = Guid.NewGuid(),
-                    Email = "manager@university.edu",
+                    Email = "manager@sprm.edu",
                     FullName = "Project Manager",
                     Username = "manager",
                     Password = BCrypt.Net.BCrypt.HashPassword("manager123"),
-                    Role = "Manager",
+                    Role = "Principal Investigator",
+                    CreatedAt = DateTime.UtcNow
+                },
+                new User
+                {
+                    Id = Guid.NewGuid(),
+                    Email = "researcher@sprm.edu",
+                    FullName = "Researcher User",
+                    Username = "researcher",
+                    Password = BCrypt.Net.BCrypt.HashPassword("researcher123"),
+                    Role = "Researcher",
                     CreatedAt = DateTime.UtcNow
                 }
             };

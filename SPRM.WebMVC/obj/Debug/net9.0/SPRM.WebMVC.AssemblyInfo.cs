@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SPRM.WebMVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+37348d166ac51a3d015a5df0456fc690d8da5c01")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+46e41265bc8f6adc1f1efdaf64ddf0ad685c8f47")]
 [assembly: System.Reflection.AssemblyProductAttribute("SPRM.WebMVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SPRM.WebMVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

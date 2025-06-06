@@ -451,7 +451,6 @@
 /Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/scopedcss/bundle/SPRM.WebMVC.styles.css
 /Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/scopedcss/projectbundle/SPRM.WebMVC.bundle.scp.css
 /Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/qk30hzx0uf-q5dxjwfk7k.gz
-/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/fmd9vddg5r-61n19gt1b8.gz
 /Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/8gnu9z8jxp-xtxxf3hu2r.gz
 /Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/kb28cacdev-bqjiyaj88i.gz
 /Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/olc6yqjrho-c2jlpeoesf.gz
@@ -532,5 +531,8 @@
 /Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/r377soxmo6-iqxgpeho28.gz
 /Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/zyn6hcl2ce-euiikl6nsc.gz
 /Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/jzp21z3xlr-ycyol4alxi.gz
-/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/9w0ketgass-w1yaurvlnf.gz
-/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/6hiyhjsuur-zpdcgupiw4.gz
+/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/fmd9vddg5r-ibr9k4k53e.gz
+/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/tewuhihrro-w375fu0y5r.gz
+/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/n9syp25uhv-lhuiu3qxi3.gz
+/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/6hiyhjsuur-rswrgq6upi.gz
+/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/9w0ketgass-gsl1ju07qy.gz
