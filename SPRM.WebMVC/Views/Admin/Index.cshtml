@@ -6,12 +6,54 @@
     <div class="d-flex justify-content-between align-items-center mb-4" data-aos="fade-up">
         <div>
             <h2 class="fw-bold mb-1"><i class="fas fa-tachometer-alt text-primary me-2"></i>Bảng điều khiển Admin</h2>
-            <p class="text-muted">Chào mừng bạn đến với trang quản trị hệ thống SPRM</p>
+            <p class="text-muted">@ViewBag.WelcomeMessage</p>
         </div>
-        <div>
-            <button class="btn btn-primary">
+        <div class="btn-group">
+            <a href="@Url.Action("SendNotification")" class="btn btn-primary">
+                <i class="fas fa-bell me-2"></i> Gửi thông báo
+            </a>
+            <a href="@Url.Action("Reports")" class="btn btn-outline-primary">
                 <i class="fas fa-download me-2"></i> Xuất báo cáo
-            </button>
+            </a>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="row mb-4" data-aos="fade-up">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0"><i class="fas fa-bolt me-2"></i>Thao tác nhanh</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3 mb-3">
+                            <a href="@Url.Action("ManageUsers")" class="btn btn-outline-primary w-100 h-100 d-flex flex-column justify-content-center">
+                                <i class="fas fa-users fa-2x mb-2"></i>
+                                <span>Quản lý người dùng</span>
+                            </a>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <a href="@Url.Action("CreateUser")" class="btn btn-outline-success w-100 h-100 d-flex flex-column justify-content-center">
+                                <i class="fas fa-user-plus fa-2x mb-2"></i>
+                                <span>Tạo người dùng</span>
+                            </a>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <a href="@Url.Action("ImportUser")" class="btn btn-outline-info w-100 h-100 d-flex flex-column justify-content-center">
+                                <i class="fas fa-file-import fa-2x mb-2"></i>
+                                <span>Import CSV</span>
+                            </a>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <a href="@Url.Action("SystemSettings")" class="btn btn-outline-warning w-100 h-100 d-flex flex-column justify-content-center">
+                                <i class="fas fa-cog fa-2x mb-2"></i>
+                                <span>Cài đặt hệ thống</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

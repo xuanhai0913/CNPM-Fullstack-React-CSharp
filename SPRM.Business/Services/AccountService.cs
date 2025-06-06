@@ -69,12 +69,27 @@ namespace SPRM.Business.Services
             var user = _mapper.Map<User>(userDto);
             await _userRepository.UpdateAsync(user);
             return true;
-        }
-
-        public async Task<IEnumerable<UserDto>> GetAllUsersAsync()
+        }        public async Task<IEnumerable<UserDto>> GetAllUsersAsync()
         {
             var users = await _userRepository.GetAllAsync();
             return _mapper.Map<IEnumerable<UserDto>>(users);
+        }
+
+        public async Task<UserDto?> RegisterAsync(CreateUserDto userDto)
+        {
+            var user = _mapper.Map<User>(userDto);
+            var success = await RegisterAsync(user);
+            if (success)
+            {
+                return _mapper.Map<UserDto>(user);
+            }
+            return null;
+        }
+
+        public async Task<bool> DeleteUserAsync(Guid id)
+        {
+            await _userRepository.DeleteAsync(id);
+            return true;
         }
     }
 }

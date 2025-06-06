@@ -1,0 +1,245 @@
+@{
+    ViewData["Title"] = "Manager Dashboard";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="text-primary">
+                    <i class="fas fa-tachometer-alt me-2"></i>Manager Dashboard
+                </h2>
+                <div class="text-muted">
+                    <i class="fas fa-calendar me-1"></i>@DateTime.Now.ToString("dddd, MMMM dd, yyyy")
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="row mb-4">
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="card bg-primary text-white h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title">Total Projects</h6>
+                            <h3 class="mb-0">@ViewBag.TotalProjects</h3>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-project-diagram fa-2x opacity-75"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="card bg-success text-white h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title">Active Projects</h6>
+                            <h3 class="mb-0">@ViewBag.ActiveProjects</h3>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-play-circle fa-2x opacity-75"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="card bg-info text-white h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title">Team Members</h6>
+                            <h3 class="mb-0">@ViewBag.TotalMembers</h3>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-users fa-2x opacity-75"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="card bg-warning text-white h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title">Pending Requests</h6>
+                            <h3 class="mb-0">@ViewBag.PendingRequests</h3>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-hourglass-half fa-2x opacity-75"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-bolt me-2"></i>Quick Actions
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 mb-3">
+                            <a href="@Url.Action("ManageProjects", "Manager")" class="btn btn-outline-primary w-100 h-100 d-flex flex-column justify-content-center text-decoration-none">
+                                <i class="fas fa-project-diagram fa-2x mb-2"></i>
+                                <span>Manage Projects</span>
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-3">
+                            <a href="@Url.Action("ManageMembers", "Manager")" class="btn btn-outline-success w-100 h-100 d-flex flex-column justify-content-center text-decoration-none">
+                                <i class="fas fa-users fa-2x mb-2"></i>
+                                <span>Manage Members</span>
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-3">
+                            <a href="@Url.Action("SendNotification", "Manager")" class="btn btn-outline-info w-100 h-100 d-flex flex-column justify-content-center text-decoration-none">
+                                <i class="fas fa-bell fa-2x mb-2"></i>
+                                <span>Send Notification</span>
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-3">
+                            <a href="@Url.Action("HandleRequests", "Manager")" class="btn btn-outline-warning w-100 h-100 d-flex flex-column justify-content-center text-decoration-none">
+                                <i class="fas fa-tasks fa-2x mb-2"></i>
+                                <span>Handle Requests</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="row">
+        <div class="col-lg-8 mb-4">
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-clock me-2"></i>Recent Activity
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker bg-primary"></div>
+                            <div class="timeline-content">
+                                <h6 class="timeline-title">New project created</h6>
+                                <p class="timeline-text text-muted">Mobile App Development project was created</p>
+                                <small class="text-muted">2 hours ago</small>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker bg-success"></div>
+                            <div class="timeline-content">
+                                <h6 class="timeline-title">Member assigned</h6>
+                                <p class="timeline-text text-muted">John Doe was assigned to Web Development project</p>
+                                <small class="text-muted">4 hours ago</small>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker bg-info"></div>
+                            <div class="timeline-content">
+                                <h6 class="timeline-title">Notification sent</h6>
+                                <p class="timeline-text text-muted">Project deadline reminder sent to all members</p>
+                                <small class="text-muted">1 day ago</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Alerts
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning" role="alert">
+                        <i class="fas fa-calendar-times me-2"></i>
+                        <strong>3 projects</strong> are approaching deadline
+                    </div>
+                    <div class="alert alert-info" role="alert">
+                        <i class="fas fa-user-plus me-2"></i>
+                        <strong>2 new members</strong> need project assignment
+                    </div>
+                    <div class="alert alert-primary" role="alert">
+                        <i class="fas fa-envelope me-2"></i>
+                        <strong>5 notifications</strong> pending review
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .timeline {
+        position: relative;
+        padding-left: 30px;
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 15px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: #dee2e6;
+    }
+
+    .timeline-item {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .timeline-marker {
+        position: absolute;
+        left: -23px;
+        top: 0;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+    }
+
+    .timeline-content {
+        padding-left: 15px;
+    }
+
+    .timeline-title {
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+    .timeline-text {
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+    }
+
+    .card {
+        border: 1px solid #e3e6f0;
+        box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    }
+
+    .btn-outline-primary:hover,
+    .btn-outline-success:hover,
+    .btn-outline-info:hover,
+    .btn-outline-warning:hover {
+        transform: translateY(-2px);
+        transition: all 0.3s;
+    }
+</style>

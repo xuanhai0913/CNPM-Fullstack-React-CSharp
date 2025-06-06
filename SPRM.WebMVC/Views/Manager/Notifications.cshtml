@@ -1,0 +1,456 @@
+@model IEnumerable<SPRM.Data.Entities.Notification>
+@{
+    ViewData["Title"] = "Notifications";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="text-primary">
+                    <i class="fas fa-bell me-2"></i>Notifications
+                </h2>
+                <div>
+                    <a href="@Url.Action("Index", "Manager")" class="btn btn-outline-secondary me-2">
+                        <i class="fas fa-arrow-left me-1"></i>Back to Dashboard
+                    </a>
+                    <a href="@Url.Action("SendNotification", "Manager")" class="btn btn-primary">
+                        <i class="fas fa-plus me-1"></i>Send New
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Stats -->
+    <div class="row mb-4">
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title">Total Sent</h6>
+                            <h3 class="mb-0">@ViewBag.TotalSent</h3>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-paper-plane fa-2x opacity-75"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title">Read</h6>
+                            <h3 class="mb-0">@ViewBag.TotalRead</h3>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-eye fa-2x opacity-75"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title">Pending</h6>
+                            <h3 class="mb-0">@ViewBag.PendingCount</h3>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-hourglass-half fa-2x opacity-75"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title">Read Rate</h6>
+                            <h3 class="mb-0">@ViewBag.ReadRate%</h3>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-chart-line fa-2x opacity-75"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-end">
+                        <div class="col-md-2">
+                            <label for="typeFilter" class="form-label">Type</label>
+                            <select class="form-select" id="typeFilter">
+                                <option value="">All Types</option>
+                                <option value="General">General</option>
+                                <option value="Project">Project</option>
+                                <option value="Deadline">Deadline</option>
+                                <option value="Meeting">Meeting</option>
+                                <option value="Task">Task</option>
+                                <option value="Warning">Warning</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="priorityFilter" class="form-label">Priority</label>
+                            <select class="form-select" id="priorityFilter">
+                                <option value="">All Priorities</option>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                                <option value="Urgent">Urgent</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="statusFilter" class="form-label">Status</label>
+                            <select class="form-select" id="statusFilter">
+                                <option value="">All Status</option>
+                                <option value="Sent">Sent</option>
+                                <option value="Read">Read</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Expired">Expired</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="dateRange" class="form-label">Date Range</label>
+                            <select class="form-select" id="dateRange">
+                                <option value="">All Dates</option>
+                                <option value="today">Today</option>
+                                <option value="week">This Week</option>
+                                <option value="month">This Month</option>
+                                <option value="quarter">This Quarter</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="searchInput" class="form-label">Search</label>
+                            <input type="text" class="form-control" id="searchInput" placeholder="Search...">
+                        </div>
+                        <div class="col-md-1">
+                            <button type="button" class="btn btn-primary w-100" onclick="applyFilters()">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notifications List -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-list me-2"></i>Notification History
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="notificationsTable" class="table table-striped table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Subject</th>
+                                    <th>Type</th>
+                                    <th>Priority</th>
+                                    <th>Recipients</th>
+                                    <th>Sent Date</th>
+                                    <th>Status</th>
+                                    <th>Read Rate</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null && Model.Any())
+                                {
+                                    @foreach (var notification in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <strong>@notification.Title</strong>
+                                                    <br>
+                                                    <small class="text-muted text-truncate d-inline-block" style="max-width: 200px;">
+                                                        @notification.Message
+                                                    </small>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-info">General</span>
+                                            </td>
+                                            <td>
+                                                @{
+                                                    var priorityClass = "secondary";
+                                                    var priority = "Medium";
+                                                    // You can add priority logic here based on your notification properties
+                                                }
+                                                <span class="badge bg-@priorityClass">@priority</span>
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-primary">All Users</span>
+                                            </td>
+                                            <td>@notification.CreatedAt.ToString("MMM dd, yyyy HH:mm")</td>
+                                            <td>
+                                                <span class="badge bg-success">Sent</span>
+                                            </td>
+                                            <td>
+                                                <div class="progress" style="height: 20px;">
+                                                    <div class="progress-bar" role="progressbar" style="width: 75%">75%</div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="btn-group" role="group">
+                                                    <button type="button" class="btn btn-sm btn-outline-primary" 
+                                                            onclick="viewNotification('@notification.Id')" title="View Details">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-sm btn-outline-info" 
+                                                            onclick="viewAnalytics('@notification.Id')" title="View Analytics">
+                                                        <i class="fas fa-chart-bar"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-sm btn-outline-success" 
+                                                            onclick="resendNotification('@notification.Id')" title="Resend">
+                                                        <i class="fas fa-redo"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-sm btn-outline-danger" 
+                                                            onclick="deleteNotification('@notification.Id')" title="Delete">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    @if (Model == null || !Model.Any())
+                    {
+                        <div class="text-center py-5">
+                            <i class="fas fa-bell-slash fa-4x text-muted mb-3"></i>
+                            <h5 class="text-muted">No notifications found</h5>
+                            <p class="text-muted">Send your first notification to get started.</p>
+                            <a href="@Url.Action("SendNotification", "Manager")" class="btn btn-primary">
+                                <i class="fas fa-plus me-1"></i>Send First Notification
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Notification Details Modal -->
+<div class="modal fade" id="notificationDetailsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">
+                    <i class="fas fa-bell me-2"></i>Notification Details
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div id="notificationDetailsContent">
+                    <!-- Notification details will be loaded here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-1"></i>Close
+                </button>
+                <button type="button" class="btn btn-success" onclick="resendFromModal()">
+                    <i class="fas fa-redo me-1"></i>Resend
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Analytics Modal -->
+<div class="modal fade" id="analyticsModal" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header bg-info text-white">
+                <h5 class="modal-title">
+                    <i class="fas fa-chart-bar me-2"></i>Notification Analytics
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div id="analyticsContent">
+                    <!-- Analytics content will be loaded here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-1"></i>Close
+                </button>
+                <button type="button" class="btn btn-primary" onclick="exportAnalytics()">
+                    <i class="fas fa-download me-1"></i>Export Report
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('#notificationsTable').DataTable({
+                responsive: true,
+                pageLength: 10,
+                order: [[4, 'desc']], // Sort by sent date descending
+                language: {
+                    search: "Search notifications:",
+                    lengthMenu: "Show _MENU_ notifications per page",
+                    info: "Showing _START_ to _END_ of _TOTAL_ notifications",
+                    paginate: {
+                        first: "First",
+                        last: "Last",
+                        next: "Next",
+                        previous: "Previous"
+                    }
+                }
+            });
+        });
+
+        function applyFilters() {
+            var table = $('#notificationsTable').DataTable();
+            var typeFilter = $('#typeFilter').val();
+            var priorityFilter = $('#priorityFilter').val();
+            var statusFilter = $('#statusFilter').val();
+            var searchInput = $('#searchInput').val();
+
+            // Apply search
+            table.search(searchInput).draw();
+            
+            // Apply filters (would need server-side implementation for full functionality)
+            if (typeFilter) {
+                table.column(1).search(typeFilter).draw();
+            } else {
+                table.column(1).search('').draw();
+            }
+        }
+
+        function viewNotification(notificationId) {
+            $.ajax({
+                url: '@Url.Action("GetNotificationDetails", "Manager")',
+                type: 'GET',
+                data: { id: notificationId },
+                success: function(data) {
+                    $('#notificationDetailsContent').html(data);
+                    $('#notificationDetailsModal').modal('show');
+                },
+                error: function() {
+                    toastr.error('Failed to load notification details');
+                }
+            });
+        }
+
+        function viewAnalytics(notificationId) {
+            $.ajax({
+                url: '@Url.Action("GetNotificationAnalytics", "Manager")',
+                type: 'GET',
+                data: { id: notificationId },
+                success: function(data) {
+                    $('#analyticsContent').html(data);
+                    $('#analyticsModal').modal('show');
+                },
+                error: function() {
+                    toastr.error('Failed to load analytics');
+                }
+            });
+        }
+
+        function resendNotification(notificationId) {
+            if (confirm('Are you sure you want to resend this notification?')) {
+                $.ajax({
+                    url: '@Url.Action("ResendNotification", "Manager")',
+                    type: 'POST',
+                    data: { id: notificationId },
+                    success: function(response) {
+                        if (response.success) {
+                            toastr.success('Notification resent successfully!');
+                            location.reload();
+                        } else {
+                            toastr.error(response.message || 'Failed to resend notification');
+                        }
+                    },
+                    error: function() {
+                        toastr.error('An error occurred while resending the notification');
+                    }
+                });
+            }
+        }
+
+        function deleteNotification(notificationId) {
+            if (confirm('Are you sure you want to delete this notification? This action cannot be undone.')) {
+                $.ajax({
+                    url: '@Url.Action("DeleteNotification", "Manager")',
+                    type: 'POST',
+                    data: { id: notificationId },
+                    success: function(response) {
+                        if (response.success) {
+                            toastr.success('Notification deleted successfully!');
+                            location.reload();
+                        } else {
+                            toastr.error(response.message || 'Failed to delete notification');
+                        }
+                    },
+                    error: function() {
+                        toastr.error('An error occurred while deleting the notification');
+                    }
+                });
+            }
+        }
+
+        function resendFromModal() {
+            var notificationId = $('#notificationDetailsModal').data('notification-id');
+            $('#notificationDetailsModal').modal('hide');
+            resendNotification(notificationId);
+        }
+
+        function exportAnalytics() {
+            var notificationId = $('#analyticsModal').data('notification-id');
+            window.location.href = '@Url.Action("ExportAnalytics", "Manager")' + '?id=' + notificationId;
+        }
+    </script>
+
+    <style>
+        .progress {
+            background-color: #e9ecef;
+        }
+
+        .progress-bar {
+            background-color: #28a745;
+        }
+
+        .card {
+            border: 1px solid #e3e6f0;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+        }
+
+        .btn-group .btn {
+            margin-right: 2px;
+        }
+
+        .btn-group .btn:last-child {
+            margin-right: 0;
+        }
+    </style>
+}

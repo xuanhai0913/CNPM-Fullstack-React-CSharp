@@ -14,8 +14,10 @@ namespace SPRM.Business.Interfaces
         
         // Additional async methods for MVC controllers
         Task<bool> RegisterAsync(UserDto userDto);
+        Task<UserDto?> RegisterAsync(CreateUserDto userDto);
         Task<UserDto?> GetUserByIdAsync(Guid id);
         Task<bool> UpdateUserAsync(UserDto userDto);
+        Task<bool> DeleteUserAsync(Guid id);
         Task<IEnumerable<UserDto>> GetAllUsersAsync();
     }
 }

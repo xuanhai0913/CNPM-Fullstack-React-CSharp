@@ -1,0 +1,146 @@
+@model SPRM.Business.DTOs.NotificationDto
+@{
+    ViewData["Title"] = "Gửi thông báo";
+}
+
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">
+                        <i class="fas fa-bell me-2"></i>
+                        Gửi thông báo
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="SendNotification" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                        
+                        <div class="mb-3">
+                            <label asp-for="UserId" class="form-label">Người nhận</label>
+                            <select asp-for="UserId" class="form-select" required>
+                                <option value="">Chọn người nhận</option>
+                                @foreach (var user in ViewBag.Users)
+                                {
+                                    <option value="@user.Id">@user.FullName (@user.Username)</option>
+                                }
+                            </select>
+                            <span asp-validation-for="UserId" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Title" class="form-label">Tiêu đề</label>
+                            <input asp-for="Title" class="form-control" required maxlength="200" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Message" class="form-label">Nội dung</label>
+                            <textarea asp-for="Message" class="form-control" rows="6" required maxlength="1000"></textarea>
+                            <span asp-validation-for="Message" class="text-danger"></span>
+                            <div class="form-text">Tối đa 1000 ký tự</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Type" class="form-label">Loại thông báo</label>
+                                    <select asp-for="Type" class="form-select">
+                                        <option value="Info">Thông tin</option>
+                                        <option value="Warning">Cảnh báo</option>
+                                        <option value="Success">Thành công</option>
+                                        <option value="Error">Lỗi</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="ActionUrl" class="form-label">Liên kết (tùy chọn)</label>
+                                    <input asp-for="ActionUrl" class="form-control" placeholder="https://..." />
+                                    <span asp-validation-for="ActionUrl" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a href="@Url.Action("Index")" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left me-1"></i>
+                                Quay lại
+                            </a>
+                            <div>
+                                <button type="button" class="btn btn-outline-primary me-2" onclick="previewNotification()">
+                                    <i class="fas fa-eye me-1"></i>
+                                    Xem trước
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane me-1"></i>
+                                    Gửi thông báo
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Preview Modal -->
+<div class="modal fade" id="previewModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Xem trước thông báo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-info" id="previewContent">
+                    <h6 id="previewTitle"></h6>
+                    <p id="previewMessage"></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        function previewNotification() {
+            const title = document.getElementById('Title').value;
+            const message = document.getElementById('Message').value;
+            const type = document.getElementById('Type').value;
+            
+            if (!title || !message) {
+                alert('Vui lòng nhập tiêu đề và nội dung thông báo');
+                return;
+            }
+            
+            document.getElementById('previewTitle').textContent = title;
+            document.getElementById('previewMessage').textContent = message;
+            
+            const alertDiv = document.getElementById('previewContent');
+            alertDiv.className = 'alert alert-' + (type.toLowerCase() === 'error' ? 'danger' : 
+                                                  type.toLowerCase() === 'warning' ? 'warning' :
+                                                  type.toLowerCase() === 'success' ? 'success' : 'info');
+            
+            new bootstrap.Modal(document.getElementById('previewModal')).show();
+        }
+
+        // Character counter for message
+        document.getElementById('Message').addEventListener('input', function() {
+            const remaining = 1000 - this.value.length;
+            const helpText = this.parentNode.querySelector('.form-text');
+            helpText.textContent = `Còn lại ${remaining} ký tự`;
+            if (remaining < 100) {
+                helpText.className = 'form-text text-warning';
+            } else {
+                helpText.className = 'form-text';
+            }
+        });
+    </script>
+}

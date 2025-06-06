@@ -12,6 +12,7 @@ namespace SPRM.Business.Profiles
         {
             // User mappings
             CreateMap<User, UserDto>().ReverseMap();
+            CreateMap<CreateUserDto, User>().ReverseMap();
             
             // Project mappings
             CreateMap<Project, ProjectDto>()
@@ -48,6 +49,13 @@ namespace SPRM.Business.Profiles
             
             // SystemSetting mappings
             CreateMap<SystemSetting, SystemSettingDto>().ReverseMap();
+            
+            // ProjectMembership mappings
+            CreateMap<ProjectMembership, ProjectMembershipDto>()
+                .ForMember(dest => dest.ProjectName, opt => opt.MapFrom(src => src.Project != null ? src.Project.Name : ""))
+                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User != null ? src.User.FullName : ""))
+                .ForMember(dest => dest.UserEmail, opt => opt.MapFrom(src => src.User != null ? src.User.Email : ""));
+            CreateMap<CreateProjectMembershipDto, ProjectMembership>();
         }
     }
 }

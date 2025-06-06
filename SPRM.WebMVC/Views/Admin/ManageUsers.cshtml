@@ -1,0 +1,139 @@
+@model IEnumerable<SPRM.Business.DTOs.UserDto>
+@{
+    ViewData["Title"] = "Quản lý người dùng";
+}
+
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0">
+                        <i class="fas fa-users me-2"></i>
+                        Quản lý người dùng
+                    </h4>
+                    <div class="btn-group">
+                        <a href="@Url.Action("CreateUser")" class="btn btn-light btn-sm">
+                            <i class="fas fa-plus me-1"></i>
+                            Thêm người dùng
+                        </a>
+                        <a href="@Url.Action("ImportUser")" class="btn btn-outline-light btn-sm">
+                            <i class="fas fa-file-import me-1"></i>
+                            Import CSV
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped" id="usersTable">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Tên đăng nhập</th>
+                                    <th>Họ tên</th>
+                                    <th>Email</th>
+                                    <th>Vai trò</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var user in Model)
+                                {
+                                    <tr>
+                                        <td>@user.Username</td>
+                                        <td>@user.FullName</td>
+                                        <td>@user.Email</td>
+                                        <td>
+                                            <span class="badge bg-@(user.Role == "Administrator" ? "danger" : user.Role == "Researcher" ? "success" : user.Role == "Staff" ? "warning" : "info")">
+                                                @user.Role
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group">
+                                                <a href="@Url.Action("DetailUser", new { id = user.Id })" class="btn btn-sm btn-outline-info" title="Xem chi tiết">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a href="@Url.Action("UpdateUser", new { id = user.Id })" class="btn btn-sm btn-outline-warning" title="Chỉnh sửa">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-outline-danger" onclick="deleteUser('@user.Id')" title="Xóa">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                                        <i class="fas fa-user-cog"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="#" onclick="changeRole('@user.Id', 'Administrator')">Quản trị viên</a></li>
+                                                        <li><a class="dropdown-item" href="#" onclick="changeRole('@user.Id', 'Researcher')">Nghiên cứu viên</a></li>
+                                                        <li><a class="dropdown-item" href="#" onclick="changeRole('@user.Id', 'Staff')">Nhân viên</a></li>
+                                                        <li><a class="dropdown-item" href="#" onclick="changeRole('@user.Id', 'Student')">Sinh viên</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('#usersTable').DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.10.25/i18n/Vietnamese.json'
+                },
+                pageLength: 25,
+                order: [[1, 'asc']]
+            });
+        });
+
+        function deleteUser(userId) {
+            if (confirm('Bạn có chắc chắn muốn xóa người dùng này?')) {
+                $.ajax({
+                    url: '@Url.Action("RemoveUser")',
+                    type: 'POST',
+                    data: { id: userId },
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.message);
+                            location.reload();
+                        } else {
+                            alert('Lỗi: ' + response.message);
+                        }
+                    },
+                    error: function() {
+                        alert('Có lỗi xảy ra khi xóa người dùng');
+                    }
+                });
+            }
+        }
+
+        function changeRole(userId, newRole) {
+            if (confirm('Bạn có chắc chắn muốn thay đổi vai trò người dùng này?')) {
+                $.ajax({
+                    url: '@Url.Action("ChangeUserRole")',
+                    type: 'POST',
+                    data: { userId: userId, newRole: newRole },
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.message);
+                            location.reload();
+                        } else {
+                            alert('Lỗi: ' + response.message);
+                        }
+                    },
+                    error: function() {
+                        alert('Có lỗi xảy ra khi thay đổi vai trò');
+                    }
+                });
+            }
+        }
+    </script>
+}

@@ -59,6 +59,7 @@ builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
 builder.Services.AddScoped<IResearchTopicRepository, ResearchTopicRepository>();
 builder.Services.AddScoped<IEvaluationRepository, EvaluationRepository>();
 builder.Services.AddScoped<IUserRoleRepository, UserRoleRepository>();
+builder.Services.AddScoped<IProjectMembershipRepository, ProjectMembershipRepository>();
 builder.Services.AddScoped<ISystemSettingRepository, SystemSettingRepository>();
 
 // Register services

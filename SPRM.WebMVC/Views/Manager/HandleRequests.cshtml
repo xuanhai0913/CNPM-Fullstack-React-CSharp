@@ -1,0 +1,629 @@
+@{
+    ViewData["Title"] = "Handle Requests";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="text-primary">
+                    <i class="fas fa-tasks me-2"></i>Handle Requests
+                </h2>
+                <div>
+                    <a href="@Url.Action("Index", "Manager")" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left me-1"></i>Back to Dashboard
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Request Summary Cards -->
+    <div class="row mb-4">
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title">Pending</h6>
+                            <h3 class="mb-0">@ViewBag.PendingRequests</h3>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-hourglass-half fa-2x opacity-75"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title">Approved</h6>
+                            <h3 class="mb-0">@ViewBag.ApprovedRequests</h3>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-check-circle fa-2x opacity-75"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="card bg-danger text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title">Rejected</h6>
+                            <h3 class="mb-0">@ViewBag.RejectedRequests</h3>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-times-circle fa-2x opacity-75"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title">Total This Month</h6>
+                            <h3 class="mb-0">@ViewBag.TotalRequests</h3>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-clipboard-list fa-2x opacity-75"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-bolt me-2"></i>Quick Actions
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3 mb-2">
+                            <button type="button" class="btn btn-warning w-100" onclick="filterRequests('Pending')">
+                                <i class="fas fa-clock me-1"></i>View Pending
+                            </button>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <button type="button" class="btn btn-success w-100" onclick="bulkApprove()">
+                                <i class="fas fa-check-double me-1"></i>Bulk Approve
+                            </button>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <button type="button" class="btn btn-info w-100" onclick="exportRequests()">
+                                <i class="fas fa-download me-1"></i>Export Report
+                            </button>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <button type="button" class="btn btn-primary w-100" onclick="refreshRequests()">
+                                <i class="fas fa-sync me-1"></i>Refresh
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-end">
+                        <div class="col-md-2">
+                            <label for="requestTypeFilter" class="form-label">Request Type</label>
+                            <select class="form-select" id="requestTypeFilter">
+                                <option value="">All Types</option>
+                                <option value="ProjectJoin">Project Join</option>
+                                <option value="LeaveRequest">Leave Request</option>
+                                <option value="ResourceAccess">Resource Access</option>
+                                <option value="PermissionChange">Permission Change</option>
+                                <option value="ProjectTransfer">Project Transfer</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="statusFilter" class="form-label">Status</label>
+                            <select class="form-select" id="statusFilter">
+                                <option value="">All Status</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Approved">Approved</option>
+                                <option value="Rejected">Rejected</option>
+                                <option value="Under Review">Under Review</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="priorityFilter" class="form-label">Priority</label>
+                            <select class="form-select" id="priorityFilter">
+                                <option value="">All Priorities</option>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                                <option value="Urgent">Urgent</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="dateFilter" class="form-label">Date Range</label>
+                            <select class="form-select" id="dateFilter">
+                                <option value="">All Dates</option>
+                                <option value="today">Today</option>
+                                <option value="week">This Week</option>
+                                <option value="month">This Month</option>
+                                <option value="older">Older</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="searchInput" class="form-label">Search</label>
+                            <input type="text" class="form-control" id="searchInput" placeholder="Search...">
+                        </div>
+                        <div class="col-md-1">
+                            <button type="button" class="btn btn-primary w-100" onclick="applyFilters()">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Requests Table -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-list me-2"></i>Requests List
+                    </h5>
+                    <div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="selectAll">
+                            <label class="form-check-label" for="selectAll">Select All</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="requestsTable" class="table table-striped table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th width="30">
+                                        <input type="checkbox" class="form-check-input" id="selectAllHeader">
+                                    </th>
+                                    <th>Request Details</th>
+                                    <th>Requester</th>
+                                    <th>Type</th>
+                                    <th>Priority</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Sample requests data -->
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" class="form-check-input request-checkbox" value="1">
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <strong>Request to join Mobile App Project</strong>
+                                            <br>
+                                            <small class="text-muted">I would like to join the mobile app development project as a developer. I have experience with React Native and can contribute to the frontend development.</small>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-circle me-2">JD</div>
+                                            <div>
+                                                <strong>John Doe</strong>
+                                                <br>
+                                                <small class="text-muted">john.doe@email.com</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-primary">Project Join</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-warning">Medium</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-warning">Pending</span>
+                                    </td>
+                                    <td>@DateTime.Now.AddHours(-2).ToString("MMM dd, HH:mm")</td>
+                                    <td>
+                                        <div class="btn-group" role="group">
+                                            <button type="button" class="btn btn-sm btn-outline-primary" 
+                                                    onclick="viewRequest(1)" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-outline-success" 
+                                                    onclick="approveRequest(1)" title="Approve">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-outline-danger" 
+                                                    onclick="rejectRequest(1)" title="Reject">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-outline-info" 
+                                                    onclick="sendMessage(1)" title="Send Message">
+                                                <i class="fas fa-comment"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" class="form-check-input request-checkbox" value="2">
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <strong>Permission to access project resources</strong>
+                                            <br>
+                                            <small class="text-muted">Need access to the shared drive and development environment for the Web Development project.</small>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-circle me-2">JS</div>
+                                            <div>
+                                                <strong>Jane Smith</strong>
+                                                <br>
+                                                <small class="text-muted">jane.smith@email.com</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-info">Resource Access</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-danger">High</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-info">Under Review</span>
+                                    </td>
+                                    <td>@DateTime.Now.AddHours(-5).ToString("MMM dd, HH:mm")</td>
+                                    <td>
+                                        <div class="btn-group" role="group">
+                                            <button type="button" class="btn btn-sm btn-outline-primary" 
+                                                    onclick="viewRequest(2)" title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-outline-success" 
+                                                    onclick="approveRequest(2)" title="Approve">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-outline-danger" 
+                                                    onclick="rejectRequest(2)" title="Reject">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-outline-info" 
+                                                    onclick="sendMessage(2)" title="Send Message">
+                                                <i class="fas fa-comment"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Request Details Modal -->
+<div class="modal fade" id="requestDetailsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">
+                    <i class="fas fa-eye me-2"></i>Request Details
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div id="requestDetailsContent">
+                    <!-- Request details will be loaded here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-1"></i>Close
+                </button>
+                <button type="button" class="btn btn-success" onclick="approveFromModal()">
+                    <i class="fas fa-check me-1"></i>Approve
+                </button>
+                <button type="button" class="btn btn-danger" onclick="rejectFromModal()">
+                    <i class="fas fa-times me-1"></i>Reject
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Reject Request Modal -->
+<div class="modal fade" id="rejectModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title">
+                    <i class="fas fa-times-circle me-2"></i>Reject Request
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="rejectForm">
+                <div class="modal-body">
+                    <input type="hidden" id="rejectRequestId" name="RequestId">
+                    <div class="mb-3">
+                        <label for="rejectionReason" class="form-label">Reason for Rejection *</label>
+                        <select class="form-select" id="rejectionReason" name="Reason" required>
+                            <option value="">Select reason...</option>
+                            <option value="Insufficient Information">Insufficient Information</option>
+                            <option value="Does Not Meet Requirements">Does Not Meet Requirements</option>
+                            <option value="Project Full">Project Full</option>
+                            <option value="Timing Issues">Timing Issues</option>
+                            <option value="Resource Constraints">Resource Constraints</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="rejectionMessage" class="form-label">Additional Message</label>
+                        <textarea class="form-control" id="rejectionMessage" name="Message" rows="3" 
+                                  placeholder="Provide additional details about the rejection..."></textarea>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="notifyRequester" name="NotifyRequester" value="true" checked>
+                        <label class="form-check-label" for="notifyRequester">
+                            Notify requester via email
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-1"></i>Cancel
+                    </button>
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-times me-1"></i>Reject Request
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .avatar-circle {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    .card {
+        border: 1px solid #e3e6f0;
+        box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    }
+
+    .btn-group .btn {
+        margin-right: 2px;
+    }
+
+    .btn-group .btn:last-child {
+        margin-right: 0;
+    }
+
+    .table td {
+        vertical-align: middle;
+    }
+</style>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('#requestsTable').DataTable({
+                responsive: true,
+                pageLength: 10,
+                order: [[6, 'desc']], // Sort by date descending
+                columnDefs: [
+                    { orderable: false, targets: [0, 7] } // Disable sorting for checkbox and actions columns
+                ],
+                language: {
+                    search: "Search requests:",
+                    lengthMenu: "Show _MENU_ requests per page",
+                    info: "Showing _START_ to _END_ of _TOTAL_ requests",
+                    paginate: {
+                        first: "First",
+                        last: "Last",
+                        next: "Next",
+                        previous: "Previous"
+                    }
+                }
+            });
+
+            // Select all functionality
+            $('#selectAll, #selectAllHeader').on('change', function() {
+                var isChecked = $(this).prop('checked');
+                $('.request-checkbox').prop('checked', isChecked);
+                $('#selectAll, #selectAllHeader').prop('checked', isChecked);
+            });
+
+            // Individual checkbox change
+            $('.request-checkbox').on('change', function() {
+                var totalCheckboxes = $('.request-checkbox').length;
+                var checkedCheckboxes = $('.request-checkbox:checked').length;
+                
+                $('#selectAll, #selectAllHeader').prop('checked', totalCheckboxes === checkedCheckboxes);
+            });
+
+            // Reject form submission
+            $('#rejectForm').on('submit', function(e) {
+                e.preventDefault();
+                processRejection();
+            });
+        });
+
+        function filterRequests(status) {
+            $('#statusFilter').val(status);
+            applyFilters();
+        }
+
+        function applyFilters() {
+            var table = $('#requestsTable').DataTable();
+            var typeFilter = $('#requestTypeFilter').val();
+            var statusFilter = $('#statusFilter').val();
+            var searchInput = $('#searchInput').val();
+
+            // Apply search
+            table.search(searchInput).draw();
+            
+            // Apply filters (would need server-side implementation for full functionality)
+            if (statusFilter) {
+                table.column(5).search(statusFilter).draw();
+            } else {
+                table.column(5).search('').draw();
+            }
+        }
+
+        function viewRequest(requestId) {
+            $.ajax({
+                url: '@Url.Action("GetRequestDetails", "Manager")',
+                type: 'GET',
+                data: { id: requestId },
+                success: function(data) {
+                    $('#requestDetailsContent').html(data);
+                    $('#requestDetailsModal').data('request-id', requestId).modal('show');
+                },
+                error: function() {
+                    toastr.error('Failed to load request details');
+                }
+            });
+        }
+
+        function approveRequest(requestId) {
+            if (confirm('Are you sure you want to approve this request?')) {
+                $.ajax({
+                    url: '@Url.Action("ApproveRequest", "Manager")',
+                    type: 'POST',
+                    data: { id: requestId },
+                    success: function(response) {
+                        if (response.success) {
+                            toastr.success('Request approved successfully!');
+                            location.reload();
+                        } else {
+                            toastr.error(response.message || 'Failed to approve request');
+                        }
+                    },
+                    error: function() {
+                        toastr.error('An error occurred while approving the request');
+                    }
+                });
+            }
+        }
+
+        function rejectRequest(requestId) {
+            $('#rejectRequestId').val(requestId);
+            $('#rejectModal').modal('show');
+        }
+
+        function processRejection() {
+            var formData = $('#rejectForm').serialize();
+            
+            $.ajax({
+                url: '@Url.Action("RejectRequest", "Manager")',
+                type: 'POST',
+                data: formData,
+                success: function(response) {
+                    if (response.success) {
+                        $('#rejectModal').modal('hide');
+                        toastr.success('Request rejected successfully!');
+                        location.reload();
+                    } else {
+                        toastr.error(response.message || 'Failed to reject request');
+                    }
+                },
+                error: function() {
+                    toastr.error('An error occurred while rejecting the request');
+                }
+            });
+        }
+
+        function sendMessage(requestId) {
+            // Redirect to send notification with prefilled recipient
+            window.location.href = '@Url.Action("SendNotification", "Manager")' + '?requestId=' + requestId;
+        }
+
+        function bulkApprove() {
+            var selectedRequests = $('.request-checkbox:checked').map(function() {
+                return $(this).val();
+            }).get();
+
+            if (selectedRequests.length === 0) {
+                toastr.warning('Please select at least one request to approve');
+                return;
+            }
+
+            if (confirm(`Are you sure you want to approve ${selectedRequests.length} selected request(s)?`)) {
+                $.ajax({
+                    url: '@Url.Action("BulkApproveRequests", "Manager")',
+                    type: 'POST',
+                    data: { requestIds: selectedRequests },
+                    success: function(response) {
+                        if (response.success) {
+                            toastr.success(`${selectedRequests.length} request(s) approved successfully!`);
+                            location.reload();
+                        } else {
+                            toastr.error(response.message || 'Failed to approve requests');
+                        }
+                    },
+                    error: function() {
+                        toastr.error('An error occurred while approving the requests');
+                    }
+                });
+            }
+        }
+
+        function exportRequests() {
+            window.location.href = '@Url.Action("ExportRequests", "Manager")';
+        }
+
+        function refreshRequests() {
+            location.reload();
+        }
+
+        function approveFromModal() {
+            var requestId = $('#requestDetailsModal').data('request-id');
+            $('#requestDetailsModal').modal('hide');
+            approveRequest(requestId);
+        }
+
+        function rejectFromModal() {
+            var requestId = $('#requestDetailsModal').data('request-id');
+            $('#requestDetailsModal').modal('hide');
+            rejectRequest(requestId);
+        }
+    </script>
+}

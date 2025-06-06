@@ -1,0 +1,411 @@
+@model SPRM.Data.Entities.Project
+@{
+    ViewData["Title"] = "Project Details";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="text-primary">
+                    <i class="fas fa-project-diagram me-2"></i>Project Details
+                </h2>
+                <div>
+                    <a href="@Url.Action("ManageProjects", "Manager")" class="btn btn-outline-secondary me-2">
+                        <i class="fas fa-arrow-left me-1"></i>Back to Projects
+                    </a>
+                    <button type="button" class="btn btn-warning me-2" onclick="editProject('@Model.Id')">
+                        <i class="fas fa-edit me-1"></i>Edit Project
+                    </button>
+                    <button type="button" class="btn btn-danger" onclick="deleteProject('@Model.Id', '@Model.Name')">
+                        <i class="fas fa-trash me-1"></i>Delete Project
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Information -->
+    <div class="row mb-4">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-info-circle me-2"></i>Project Information
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Project Name:</label>
+                            <p class="form-control-plaintext">@Model.Name</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Status:</label>
+                            @{
+                                var statusClass = "badge ";
+                                var statusText = "Unknown";
+                                if (Model.EndDate.HasValue)
+                                {
+                                    if (Model.EndDate.Value < DateTime.Now)
+                                    {
+                                        statusClass += "bg-danger";
+                                        statusText = "Completed";
+                                    }
+                                    else if (Model.StartDate.HasValue && Model.StartDate.Value <= DateTime.Now)
+                                    {
+                                        statusClass += "bg-success";
+                                        statusText = "Active";
+                                    }
+                                    else
+                                    {
+                                        statusClass += "bg-warning";
+                                        statusText = "Pending";
+                                    }
+                                }
+                                else
+                                {
+                                    statusClass += "bg-secondary";
+                                    statusText = "Draft";
+                                }
+                            }
+                            <p class="form-control-plaintext">
+                                <span class="@statusClass">@statusText</span>
+                            </p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Start Date:</label>
+                            <p class="form-control-plaintext">
+                                @(Model.StartDate?.ToString("MMMM dd, yyyy") ?? "Not set")
+                            </p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">End Date:</label>
+                            <p class="form-control-plaintext">
+                                @(Model.EndDate?.ToString("MMMM dd, yyyy") ?? "Not set")
+                            </p>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label fw-bold">Description:</label>
+                            <div class="form-control-plaintext border rounded p-3 bg-light">
+                                @Model.Description
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-chart-pie me-2"></i>Project Stats
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-6 mb-3">
+                            <div class="border-end">
+                                <h4 class="text-primary mb-1">0</h4>
+                                <small class="text-muted">Total Members</small>
+                            </div>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <h4 class="text-success mb-1">0</h4>
+                            <small class="text-muted">Active Tasks</small>
+                        </div>
+                        <div class="col-6">
+                            <div class="border-end">
+                                <h4 class="text-warning mb-1">
+                                    @if (Model.EndDate.HasValue && Model.StartDate.HasValue)
+                                    {
+                                        var daysLeft = (Model.EndDate.Value - DateTime.Now).Days;
+                                        @(daysLeft > 0 ? daysLeft.ToString() : "0")
+                                    }
+                                    else
+                                    {
+                                        <span>-</span>
+                                    }
+                                </h4>
+                                <small class="text-muted">Days Left</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <h4 class="text-info mb-1">0%</h4>
+                            <small class="text-muted">Progress</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Members -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-users me-2"></i>Project Members
+                    </h5>
+                    <a href="@Url.Action("AssignMember", "Manager", new { projectId = Model.Id })" class="btn btn-light btn-sm">
+                        <i class="fas fa-user-plus me-1"></i>Assign Member
+                    </a>
+                </div>
+                <div class="card-body">
+                    <div id="projectMembers">
+                        <div class="text-center py-4">
+                            <i class="fas fa-users fa-3x text-muted mb-3"></i>
+                            <h6 class="text-muted">No members assigned yet</h6>
+                            <p class="text-muted">Assign team members to this project to get started.</p>
+                            <a href="@Url.Action("AssignMember", "Manager", new { projectId = Model.Id })" class="btn btn-primary">
+                                <i class="fas fa-user-plus me-1"></i>Assign First Member
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Timeline -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-timeline me-2"></i>Project Timeline
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker bg-primary"></div>
+                            <div class="timeline-content">
+                                <h6 class="timeline-title">Project Created</h6>
+                                <p class="timeline-text text-muted">Project "@Model.Name" was created</p>
+                                <small class="text-muted">
+                                    @(Model.StartDate?.ToString("MMM dd, yyyy") ?? "Date not set")
+                                </small>
+                            </div>
+                        </div>
+                        @if (Model.StartDate.HasValue && Model.StartDate.Value <= DateTime.Now)
+                        {
+                            <div class="timeline-item">
+                                <div class="timeline-marker bg-success"></div>
+                                <div class="timeline-content">
+                                    <h6 class="timeline-title">Project Started</h6>
+                                    <p class="timeline-text text-muted">Project development began</p>
+                                    <small class="text-muted">@Model.StartDate.Value.ToString("MMM dd, yyyy")</small>
+                                </div>
+                            </div>
+                        }
+                        @if (Model.EndDate.HasValue)
+                        {
+                            <div class="timeline-item">
+                                <div class="timeline-marker @(Model.EndDate.Value < DateTime.Now ? "bg-danger" : "bg-info")"></div>
+                                <div class="timeline-content">
+                                    <h6 class="timeline-title">
+                                        @(Model.EndDate.Value < DateTime.Now ? "Project Completed" : "Project Deadline")
+                                    </h6>
+                                    <p class="timeline-text text-muted">
+                                        @(Model.EndDate.Value < DateTime.Now ? "Project was completed" : "Project is scheduled to complete")
+                                    </p>
+                                    <small class="text-muted">@Model.EndDate.Value.ToString("MMM dd, yyyy")</small>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-bolt me-2"></i>Quick Actions
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3 mb-2">
+                            <a href="@Url.Action("AssignMember", "Manager", new { projectId = Model.Id })" 
+                               class="btn btn-outline-primary w-100">
+                                <i class="fas fa-user-plus me-1"></i>Assign Member
+                            </a>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <a href="@Url.Action("SendNotification", "Manager", new { projectId = Model.Id })" 
+                               class="btn btn-outline-info w-100">
+                                <i class="fas fa-bell me-1"></i>Send Notification
+                            </a>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <button type="button" class="btn btn-outline-warning w-100" onclick="editProject('@Model.Id')">
+                                <i class="fas fa-edit me-1"></i>Edit Project
+                            </button>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <button type="button" class="btn btn-outline-success w-100" onclick="generateReport('@Model.Id')">
+                                <i class="fas fa-file-alt me-1"></i>Generate Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Project Modal -->
+<div class="modal fade" id="editProjectModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-warning text-dark">
+                <h5 class="modal-title">
+                    <i class="fas fa-edit me-2"></i>Edit Project
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="editProjectForm">
+                <div class="modal-body">
+                    <input type="hidden" id="editProjectId" name="Id" value="@Model.Id">
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label for="editProjectName" class="form-label">Project Name *</label>
+                            <input type="text" class="form-control" id="editProjectName" name="Name" value="@Model.Name" required>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label for="editProjectDescription" class="form-label">Description *</label>
+                            <textarea class="form-control" id="editProjectDescription" name="Description" rows="3" required>@Model.Description</textarea>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="editStartDate" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="editStartDate" name="StartDate" 
+                                   value="@(Model.StartDate?.ToString("yyyy-MM-dd"))">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="editEndDate" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="editEndDate" name="EndDate" 
+                                   value="@(Model.EndDate?.ToString("yyyy-MM-dd"))">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-1"></i>Cancel
+                    </button>
+                    <button type="submit" class="btn btn-warning">
+                        <i class="fas fa-save me-1"></i>Update Project
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .timeline {
+        position: relative;
+        padding-left: 30px;
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 15px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: #dee2e6;
+    }
+
+    .timeline-item {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .timeline-marker {
+        position: absolute;
+        left: -23px;
+        top: 0;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+    }
+
+    .timeline-content {
+        padding-left: 15px;
+    }
+
+    .timeline-title {
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+    .timeline-text {
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+    }
+</style>
+
+@section Scripts {
+    <script>
+        function editProject(projectId) {
+            $('#editProjectModal').modal('show');
+        }
+
+        function deleteProject(projectId, projectName) {
+            if (confirm(`Are you sure you want to delete the project "${projectName}"? This action cannot be undone.`)) {
+                $.ajax({
+                    url: '@Url.Action("DeleteProject", "Manager")',
+                    type: 'POST',
+                    data: { id: projectId },
+                    success: function(response) {
+                        if (response.success) {
+                            toastr.success('Project deleted successfully!');
+                            window.location.href = '@Url.Action("ManageProjects", "Manager")';
+                        } else {
+                            toastr.error(response.message || 'Failed to delete project');
+                        }
+                    },
+                    error: function() {
+                        toastr.error('An error occurred while deleting the project');
+                    }
+                });
+            }
+        }
+
+        function generateReport(projectId) {
+            toastr.info('Generating project report...');
+            // Implement report generation logic here
+        }
+
+        // Edit project form submission
+        $('#editProjectForm').on('submit', function(e) {
+            e.preventDefault();
+            
+            $.ajax({
+                url: '@Url.Action("UpdateProject", "Manager")',
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function(response) {
+                    if (response.success) {
+                        $('#editProjectModal').modal('hide');
+                        toastr.success('Project updated successfully!');
+                        location.reload();
+                    } else {
+                        toastr.error(response.message || 'Failed to update project');
+                    }
+                },
+                error: function() {
+                    toastr.error('An error occurred while updating the project');
+                }
+            });
+        });
+    </script>
+}

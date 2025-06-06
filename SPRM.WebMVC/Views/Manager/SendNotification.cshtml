@@ -1,0 +1,460 @@
+@{
+    ViewData["Title"] = "Send Notification";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="text-primary">
+                    <i class="fas fa-bell me-2"></i>Send Notification
+                </h2>
+                <div>
+                    <a href="@Url.Action("Index", "Manager")" class="btn btn-outline-secondary me-2">
+                        <i class="fas fa-arrow-left me-1"></i>Back to Dashboard
+                    </a>
+                    <a href="@Url.Action("Notifications", "Manager")" class="btn btn-outline-info">
+                        <i class="fas fa-history me-1"></i>Notification History
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-envelope me-2"></i>Compose Notification
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form id="notificationForm">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="notificationType" class="form-label">Notification Type *</label>
+                                <select class="form-select" id="notificationType" name="Type" required>
+                                    <option value="">Select type...</option>
+                                    <option value="General">General Announcement</option>
+                                    <option value="Project">Project Update</option>
+                                    <option value="Deadline">Deadline Reminder</option>
+                                    <option value="Meeting">Meeting Invitation</option>
+                                    <option value="Task">Task Assignment</option>
+                                    <option value="Warning">Warning/Alert</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="priority" class="form-label">Priority *</label>
+                                <select class="form-select" id="priority" name="Priority" required>
+                                    <option value="">Select priority...</option>
+                                    <option value="Low">Low</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="High">High</option>
+                                    <option value="Urgent">Urgent</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="recipientType" class="form-label">Send To *</label>
+                                <select class="form-select" id="recipientType" name="RecipientType" required>
+                                    <option value="">Select recipients...</option>
+                                    <option value="All">All Team Members</option>
+                                    <option value="Project">Specific Project</option>
+                                    <option value="Role">Specific Role</option>
+                                    <option value="Individual">Individual Members</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6" id="specificRecipients" style="display: none;">
+                                <label for="recipients" class="form-label">Recipients *</label>
+                                <select class="form-select" id="recipients" name="Recipients" multiple>
+                                    <!-- Options will be loaded based on recipient type -->
+                                </select>
+                                <div class="form-text">Hold Ctrl/Cmd to select multiple items</div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject *</label>
+                            <input type="text" class="form-control" id="subject" name="Subject" required 
+                                   placeholder="Enter notification subject...">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message *</label>
+                            <textarea class="form-control" id="message" name="Message" rows="6" required 
+                                      placeholder="Enter your notification message..."></textarea>
+                            <div class="form-text">
+                                <span id="messageCount">0</span> characters
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="scheduleDate" class="form-label">Schedule Date (Optional)</label>
+                                <input type="datetime-local" class="form-control" id="scheduleDate" name="ScheduleDate">
+                                <div class="form-text">Leave empty to send immediately</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="expiryDate" class="form-label">Expiry Date (Optional)</label>
+                                <input type="datetime-local" class="form-control" id="expiryDate" name="ExpiryDate">
+                                <div class="form-text">When notification should expire</div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="emailNotification" name="SendEmail" value="true">
+                                <label class="form-check-label" for="emailNotification">
+                                    Also send as email notification
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="requireAcknowledgment" name="RequireAcknowledgment" value="true">
+                                <label class="form-check-label" for="requireAcknowledgment">
+                                    Require acknowledgment from recipients
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <button type="button" class="btn btn-outline-info" id="previewBtn">
+                                    <i class="fas fa-eye me-1"></i>Preview
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary" id="saveDraftBtn">
+                                    <i class="fas fa-save me-1"></i>Save Draft
+                                </button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-secondary me-2" onclick="resetForm()">
+                                    <i class="fas fa-undo me-1"></i>Reset
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane me-1"></i>Send Notification
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <!-- Quick Templates -->
+            <div class="card mb-3">
+                <div class="card-header bg-success text-white">
+                    <h6 class="card-title mb-0">
+                        <i class="fas fa-clipboard-list me-2"></i>Quick Templates
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="loadTemplate('deadline')">
+                            <i class="fas fa-clock me-1"></i>Deadline Reminder
+                        </button>
+                        <button type="button" class="btn btn-outline-info btn-sm" onclick="loadTemplate('meeting')">
+                            <i class="fas fa-users me-1"></i>Meeting Invitation
+                        </button>
+                        <button type="button" class="btn btn-outline-warning btn-sm" onclick="loadTemplate('update')">
+                            <i class="fas fa-bullhorn me-1"></i>Project Update
+                        </button>
+                        <button type="button" class="btn btn-outline-success btn-sm" onclick="loadTemplate('welcome')">
+                            <i class="fas fa-hand-wave me-1"></i>Welcome Message
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notification Stats -->
+            <div class="card mb-3">
+                <div class="card-header bg-info text-white">
+                    <h6 class="card-title mb-0">
+                        <i class="fas fa-chart-bar me-2"></i>Recent Stats
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-6 mb-2">
+                            <h5 class="text-primary mb-0">12</h5>
+                            <small class="text-muted">Sent Today</small>
+                        </div>
+                        <div class="col-6 mb-2">
+                            <h5 class="text-success mb-0">85%</h5>
+                            <small class="text-muted">Read Rate</small>
+                        </div>
+                        <div class="col-6">
+                            <h5 class="text-warning mb-0">3</h5>
+                            <small class="text-muted">Pending</small>
+                        </div>
+                        <div class="col-6">
+                            <h5 class="text-info mb-0">45</h5>
+                            <small class="text-muted">This Week</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guidelines -->
+            <div class="card">
+                <div class="card-header bg-warning text-dark">
+                    <h6 class="card-title mb-0">
+                        <i class="fas fa-lightbulb me-2"></i>Guidelines
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <small>
+                        <ul class="mb-0">
+                            <li>Keep messages clear and concise</li>
+                            <li>Use appropriate priority levels</li>
+                            <li>Include action items when necessary</li>
+                            <li>Consider time zones for scheduling</li>
+                            <li>Test with preview before sending</li>
+                        </ul>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Preview Modal -->
+<div class="modal fade" id="previewModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-info text-white">
+                <h5 class="modal-title">
+                    <i class="fas fa-eye me-2"></i>Notification Preview
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div id="previewContent">
+                    <!-- Preview content will be loaded here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-1"></i>Close
+                </button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="$('#notificationForm').submit()">
+                    <i class="fas fa-paper-plane me-1"></i>Send Now
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Character counter
+            $('#message').on('input', function() {
+                $('#messageCount').text($(this).val().length);
+            });
+
+            // Recipient type change
+            $('#recipientType').on('change', function() {
+                var type = $(this).val();
+                if (type === 'All') {
+                    $('#specificRecipients').hide();
+                } else {
+                    $('#specificRecipients').show();
+                    loadRecipients(type);
+                }
+            });
+
+            // Form submission
+            $('#notificationForm').on('submit', function(e) {
+                e.preventDefault();
+                sendNotification();
+            });
+
+            // Preview button
+            $('#previewBtn').on('click', function() {
+                showPreview();
+            });
+
+            // Save draft button
+            $('#saveDraftBtn').on('click', function() {
+                saveDraft();
+            });
+        });
+
+        function loadRecipients(type) {
+            var url = '';
+            switch(type) {
+                case 'Project':
+                    url = '@Url.Action("GetProjects", "Manager")';
+                    break;
+                case 'Role':
+                    url = '@Url.Action("GetRoles", "Manager")';
+                    break;
+                case 'Individual':
+                    url = '@Url.Action("GetMembers", "Manager")';
+                    break;
+            }
+
+            if (url) {
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    success: function(data) {
+                        var select = $('#recipients');
+                        select.empty();
+                        
+                        $.each(data, function(index, item) {
+                            var value = item.id || item.value;
+                            var text = item.name || item.text || `${item.firstName} ${item.lastName}`;
+                            select.append(`<option value="${value}">${text}</option>`);
+                        });
+                    },
+                    error: function() {
+                        toastr.error('Failed to load recipients');
+                    }
+                });
+            }
+        }
+
+        function loadTemplate(templateType) {
+            var templates = {
+                deadline: {
+                    type: 'Deadline',
+                    priority: 'High',
+                    subject: 'Project Deadline Reminder',
+                    message: 'This is a reminder that your project deadline is approaching. Please ensure all deliverables are completed on time.\n\nDeadline: [DATE]\nProject: [PROJECT_NAME]\n\nIf you need any assistance, please contact the project manager immediately.'
+                },
+                meeting: {
+                    type: 'Meeting',
+                    priority: 'Medium',
+                    subject: 'Team Meeting Invitation',
+                    message: 'You are invited to attend our team meeting.\n\nDate: [DATE]\nTime: [TIME]\nLocation: [LOCATION]\nAgenda: [AGENDA]\n\nPlease confirm your attendance.'
+                },
+                update: {
+                    type: 'Project',
+                    priority: 'Medium',
+                    subject: 'Project Status Update',
+                    message: 'Here is the latest update on our project progress:\n\n[PROJECT_UPDATES]\n\nNext steps:\n- [STEP_1]\n- [STEP_2]\n\nPlease review and let us know if you have any questions.'
+                },
+                welcome: {
+                    type: 'General',
+                    priority: 'Low',
+                    subject: 'Welcome to the Team!',
+                    message: 'Welcome to our project team! We are excited to have you on board.\n\nProject: [PROJECT_NAME]\nYour Role: [ROLE]\n\nPlease review the project documentation and don\'t hesitate to reach out if you have any questions.'
+                }
+            };
+
+            var template = templates[templateType];
+            if (template) {
+                $('#notificationType').val(template.type);
+                $('#priority').val(template.priority);
+                $('#subject').val(template.subject);
+                $('#message').val(template.message);
+                $('#messageCount').text(template.message.length);
+            }
+        }
+
+        function showPreview() {
+            var formData = {
+                type: $('#notificationType').val(),
+                priority: $('#priority').val(),
+                subject: $('#subject').val(),
+                message: $('#message').val(),
+                recipientType: $('#recipientType').val()
+            };
+
+            var priorityClass = {
+                'Low': 'success',
+                'Medium': 'info',
+                'High': 'warning',
+                'Urgent': 'danger'
+            };
+
+            var previewHtml = `
+                <div class="notification-preview p-3 border">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <h6 class="mb-0">${formData.subject}</h6>
+                        <span class="badge bg-${priorityClass[formData.priority] || 'secondary'}">${formData.priority}</span>
+                    </div>
+                    <div class="d-flex justify-content-between text-muted small mb-3">
+                        <span><i class="fas fa-tag me-1"></i>${formData.type}</span>
+                        <span><i class="fas fa-users me-1"></i>${formData.recipientType}</span>
+                        <span><i class="fas fa-clock me-1"></i>Now</span>
+                    </div>
+                    <div class="message-content">
+                        ${formData.message.replace(/\n/g, '<br>')}
+                    </div>
+                </div>
+            `;
+
+            $('#previewContent').html(previewHtml);
+            $('#previewModal').modal('show');
+        }
+
+        function sendNotification() {
+            var formData = $('#notificationForm').serialize();
+            
+            $.ajax({
+                url: '@Url.Action("SendNotification", "Manager")',
+                type: 'POST',
+                data: formData,
+                success: function(response) {
+                    if (response.success) {
+                        toastr.success('Notification sent successfully!');
+                        resetForm();
+                    } else {
+                        toastr.error(response.message || 'Failed to send notification');
+                    }
+                },
+                error: function() {
+                    toastr.error('An error occurred while sending the notification');
+                }
+            });
+        }
+
+        function saveDraft() {
+            var formData = $('#notificationForm').serialize();
+            
+            $.ajax({
+                url: '@Url.Action("SaveNotificationDraft", "Manager")',
+                type: 'POST',
+                data: formData,
+                success: function(response) {
+                    if (response.success) {
+                        toastr.success('Draft saved successfully!');
+                    } else {
+                        toastr.error(response.message || 'Failed to save draft');
+                    }
+                },
+                error: function() {
+                    toastr.error('An error occurred while saving the draft');
+                }
+            });
+        }
+
+        function resetForm() {
+            $('#notificationForm')[0].reset();
+            $('#specificRecipients').hide();
+            $('#messageCount').text('0');
+        }
+    </script>
+
+    <style>
+        .notification-preview {
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .message-content {
+            white-space: pre-wrap;
+            line-height: 1.5;
+        }
+
+        .card {
+            border: 1px solid #e3e6f0;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+        }
+    </style>
+}

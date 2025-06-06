@@ -19,6 +19,7 @@ namespace SPRM.Data
         public DbSet<Evaluation> Evaluations { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<SystemSetting> SystemSettings { get; set; }
+        public DbSet<ProjectMembership> ProjectMemberships { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -59,6 +60,16 @@ namespace SPRM.Data
                 .HasOne(ur => ur.User)
                 .WithMany()
                 .HasForeignKey(ur => ur.UserId);
+
+            modelBuilder.Entity<ProjectMembership>()
+                .HasOne(pm => pm.Project)
+                .WithMany()
+                .HasForeignKey(pm => pm.ProjectId);
+
+            modelBuilder.Entity<ProjectMembership>()
+                .HasOne(pm => pm.User)
+                .WithMany()
+                .HasForeignKey(pm => pm.UserId);
 
             // Configure decimal precision
             modelBuilder.Entity<Project>()

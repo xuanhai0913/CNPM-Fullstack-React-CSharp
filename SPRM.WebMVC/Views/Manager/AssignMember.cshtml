@@ -1,0 +1,384 @@
+@{
+    ViewData["Title"] = "Assign Member";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="text-primary">
+                    <i class="fas fa-user-plus me-2"></i>Assign Member to Project
+                </h2>
+                <div>
+                    <a href="@Url.Action("ManageMembers", "Manager")" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left me-1"></i>Back to Members
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-plus-circle me-2"></i>Assignment Details
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form id="assignMemberForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="selectProject" class="form-label">Select Project *</label>
+                                <select class="form-select" id="selectProject" name="ProjectId" required>
+                                    <option value="">Choose a project...</option>
+                                    <!-- Projects will be loaded via AJAX -->
+                                </select>
+                                <div class="form-text">Select the project to assign the member to.</div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="selectMember" class="form-label">Select Member *</label>
+                                <select class="form-select" id="selectMember" name="MemberId" required>
+                                    <option value="">Choose a member...</option>
+                                    <!-- Members will be loaded via AJAX -->
+                                </select>
+                                <div class="form-text">Select the team member to assign.</div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="memberRole" class="form-label">Role in Project *</label>
+                                <select class="form-select" id="memberRole" name="Role" required>
+                                    <option value="">Select role...</option>
+                                    <option value="Team Member">Team Member</option>
+                                    <option value="Team Lead">Team Lead</option>
+                                    <option value="Developer">Developer</option>
+                                    <option value="Designer">Designer</option>
+                                    <option value="Analyst">Analyst</option>
+                                    <option value="Tester">Tester</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="assignmentDate" class="form-label">Assignment Date</label>
+                                <input type="date" class="form-control" id="assignmentDate" name="AssignmentDate" 
+                                       value="@DateTime.Now.ToString("yyyy-MM-dd")">
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="responsibilities" class="form-label">Responsibilities</label>
+                                <textarea class="form-control" id="responsibilities" name="Responsibilities" rows="3" 
+                                          placeholder="Describe the member's responsibilities in this project..."></textarea>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="notes" class="form-label">Additional Notes</label>
+                                <textarea class="form-control" id="notes" name="Notes" rows="2" 
+                                          placeholder="Any additional notes or comments..."></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-end gap-2">
+                            <button type="button" class="btn btn-secondary" onclick="window.history.back()">
+                                <i class="fas fa-times me-1"></i>Cancel
+                            </button>
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-user-plus me-1"></i>Assign Member
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4">
+            <!-- Project Preview -->
+            <div class="card mb-3" id="projectPreview" style="display: none;">
+                <div class="card-header bg-info text-white">
+                    <h6 class="card-title mb-0">
+                        <i class="fas fa-project-diagram me-2"></i>Project Preview
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div id="projectDetails">
+                        <!-- Project details will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Member Preview -->
+            <div class="card mb-3" id="memberPreview" style="display: none;">
+                <div class="card-header bg-warning text-dark">
+                    <h6 class="card-title mb-0">
+                        <i class="fas fa-user me-2"></i>Member Preview
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div id="memberDetails">
+                        <!-- Member details will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assignment Tips -->
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h6 class="card-title mb-0">
+                        <i class="fas fa-lightbulb me-2"></i>Assignment Tips
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info">
+                        <small>
+                            <strong>Best Practices:</strong>
+                            <ul class="mb-0 mt-2">
+                                <li>Clearly define roles and responsibilities</li>
+                                <li>Consider member's skills and availability</li>
+                                <li>Set realistic expectations</li>
+                                <li>Provide necessary project context</li>
+                            </ul>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Confirmation Modal -->
+<div class="modal fade" id="confirmAssignmentModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title">
+                    <i class="fas fa-check-circle me-2"></i>Confirm Assignment
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div id="assignmentSummary">
+                    <!-- Assignment summary will be displayed here -->
+                </div>
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    Are you sure you want to assign this member to the project? The member will be notified automatically.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-1"></i>Cancel
+                </button>
+                <button type="button" class="btn btn-success" id="confirmAssignBtn">
+                    <i class="fas fa-check me-1"></i>Confirm Assignment
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            loadProjects();
+            loadMembers();
+
+            // Project selection change
+            $('#selectProject').on('change', function() {
+                var projectId = $(this).val();
+                if (projectId) {
+                    loadProjectPreview(projectId);
+                    $('#projectPreview').show();
+                } else {
+                    $('#projectPreview').hide();
+                }
+            });
+
+            // Member selection change
+            $('#selectMember').on('change', function() {
+                var memberId = $(this).val();
+                if (memberId) {
+                    loadMemberPreview(memberId);
+                    $('#memberPreview').show();
+                } else {
+                    $('#memberPreview').hide();
+                }
+            });
+
+            // Form submission
+            $('#assignMemberForm').on('submit', function(e) {
+                e.preventDefault();
+                showConfirmationModal();
+            });
+
+            // Confirm assignment
+            $('#confirmAssignBtn').on('click', function() {
+                performAssignment();
+            });
+        });
+
+        function loadProjects() {
+            $.ajax({
+                url: '@Url.Action("GetProjects", "Manager")',
+                type: 'GET',
+                success: function(projects) {
+                    var select = $('#selectProject');
+                    select.empty().append('<option value="">Choose a project...</option>');
+                    
+                    $.each(projects, function(index, project) {
+                        select.append(`<option value="${project.id}">${project.name}</option>`);
+                    });
+                },
+                error: function() {
+                    toastr.error('Failed to load projects');
+                }
+            });
+        }
+
+        function loadMembers() {
+            $.ajax({
+                url: '@Url.Action("GetAvailableMembers", "Manager")',
+                type: 'GET',
+                success: function(members) {
+                    var select = $('#selectMember');
+                    select.empty().append('<option value="">Choose a member...</option>');
+                    
+                    $.each(members, function(index, member) {
+                        select.append(`<option value="${member.id}">${member.firstName} ${member.lastName}</option>`);
+                    });
+                },
+                error: function() {
+                    toastr.error('Failed to load members');
+                }
+            });
+        }
+
+        function loadProjectPreview(projectId) {
+            $.ajax({
+                url: '@Url.Action("GetProject", "Manager")',
+                type: 'GET',
+                data: { id: projectId },
+                success: function(project) {
+                    var html = `
+                        <h6 class="fw-bold">${project.name}</h6>
+                        <p class="text-muted small mb-2">${project.description}</p>
+                        <div class="row">
+                            <div class="col-6">
+                                <small class="text-muted">Start Date:</small><br>
+                                <small>${project.startDate ? new Date(project.startDate).toLocaleDateString() : 'Not set'}</small>
+                            </div>
+                            <div class="col-6">
+                                <small class="text-muted">End Date:</small><br>
+                                <small>${project.endDate ? new Date(project.endDate).toLocaleDateString() : 'Not set'}</small>
+                            </div>
+                        </div>
+                    `;
+                    $('#projectDetails').html(html);
+                },
+                error: function() {
+                    toastr.error('Failed to load project details');
+                }
+            });
+        }
+
+        function loadMemberPreview(memberId) {
+            $.ajax({
+                url: '@Url.Action("GetMember", "Manager")',
+                type: 'GET',
+                data: { id: memberId },
+                success: function(member) {
+                    var html = `
+                        <div class="d-flex align-items-center mb-2">
+                            <div class="avatar-circle me-3">
+                                ${member.firstName ? member.firstName.charAt(0).toUpperCase() : '?'}${member.lastName ? member.lastName.charAt(0).toUpperCase() : ''}
+                            </div>
+                            <div>
+                                <h6 class="mb-0">${member.firstName} ${member.lastName}</h6>
+                                <small class="text-muted">${member.email}</small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <small class="text-muted">Current Role:</small><br>
+                                <span class="badge bg-info">Student</span>
+                            </div>
+                        </div>
+                    `;
+                    $('#memberDetails').html(html);
+                },
+                error: function() {
+                    toastr.error('Failed to load member details');
+                }
+            });
+        }
+
+        function showConfirmationModal() {
+            var projectName = $('#selectProject option:selected').text();
+            var memberName = $('#selectMember option:selected').text();
+            var role = $('#memberRole').val();
+            
+            var summary = `
+                <div class="row">
+                    <div class="col-sm-4"><strong>Project:</strong></div>
+                    <div class="col-sm-8">${projectName}</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4"><strong>Member:</strong></div>
+                    <div class="col-sm-8">${memberName}</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4"><strong>Role:</strong></div>
+                    <div class="col-sm-8">${role}</div>
+                </div>
+            `;
+            
+            $('#assignmentSummary').html(summary);
+            $('#confirmAssignmentModal').modal('show');
+        }
+
+        function performAssignment() {
+            var formData = $('#assignMemberForm').serialize();
+            
+            $.ajax({
+                url: '@Url.Action("AssignMember", "Manager")',
+                type: 'POST',
+                data: formData,
+                success: function(response) {
+                    if (response.success) {
+                        $('#confirmAssignmentModal').modal('hide');
+                        toastr.success('Member assigned successfully!');
+                        
+                        // Reset form
+                        $('#assignMemberForm')[0].reset();
+                        $('#projectPreview, #memberPreview').hide();
+                        
+                        // Redirect after a short delay
+                        setTimeout(function() {
+                            window.location.href = '@Url.Action("ManageMembers", "Manager")';
+                        }, 2000);
+                    } else {
+                        toastr.error(response.message || 'Failed to assign member');
+                    }
+                },
+                error: function() {
+                    toastr.error('An error occurred while assigning the member');
+                }
+            });
+        }
+    </script>
+
+    <style>
+        .avatar-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .card {
+            border: 1px solid #e3e6f0;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+        }
+    </style>
+}
