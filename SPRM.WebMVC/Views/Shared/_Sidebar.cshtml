@@ -1,0 +1,187 @@
+@{
+    var currentController = ViewContext.RouteData.Values["Controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["Action"]?.ToString();
+    var userRole = Context.Session.GetString("UserRole");
+}
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span class="logo-text">SPRM</span>
+        </div>
+        <button class="sidebar-toggle" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <div class="sidebar-content">
+        <!-- User Profile -->
+        @if (!string.IsNullOrEmpty(Context.Session.GetString("UserId")))
+        {
+            <div class="user-profile">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-info">
+                    <div class="user-name">@(Context.Session.GetString("FullName") ?? Context.Session.GetString("UserName"))</div>
+                    <div class="user-role">@Context.Session.GetString("UserRole")</div>
+                </div>
+            </div>
+        }
+
+        <!-- Navigation Menu -->
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <!-- Dashboard -->
+                <li class="nav-item">
+                    @if (userRole == "Administrator" || userRole == "Admin")
+                    {
+                        <a href="@Url.Action("Index", "Admin")" class="nav-link @(currentController == "Admin" && currentAction == "Index" ? "active" : "")">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <span class="nav-text">Dashboard Admin</span>
+                        </a>
+                    }
+                    else if (userRole == "Manager" || userRole == "Staff")
+                    {
+                        <a href="@Url.Action("Index", "Manager")" class="nav-link @(currentController == "Manager" && currentAction == "Index" ? "active" : "")">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <span class="nav-text">Dashboard Manager</span>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Index", "Home")" class="nav-link @(currentController == "Home" && currentAction == "Index" ? "active" : "")">
+                            <i class="nav-icon fas fa-home"></i>
+                            <span class="nav-text">Trang chủ</span>
+                        </a>
+                    }
+                </li>
+
+                <!-- Projects -->
+                <li class="nav-item">
+                    <a href="@Url.Action("Index", "Project")" class="nav-link @(currentController == "Project" ? "active" : "")">
+                        <i class="nav-icon fas fa-project-diagram"></i>
+                        <span class="nav-text">Dự án</span>
+                    </a>
+                </li>
+
+                @if (userRole == "Administrator" || userRole == "Admin")
+                {
+                    <!-- Admin Menu -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link has-submenu @(currentController == "Admin" && currentAction != "Index" ? "active" : "")" data-toggle="submenu">
+                            <i class="nav-icon fas fa-cogs"></i>
+                            <span class="nav-text">Quản trị hệ thống</span>
+                            <i class="submenu-arrow fas fa-chevron-right"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="@Url.Action("ManageUsers", "Admin")" class="submenu-link @(currentController == "Admin" && currentAction == "ManageUsers" ? "active" : "")">
+                                <i class="fas fa-users"></i> Quản lý người dùng
+                            </a></li>
+                            <li><a href="@Url.Action("CreateUser", "Admin")" class="submenu-link @(currentController == "Admin" && currentAction == "CreateUser" ? "active" : "")">
+                                <i class="fas fa-user-plus"></i> Tạo người dùng
+                            </a></li>
+                            <li><a href="@Url.Action("DatabaseManagement", "Admin")" class="submenu-link @(currentController == "Admin" && currentAction == "DatabaseManagement" ? "active" : "")">
+                                <i class="fas fa-database"></i> Quản lý Database
+                            </a></li>
+                            <li><a href="@Url.Action("SystemSettings", "Admin")" class="submenu-link @(currentController == "Admin" && currentAction == "SystemSettings" ? "active" : "")">
+                                <i class="fas fa-cog"></i> Cài đặt hệ thống
+                            </a></li>
+                        </ul>
+                    </li>
+                }
+
+                @if (userRole == "Manager" || userRole == "Staff")
+                {
+                    <!-- Manager Menu -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link has-submenu @(currentController == "Manager" && currentAction != "Index" ? "active" : "")" data-toggle="submenu">
+                            <i class="nav-icon fas fa-users-cog"></i>
+                            <span class="nav-text">Quản lý dự án</span>
+                            <i class="submenu-arrow fas fa-chevron-right"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="@Url.Action("ManageProjects", "Manager")" class="submenu-link @(currentController == "Manager" && currentAction == "ManageProjects" ? "active" : "")">
+                                <i class="fas fa-project-diagram"></i> Quản lý dự án
+                            </a></li>
+                            <li><a href="@Url.Action("ManageMembers", "Manager")" class="submenu-link @(currentController == "Manager" && currentAction == "ManageMembers" ? "active" : "")">
+                                <i class="fas fa-users"></i> Quản lý thành viên
+                            </a></li>
+                            <li><a href="@Url.Action("AssignMember", "Manager")" class="submenu-link @(currentController == "Manager" && currentAction == "AssignMember" ? "active" : "")">
+                                <i class="fas fa-user-plus"></i> Phân công thành viên
+                            </a></li>
+                            <li><a href="@Url.Action("HandleRequests", "Manager")" class="submenu-link @(currentController == "Manager" && currentAction == "HandleRequests" ? "active" : "")">
+                                <i class="fas fa-tasks"></i> Xử lý yêu cầu
+                            </a></li>
+                            <li><a href="@Url.Action("Notifications", "Manager")" class="submenu-link @(currentController == "Manager" && currentAction == "Notifications" ? "active" : "")">
+                                <i class="fas fa-bell"></i> Thông báo
+                            </a></li>
+                        </ul>
+                    </li>
+                }
+
+                @if (!string.IsNullOrEmpty(Context.Session.GetString("UserId")))
+                {
+                    <!-- Account -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link has-submenu @(currentController == "Account" ? "active" : "")" data-toggle="submenu">
+                            <i class="nav-icon fas fa-user-circle"></i>
+                            <span class="nav-text">Tài khoản</span>
+                            <i class="submenu-arrow fas fa-chevron-right"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="@Url.Action("Profile", "Account")" class="submenu-link @(currentController == "Account" && currentAction == "Profile" ? "active" : "")">
+                                <i class="fas fa-user"></i> Hồ sơ cá nhân
+                            </a></li>
+                            <li><a href="@Url.Action("EditProfile", "Account")" class="submenu-link @(currentController == "Account" && currentAction == "EditProfile" ? "active" : "")">
+                                <i class="fas fa-edit"></i> Chỉnh sửa hồ sơ
+                            </a></li>
+                            <li><a href="@Url.Action("ChangePassword", "Account")" class="submenu-link @(currentController == "Account" && currentAction == "ChangePassword" ? "active" : "")">
+                                <i class="fas fa-key"></i> Đổi mật khẩu
+                            </a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Logout -->
+                    <li class="nav-item">
+                        <form asp-controller="Account" asp-action="Logout" method="post" class="nav-form">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="nav-link nav-logout" onclick="return confirm('Bạn có chắc chắn muốn đăng xuất?');">
+                                <i class="nav-icon fas fa-sign-out-alt"></i>
+                                <span class="nav-text">Đăng xuất</span>
+                            </button>
+                        </form>
+                    </li>
+                }
+                else
+                {
+                    <!-- Login/Register -->
+                    <li class="nav-item">
+                        <a href="@Url.Action("Login", "Account")" class="nav-link @(currentController == "Account" && currentAction == "Login" ? "active" : "")">
+                            <i class="nav-icon fas fa-sign-in-alt"></i>
+                            <span class="nav-text">Đăng nhập</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("Register", "Account")" class="nav-link @(currentController == "Account" && currentAction == "Register" ? "active" : "")">
+                            <i class="nav-icon fas fa-user-plus"></i>
+                            <span class="nav-text">Đăng ký</span>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Sidebar Footer -->
+    <div class="sidebar-footer">
+        <div class="version-info">
+            <small class="text-muted">SPRM v1.0.0</small>
+        </div>
+    </div>
+</div>
+
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>

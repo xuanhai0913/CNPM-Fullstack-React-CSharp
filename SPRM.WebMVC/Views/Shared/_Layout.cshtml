@@ -9,16 +9,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="~/lib/aos/aos.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/aos/aos.css" />    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/modern-style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/sidebar.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SPRM.WebMVC.styles.css" asp-append-version="true" />
-    @await RenderSectionAsync("Styles", required: false)
+        @await RenderSectionAsync("Styles", required: false)
 </head>
-<body class="d-flex flex-column min-vh-100">
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top">
-            <div class="container">
+@{
+    var hasSidebar = !string.IsNullOrEmpty(Context.Session.GetString("UserId"));
+}
+<body class="d-flex flex-column min-vh-100 @(hasSidebar ? "has-sidebar" : "")">
+    @if (hasSidebar)
+    {
+        <!-- Include Sidebar only for authenticated users -->
+        @await Html.PartialAsync("_Sidebar")
+    }
+    
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top">            <div class="container">
                 <a class="navbar-brand fw-bold" asp-area="" asp-controller="Home" asp-action="Index">
                     <i class="fas fa-graduation-cap me-2"></i>SPRM
                 </a>
@@ -26,23 +34,15 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-lg-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-lg-inline-flex justify-content-between">                    <!-- Left navigation -->
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
-                                <i class="fas fa-home me-1"></i> Trang chủ
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Project" asp-action="Index">
-                                <i class="fas fa-project-diagram me-1"></i> Dự án
-                            </a>
-                        </li>                        @if (Context.Session.GetString("UserRole") == "Administrator" || Context.Session.GetString("UserRole") == "Admin")
+                        @if (!string.IsNullOrEmpty(Context.Session.GetString("UserId")))
                         {
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Index">
-                                    <i class="fas fa-cogs me-1"></i> Quản trị
-                                </a>
+                            <!-- Sidebar toggle button for authenticated users -->
+                            <li class="nav-item d-none d-lg-block">
+                                <button class="nav-link btn btn-link text-white" id="navbarSidebarToggle" onclick="sidebarUtils.toggle()">
+                                    <i class="fas fa-bars me-1"></i>
+                                </button>
                             </li>
                         }
                     </ul>
@@ -96,11 +96,10 @@
                             </li>
                         }
                     </ul>
-                </div>
-            </div>        </nav>
+                </div>            </div>        </nav>
     </header>
-      <main class="flex-grow-1 py-5">
-        <div class="container">
+      <main class="flex-grow-1 main-content">
+        <div class="container-fluid">
             @RenderBody()
         </div>
     </main>
@@ -144,11 +143,11 @@
                 </div>
             </div>
         </div>
-    </footer>
-      <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    </footer>      <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/sidebar.js" asp-append-version="true"></script>
     <script>
         // Initialize AOS animation library
         document.addEventListener('DOMContentLoaded', function() {

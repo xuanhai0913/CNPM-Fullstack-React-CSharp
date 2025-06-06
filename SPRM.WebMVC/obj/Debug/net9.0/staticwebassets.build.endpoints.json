@@ -599,6 +599,304 @@
       ]
     },
     {
+      "Route": "css/sidebar.css",
+      "AssetFile": "css/sidebar.css.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000256410256"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3899"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"OuMdgISrUOYRcvyt5MDYyLpb/Btzt6gIVP3Oz7juYI4=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"ideUSYlz1JSbYGs+NG2dxXHlOPtOYlrG9NO/XAbj/EY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 08:21:43 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ideUSYlz1JSbYGs+NG2dxXHlOPtOYlrG9NO/XAbj/EY="
+        }
+      ]
+    },
+    {
+      "Route": "css/sidebar.css",
+      "AssetFile": "css/sidebar.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17839"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ideUSYlz1JSbYGs+NG2dxXHlOPtOYlrG9NO/XAbj/EY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 08:21:43 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ideUSYlz1JSbYGs+NG2dxXHlOPtOYlrG9NO/XAbj/EY="
+        }
+      ]
+    },
+    {
+      "Route": "css/sidebar.css.gz",
+      "AssetFile": "css/sidebar.css.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3899"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"OuMdgISrUOYRcvyt5MDYyLpb/Btzt6gIVP3Oz7juYI4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 08:21:43 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-OuMdgISrUOYRcvyt5MDYyLpb/Btzt6gIVP3Oz7juYI4="
+        }
+      ]
+    },
+    {
+      "Route": "css/sidebar.zpdcgupiw4.css",
+      "AssetFile": "css/sidebar.css.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000256410256"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3899"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"OuMdgISrUOYRcvyt5MDYyLpb/Btzt6gIVP3Oz7juYI4=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"ideUSYlz1JSbYGs+NG2dxXHlOPtOYlrG9NO/XAbj/EY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 08:21:43 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zpdcgupiw4"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ideUSYlz1JSbYGs+NG2dxXHlOPtOYlrG9NO/XAbj/EY="
+        },
+        {
+          "Name": "label",
+          "Value": "css/sidebar.css"
+        }
+      ]
+    },
+    {
+      "Route": "css/sidebar.zpdcgupiw4.css",
+      "AssetFile": "css/sidebar.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17839"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ideUSYlz1JSbYGs+NG2dxXHlOPtOYlrG9NO/XAbj/EY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 08:21:43 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zpdcgupiw4"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ideUSYlz1JSbYGs+NG2dxXHlOPtOYlrG9NO/XAbj/EY="
+        },
+        {
+          "Name": "label",
+          "Value": "css/sidebar.css"
+        }
+      ]
+    },
+    {
+      "Route": "css/sidebar.zpdcgupiw4.css.gz",
+      "AssetFile": "css/sidebar.css.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3899"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"OuMdgISrUOYRcvyt5MDYyLpb/Btzt6gIVP3Oz7juYI4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 08:21:43 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zpdcgupiw4"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-OuMdgISrUOYRcvyt5MDYyLpb/Btzt6gIVP3Oz7juYI4="
+        },
+        {
+          "Name": "label",
+          "Value": "css/sidebar.css.gz"
+        }
+      ]
+    },
+    {
       "Route": "css/site.css",
       "AssetFile": "css/site.css.gz",
       "Selectors": [
@@ -1191,6 +1489,304 @@
         {
           "Name": "integrity",
           "Value": "sha256-+/824NtfTA0L7Mr42Fo+86YJP4R5cigdi9S7Fx5VVl4="
+        }
+      ]
+    },
+    {
+      "Route": "js/sidebar.js",
+      "AssetFile": "js/sidebar.js.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000446229362"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2240"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"g/3pBdV4U1h84deBN7tyGpORyeWmnGxmf8Vx4qX+h6w=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"5CS5XwAtEtQ48SA2CSkTVU4rHhO9Z17Dd0Vp2o9n+TU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 08:12:42 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5CS5XwAtEtQ48SA2CSkTVU4rHhO9Z17Dd0Vp2o9n+TU="
+        }
+      ]
+    },
+    {
+      "Route": "js/sidebar.js",
+      "AssetFile": "js/sidebar.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11328"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5CS5XwAtEtQ48SA2CSkTVU4rHhO9Z17Dd0Vp2o9n+TU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 08:12:42 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5CS5XwAtEtQ48SA2CSkTVU4rHhO9Z17Dd0Vp2o9n+TU="
+        }
+      ]
+    },
+    {
+      "Route": "js/sidebar.js.gz",
+      "AssetFile": "js/sidebar.js.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2240"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"g/3pBdV4U1h84deBN7tyGpORyeWmnGxmf8Vx4qX+h6w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 08:12:42 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-g/3pBdV4U1h84deBN7tyGpORyeWmnGxmf8Vx4qX+h6w="
+        }
+      ]
+    },
+    {
+      "Route": "js/sidebar.w1yaurvlnf.js",
+      "AssetFile": "js/sidebar.js.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000446229362"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2240"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"g/3pBdV4U1h84deBN7tyGpORyeWmnGxmf8Vx4qX+h6w=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"5CS5XwAtEtQ48SA2CSkTVU4rHhO9Z17Dd0Vp2o9n+TU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 08:12:42 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "w1yaurvlnf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5CS5XwAtEtQ48SA2CSkTVU4rHhO9Z17Dd0Vp2o9n+TU="
+        },
+        {
+          "Name": "label",
+          "Value": "js/sidebar.js"
+        }
+      ]
+    },
+    {
+      "Route": "js/sidebar.w1yaurvlnf.js",
+      "AssetFile": "js/sidebar.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11328"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5CS5XwAtEtQ48SA2CSkTVU4rHhO9Z17Dd0Vp2o9n+TU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 08:12:42 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "w1yaurvlnf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5CS5XwAtEtQ48SA2CSkTVU4rHhO9Z17Dd0Vp2o9n+TU="
+        },
+        {
+          "Name": "label",
+          "Value": "js/sidebar.js"
+        }
+      ]
+    },
+    {
+      "Route": "js/sidebar.w1yaurvlnf.js.gz",
+      "AssetFile": "js/sidebar.js.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2240"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"g/3pBdV4U1h84deBN7tyGpORyeWmnGxmf8Vx4qX+h6w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Jun 2025 08:12:42 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "w1yaurvlnf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-g/3pBdV4U1h84deBN7tyGpORyeWmnGxmf8Vx4qX+h6w="
+        },
+        {
+          "Name": "label",
+          "Value": "js/sidebar.js.gz"
         }
       ]
     },

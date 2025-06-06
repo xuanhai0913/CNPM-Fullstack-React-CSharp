@@ -9,12 +9,20 @@
       "PackagePath": "staticwebassets/css/modern-style.css"
     },
     {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/sidebar.css",
+      "PackagePath": "staticwebassets/css/sidebar.css"
+    },
+    {
       "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
     {
       "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/favicon.ico",
       "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/sidebar.js",
+      "PackagePath": "staticwebassets/js/sidebar.js"
     },
     {
       "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/site.js",

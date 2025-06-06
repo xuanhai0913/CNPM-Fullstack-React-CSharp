@@ -48,6 +48,16 @@ namespace SPRM.Data
                     Password = BCrypt.Net.BCrypt.HashPassword("password123"),
                     Role = "Researcher",
                     CreatedAt = DateTime.UtcNow
+                },
+                new User
+                {
+                    Id = Guid.NewGuid(),
+                    Email = "manager@university.edu",
+                    FullName = "Project Manager",
+                    Username = "manager",
+                    Password = BCrypt.Net.BCrypt.HashPassword("manager123"),
+                    Role = "Manager",
+                    CreatedAt = DateTime.UtcNow
                 }
             };
 

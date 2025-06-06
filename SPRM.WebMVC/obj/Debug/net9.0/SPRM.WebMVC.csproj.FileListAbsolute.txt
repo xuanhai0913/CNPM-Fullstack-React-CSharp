@@ -532,3 +532,5 @@
 /Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/r377soxmo6-iqxgpeho28.gz
 /Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/zyn6hcl2ce-euiikl6nsc.gz
 /Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/jzp21z3xlr-ycyol4alxi.gz
+/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/9w0ketgass-w1yaurvlnf.gz
+/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/obj/Debug/net9.0/compressed/6hiyhjsuur-zpdcgupiw4.gz

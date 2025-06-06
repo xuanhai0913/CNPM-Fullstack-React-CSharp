@@ -93,9 +93,17 @@
                                         <tr>
                                             <td>
                                                 <div class="avatar-circle">
-                                                    @if (!string.IsNullOrEmpty(member.FirstName) && !string.IsNullOrEmpty(member.LastName))
+                                                    @if (!string.IsNullOrEmpty(member.FullName))
                                                     {
-                                                        @member.FirstName.Substring(0, 1).ToUpper()@member.LastName.Substring(0, 1).ToUpper()
+                                                        var nameParts = member.FullName.Split(' ');
+                                                        if (nameParts.Length >= 2)
+                                                        {
+                                                            @nameParts[0].Substring(0, 1).ToUpper()@nameParts[nameParts.Length - 1].Substring(0, 1).ToUpper()
+                                                        }
+                                                        else
+                                                        {
+                                                            @member.FullName.Substring(0, 1).ToUpper()
+                                                        }
                                                     }
                                                     else
                                                     {
@@ -105,9 +113,9 @@
                                             </td>
                                             <td>
                                                 <div>
-                                                    <strong>@member.FirstName @member.LastName</strong>
+                                                    <strong>@member.FullName</strong>
                                                     <br>
-                                                    <small class="text-muted">@member.UserName</small>
+                                                    <small class="text-muted">@member.Username</small>
                                                 </div>
                                             </td>
                                             <td>@member.Email</td>
@@ -136,7 +144,7 @@
                                                         <i class="fas fa-edit"></i>
                                                     </button>
                                                     <button type="button" class="btn btn-sm btn-outline-danger" 
-                                                            onclick="removeMember('@member.Id', '@member.FirstName @member.LastName')" title="Remove Member">
+                                                            onclick="removeMember('@member.Id', '@member.FullName')" title="Remove Member">
                                                         <i class="fas fa-user-minus"></i>
                                                     </button>
                                                 </div>

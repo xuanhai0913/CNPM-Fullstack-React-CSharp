@@ -52,7 +52,7 @@
                                         statusClass += "bg-danger";
                                         statusText = "Completed";
                                     }
-                                    else if (Model.StartDate.HasValue && Model.StartDate.Value <= DateTime.Now)
+                                    else if (Model.StartDate <= DateTime.Now)
                                     {
                                         statusClass += "bg-success";
                                         statusText = "Active";
@@ -76,7 +76,7 @@
                         <div class="col-md-6 mb-3">
                             <label class="form-label fw-bold">Start Date:</label>
                             <p class="form-control-plaintext">
-                                @(Model.StartDate?.ToString("MMMM dd, yyyy") ?? "Not set")
+                                @(Model.StartDate.ToString("MMMM dd, yyyy"))
                             </p>
                         </div>
                         <div class="col-md-6 mb-3">
@@ -117,7 +117,7 @@
                         <div class="col-6">
                             <div class="border-end">
                                 <h4 class="text-warning mb-1">
-                                    @if (Model.EndDate.HasValue && Model.StartDate.HasValue)
+                                    @if (Model.EndDate.HasValue)
                                     {
                                         var daysLeft = (Model.EndDate.Value - DateTime.Now).Days;
                                         @(daysLeft > 0 ? daysLeft.ToString() : "0")
@@ -185,18 +185,18 @@
                                 <h6 class="timeline-title">Project Created</h6>
                                 <p class="timeline-text text-muted">Project "@Model.Name" was created</p>
                                 <small class="text-muted">
-                                    @(Model.StartDate?.ToString("MMM dd, yyyy") ?? "Date not set")
+                                    @(Model.StartDate.ToString("MMM dd, yyyy"))
                                 </small>
                             </div>
                         </div>
-                        @if (Model.StartDate.HasValue && Model.StartDate.Value <= DateTime.Now)
+                        @if (Model.StartDate <= DateTime.Now)
                         {
                             <div class="timeline-item">
                                 <div class="timeline-marker bg-success"></div>
                                 <div class="timeline-content">
                                     <h6 class="timeline-title">Project Started</h6>
                                     <p class="timeline-text text-muted">Project development began</p>
-                                    <small class="text-muted">@Model.StartDate.Value.ToString("MMM dd, yyyy")</small>
+                                    <small class="text-muted">@Model.StartDate.ToString("MMM dd, yyyy")</small>
                                 </div>
                             </div>
                         }
@@ -286,7 +286,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="editStartDate" class="form-label">Start Date</label>
                             <input type="date" class="form-control" id="editStartDate" name="StartDate" 
-                                   value="@(Model.StartDate?.ToString("yyyy-MM-dd"))">
+                                   value="@(Model.StartDate.ToString("yyyy-MM-dd"))">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="editEndDate" class="form-label">End Date</label>

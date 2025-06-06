@@ -39,6 +39,7 @@ builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("AdminOnly", policy => policy.RequireRole("Administrator"));
     options.AddPolicy("ResearcherOnly", policy => policy.RequireRole("Researcher"));
+    options.AddPolicy("ManagerOnly", policy => policy.RequireRole("Manager"));
     options.AddPolicy("AuthenticatedUser", policy => policy.RequireAuthenticatedUser());
 });
 
@@ -108,5 +109,11 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 
+// Initialize database with seed data
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<SPRMDbContext>();
+    await SeedData.InitializeAsync(context);
+}
 
 app.Run();

@@ -35,13 +35,16 @@ namespace SPRM.Data.Repositories
             return await _dbSet
                 .Where(p => p.ResearcherId == researcherId)
                 .ToListAsync();
-        }
-
-        public async Task<IEnumerable<Proposal>> GetPendingProposalsAsync()
+        }        public async Task<IEnumerable<Proposal>> GetPendingProposalsAsync()
         {
             return await _dbSet
                 .Where(p => p.Status == ProposalStatus.Pending)
                 .ToListAsync();
+        }
+
+        public new async Task<IEnumerable<Proposal>> GetAllAsync()
+        {
+            return await _dbSet.ToListAsync();
         }
     }
 }
