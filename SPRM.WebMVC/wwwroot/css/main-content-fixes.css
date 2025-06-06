@@ -15,8 +15,34 @@
     padding-top: 0;
 }
 
-/* Media queries for responsive behavior */
+/* Fixed CSS rules that will apply regardless of JS */
+body.has-sidebar .main-content {
+    transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+/* Fallback styles if JavaScript fails */
+@media (min-width: 992px) {
+    body.has-sidebar .main-content {
+        margin-left: 280px;
+        width: calc(100% - 280px);
+        max-width: none;
+    }
+    
+    body.has-sidebar.sidebar-collapsed .main-content {
+        margin-left: 80px;
+        width: calc(100% - 80px);
+        max-width: none;
+    }
+}
+
+/* Mobile styles */
 @media (max-width: 991.98px) {
+    body.has-sidebar .main-content {
+        margin-left: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+    
     .main-content .container-fluid {
         padding-left: 1rem;
         padding-right: 1rem;

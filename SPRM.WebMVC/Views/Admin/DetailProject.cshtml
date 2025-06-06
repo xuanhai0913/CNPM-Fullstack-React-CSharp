@@ -1,0 +1,156 @@
+@model SPRM.Business.DTOs.ProjectDto
+
+@{
+    ViewData["Title"] = "Chi tiết Dự án";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Chi tiết Dự án: @Model.Name</h3>
+                    <div class="card-tools">
+                        <a asp-action="EditProject" asp-route-id="@Model.Id" class="btn btn-warning">
+                            <i class="fas fa-edit"></i> Chỉnh sửa
+                        </a>
+                        <a asp-action="DeleteProject" asp-route-id="@Model.Id" class="btn btn-danger">
+                            <i class="fas fa-trash"></i> Xóa
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-info"><i class="fas fa-project-diagram"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Tên Dự án</span>
+                                    <span class="info-box-number">@Model.Name</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-success"><i class="fas fa-graduation-cap"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Lĩnh vực nghiên cứu</span>
+                                    <span class="info-box-number">@Model.FieldOfStudy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Mô tả Dự án</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p>@Model.Description</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-@(Model.Status == "Active" ? "success" : Model.Status == "Completed" ? "info" : "warning")">
+                                    <i class="fas fa-@(Model.Status == "Active" ? "play" : Model.Status == "Completed" ? "check" : "pause")"></i>
+                                </span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Trạng thái</span>
+                                    <span class="info-box-number">@Model.Status</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-@(Model.PriorityLevel == "High" ? "danger" : Model.PriorityLevel == "Medium" ? "warning" : "secondary")">
+                                    <i class="fas fa-@(Model.PriorityLevel == "High" ? "exclamation" : Model.PriorityLevel == "Medium" ? "minus" : "arrow-down")"></i>
+                                </span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Mức độ ưu tiên</span>
+                                    <span class="info-box-number">@Model.PriorityLevel</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-primary"><i class="fas fa-folder"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Danh mục</span>
+                                    <span class="info-box-number">@Model.ProjectCategory</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-success"><i class="fas fa-dollar-sign"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Ngân sách</span>
+                                    <span class="info-box-number">@Model.Budget.ToString("C0")</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Thời gian thực hiện</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <strong>Ngày bắt đầu:</strong>
+                                            <p class="text-muted">@Model.StartDate.ToString("dd/MM/yyyy")</p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <strong>Ngày kết thúc:</strong>
+                                            <p class="text-muted">@(Model.EndDate?.ToString("dd/MM/yyyy") ?? "Chưa xác định")</p>
+                                        </div>
+                                    </div>
+                                    @if (Model.EndDate != null)
+                                    {
+                                        var duration = (Model.EndDate.Value - Model.StartDate).Days;
+                                        <hr>
+                                        <strong>Thời gian dự kiến:</strong>
+                                        <p class="text-muted">@duration ngày</p>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Thông tin khác</h3>
+                                </div>
+                                <div class="card-body">
+                                    <strong>ID Dự án:</strong>
+                                    <p class="text-muted">@Model.Id</p>
+                                    <strong>Chủ nhiệm dự án ID:</strong>
+                                    <p class="text-muted">@Model.PrincipalInvestigatorId</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a asp-action="ManageProjects" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại danh sách
+                    </a>
+                    <a asp-action="EditProject" asp-route-id="@Model.Id" class="btn btn-warning">
+                        <i class="fas fa-edit"></i> Chỉnh sửa
+                    </a>
+                    <a asp-action="DeleteProject" asp-route-id="@Model.Id" class="btn btn-danger">
+                        <i class="fas fa-trash"></i> Xóa dự án
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

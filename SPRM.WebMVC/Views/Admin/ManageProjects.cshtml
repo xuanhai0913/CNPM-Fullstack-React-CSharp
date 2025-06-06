@@ -1,0 +1,132 @@
+@model IEnumerable<SPRM.Business.DTOs.ProjectDto>
+
+@{
+    ViewData["Title"] = "Quản lý Dự án";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Quản lý Dự án</h3>
+                    <div class="card-tools">
+                        <a asp-action="CreateProject" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Tạo Dự án Mới
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            @TempData["SuccessMessage"]
+                        </div>
+                    }
+                    @if (TempData["ErrorMessage"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            @TempData["ErrorMessage"]
+                        </div>
+                    }
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Tên Dự án</th>
+                                    <th>Mô tả</th>
+                                    <th>Trạng thái</th>
+                                    <th>Mức độ ưu tiên</th>
+                                    <th>Danh mục</th>
+                                    <th>Ngày bắt đầu</th>
+                                    <th>Ngày kết thúc</th>
+                                    <th>Ngân sách</th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null && Model.Any())
+                                {
+                                    @foreach (var project in Model)
+                                    {
+                                        <tr>
+                                            <td>@project.Name</td>
+                                            <td>@project.Description</td>
+                                            <td>
+                                                <span class="badge badge-@(project.Status == "Active" ? "success" : project.Status == "Completed" ? "info" : "warning")">
+                                                    @project.Status
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span class="badge badge-@(project.PriorityLevel == "High" ? "danger" : project.PriorityLevel == "Medium" ? "warning" : "secondary")">
+                                                    @project.PriorityLevel
+                                                </span>
+                                            </td>
+                                            <td>@project.ProjectCategory</td>
+                                            <td>@project.StartDate.ToString("dd/MM/yyyy")</td>
+                                            <td>@(project.EndDate?.ToString("dd/MM/yyyy") ?? "Chưa xác định")</td>
+                                            <td>@project.Budget.ToString("C0")</td>
+                                            <td>
+                                                <div class="btn-group" role="group">
+                                                    <a asp-action="DetailProject" asp-route-id="@project.Id" class="btn btn-sm btn-info">
+                                                        <i class="fas fa-eye"></i> Chi tiết
+                                                    </a>
+                                                    <a asp-action="EditProject" asp-route-id="@project.Id" class="btn btn-sm btn-warning">
+                                                        <i class="fas fa-edit"></i> Sửa
+                                                    </a>
+                                                    <a asp-action="DeleteProject" asp-route-id="@project.Id" class="btn btn-sm btn-danger">
+                                                        <i class="fas fa-trash"></i> Xóa
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="9" class="text-center">Chưa có dự án nào.</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        /* Additional styles to ensure light mode compatibility */
+        [data-theme="light"] .table {
+            color: var(--text-primary);
+        }
+        
+        [data-theme="light"] .table thead th {
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            border-color: var(--border-color);
+        }
+        
+        [data-theme="light"] .table-bordered,
+        [data-theme="light"] .table-bordered th,
+        [data-theme="light"] .table-bordered td {
+            border-color: var(--border-color);
+        }
+        
+        [data-theme="light"] .card {
+            background-color: var(--bg-primary);
+            border-color: var(--border-color);
+        }
+        
+        [data-theme="light"] .card-header {
+            background-color: var(--bg-secondary);
+            border-color: var(--border-color);
+        }
+    </style>
+}

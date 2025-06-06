@@ -71,6 +71,9 @@ namespace SPRM.Business.Services
                 Name = p.Name,
                 Description = p.Description,
                 Status = p.Status.ToString(),
+                PriorityLevel = p.Priority.ToString(),
+                ProjectCategory = p.Category.ToString(),
+                FieldOfStudy = p.FieldOfStudy,
                 StartDate = p.StartDate,
                 EndDate = p.EndDate,
                 Budget = p.Budget,
@@ -90,6 +93,9 @@ namespace SPRM.Business.Services
                 Name = project.Name,
                 Description = project.Description,
                 Status = project.Status.ToString(),
+                PriorityLevel = project.Priority.ToString(),
+                ProjectCategory = project.Category.ToString(),
+                FieldOfStudy = project.FieldOfStudy,
                 StartDate = project.StartDate,
                 EndDate = project.EndDate,
                 Budget = project.Budget,
@@ -143,23 +149,42 @@ namespace SPRM.Business.Services
 
         public async Task<bool> UpdateProjectAsync(ProjectDto projectDto)
         {
-            var project = await _projectRepository.GetByIdAsync(projectDto.Id);
-            if (project == null) return false;
-
-            if (Enum.TryParse<ProjectStatus>(projectDto.Status, out var status))
+            try
             {
-                project.Status = status;
+                var project = await _projectRepository.GetByIdAsync(projectDto.Id);
+                if (project == null) return false;
+
+                if (Enum.TryParse<ProjectStatus>(projectDto.Status, out var status))
+                {
+                    project.Status = status;
+                }
+
+                if (Enum.TryParse<PriorityLevel>(projectDto.PriorityLevel, out var priority))
+                {
+                    project.Priority = priority;
+                }
+
+                if (Enum.TryParse<ProjectCategory>(projectDto.ProjectCategory, out var category))
+                {
+                    project.Category = category;
+                }
+
+                project.Name = projectDto.Name;
+                project.Description = projectDto.Description;
+                project.FieldOfStudy = projectDto.FieldOfStudy;
+                project.StartDate = projectDto.StartDate;
+                project.EndDate = projectDto.EndDate;
+                project.Budget = projectDto.Budget;
+                project.PrincipalInvestigatorId = projectDto.PrincipalInvestigatorId;
+                project.UpdatedAt = DateTime.UtcNow;
+
+                await _projectRepository.UpdateAsync(project);
+                return true;
             }
-
-            project.Name = projectDto.Name;
-            project.Description = projectDto.Description;
-            project.StartDate = projectDto.StartDate;
-            project.EndDate = projectDto.EndDate;
-            project.Budget = projectDto.Budget;
-            project.UpdatedAt = DateTime.UtcNow;
-
-            await _projectRepository.UpdateAsync(project);
-            return true;
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public async Task<bool> DeleteProjectAsync(Guid id)

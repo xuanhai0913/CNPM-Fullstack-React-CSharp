@@ -1,0 +1,146 @@
+@model SPRM.Business.DTOs.ProjectDto
+
+@{
+    ViewData["Title"] = "Chỉnh sửa Dự án";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Chỉnh sửa Dự án: @Model.Name</h3>
+                </div>
+                <form asp-action="EditProject" method="post">
+                    <input asp-for="Id" type="hidden" />
+                    <div class="card-body">
+                        @if (TempData["ErrorMessage"] != null)
+                        {
+                            <div class="alert alert-danger alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                @TempData["ErrorMessage"]
+                            </div>
+                        }
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Name" class="control-label">Tên Dự án</label>
+                                    <input asp-for="Name" class="form-control" placeholder="Nhập tên dự án" required />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="FieldOfStudy" class="control-label">Lĩnh vực nghiên cứu</label>
+                                    <select asp-for="FieldOfStudy" class="form-control">
+                                        <option value="IT">Công nghệ thông tin</option>
+                                        <option value="Engineering">Kỹ thuật</option>
+                                        <option value="Science">Khoa học</option>
+                                        <option value="Medicine">Y học</option>
+                                        <option value="Business">Kinh doanh</option>
+                                        <option value="Education">Giáo dục</option>
+                                        <option value="Other">Khác</option>
+                                    </select>
+                                    <span asp-validation-for="FieldOfStudy" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Description" class="control-label">Mô tả</label>
+                            <textarea asp-for="Description" class="form-control" rows="4" placeholder="Nhập mô tả chi tiết về dự án"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label asp-for="Status" class="control-label">Trạng thái</label>
+                                    <select asp-for="Status" class="form-control">
+                                        <option value="Planning">Lên kế hoạch</option>
+                                        <option value="Active">Đang hoạt động</option>
+                                        <option value="OnHold">Tạm dừng</option>
+                                        <option value="Completed">Hoàn thành</option>
+                                        <option value="Cancelled">Hủy bỏ</option>
+                                    </select>
+                                    <span asp-validation-for="Status" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label asp-for="PriorityLevel" class="control-label">Mức độ ưu tiên</label>
+                                    <select asp-for="PriorityLevel" class="form-control">
+                                        <option value="Low">Thấp</option>
+                                        <option value="Medium">Trung bình</option>
+                                        <option value="High">Cao</option>
+                                        <option value="Critical">Quan trọng</option>
+                                    </select>
+                                    <span asp-validation-for="PriorityLevel" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label asp-for="ProjectCategory" class="control-label">Danh mục</label>
+                                    <select asp-for="ProjectCategory" class="form-control">
+                                        <option value="Research">Nghiên cứu</option>
+                                        <option value="Development">Phát triển</option>
+                                        <option value="Education">Giáo dục</option>
+                                        <option value="Innovation">Đổi mới</option>
+                                        <option value="Collaboration">Hợp tác</option>
+                                    </select>
+                                    <span asp-validation-for="ProjectCategory" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label asp-for="StartDate" class="control-label">Ngày bắt đầu</label>
+                                    <input asp-for="StartDate" type="date" class="form-control" required />
+                                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label asp-for="EndDate" class="control-label">Ngày kết thúc (tùy chọn)</label>
+                                    <input asp-for="EndDate" type="date" class="form-control" />
+                                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label asp-for="Budget" class="control-label">Ngân sách (VNĐ)</label>
+                                    <input asp-for="Budget" type="number" class="form-control" min="0" step="1000" />
+                                    <span asp-validation-for="Budget" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="PrincipalInvestigatorId" class="control-label">Chủ nhiệm dự án</label>
+                            <select asp-for="PrincipalInvestigatorId" class="form-control" asp-items="ViewBag.Users">
+                                <option value="">-- Chọn chủ nhiệm dự án --</option>
+                            </select>
+                            <span asp-validation-for="PrincipalInvestigatorId" class="text-danger"></span>
+                            <small class="form-text text-muted">Chọn người phụ trách chính cho dự án này.</small>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Cập nhật Dự án
+                        </button>
+                        <a asp-action="ManageProjects" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Quay lại
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

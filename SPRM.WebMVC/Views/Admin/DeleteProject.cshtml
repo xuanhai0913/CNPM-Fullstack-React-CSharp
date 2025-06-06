@@ -1,0 +1,132 @@
+@model SPRM.Business.DTOs.ProjectDto
+
+@{
+    ViewData["Title"] = "Xóa Dự án";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card card-danger">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="fas fa-exclamation-triangle"></i> Xác nhận xóa Dự án
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning">
+                        <h5><i class="icon fas fa-exclamation-triangle"></i> Cảnh báo!</h5>
+                        Bạn có chắc chắn muốn xóa dự án này? Hành động này không thể hoàn tác.
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Thông tin Dự án sẽ bị xóa</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <strong>Tên Dự án:</strong>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            @Model.Name
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <strong>Mô tả:</strong>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            @Model.Description
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <strong>Trạng thái:</strong>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <span class="badge badge-@(Model.Status == "Active" ? "success" : Model.Status == "Completed" ? "info" : "warning")">
+                                                @Model.Status
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <strong>Mức độ ưu tiên:</strong>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <span class="badge badge-@(Model.PriorityLevel == "High" ? "danger" : Model.PriorityLevel == "Medium" ? "warning" : "secondary")">
+                                                @Model.PriorityLevel
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <strong>Danh mục:</strong>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            @Model.ProjectCategory
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <strong>Lĩnh vực nghiên cứu:</strong>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            @Model.FieldOfStudy
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <strong>Ngày bắt đầu:</strong>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            @Model.StartDate.ToString("dd/MM/yyyy")
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <strong>Ngày kết thúc:</strong>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            @(Model.EndDate?.ToString("dd/MM/yyyy") ?? "Chưa xác định")
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <strong>Ngân sách:</strong>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            @Model.Budget.ToString("C0")
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <form asp-action="DeleteProject" method="post">
+                        <input asp-for="Id" type="hidden" />
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-trash"></i> Xác nhận Xóa
+                        </button>
+                        <a asp-action="ManageProjects" class="btn btn-secondary">
+                            <i class="fas fa-times"></i> Hủy bỏ
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

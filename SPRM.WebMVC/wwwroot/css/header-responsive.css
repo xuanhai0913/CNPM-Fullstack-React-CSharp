@@ -1,0 +1,146 @@
+/* Mobile-first responsive utilities for the minimalist header */
+
+/* Small screens (phones) */
+@media (max-width: 575.98px) {
+    .main-header .container-fluid {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .breadcrumb-wrapper {
+        max-width: 120px;
+    }
+    
+    .breadcrumb {
+        font-size: 0.8rem;
+    }
+    
+    .breadcrumb-item:not(:first-child):not(:last-child) {
+        display: none;
+    }
+    
+    .navbar-toggler-custom {
+        width: 32px;
+        height: 32px;
+        margin-right: 8px;
+    }
+    
+    .avatar-circle {
+        width: 32px;
+        height: 32px;
+        font-size: 0.875rem;
+    }
+    
+    .notification-dropdown .dropdown-menu {
+        width: 260px;
+        right: -20px !important;
+        left: auto !important;
+    }
+    
+    .user-dropdown .dropdown-menu {
+        width: 220px;
+        right: -10px !important;
+        left: auto !important;
+    }
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .breadcrumb-wrapper {
+        max-width: 200px;
+    }
+    
+    .notification-dropdown .dropdown-menu {
+        width: 300px;
+    }
+    
+    .user-dropdown .dropdown-menu {
+        width: 240px;
+    }
+}
+
+/* Large screens (desktops) */
+@media (min-width: 768px) {
+    .breadcrumb-wrapper {
+        max-width: none;
+    }
+    
+    .navbar-toggler-custom {
+        margin-right: 1rem;
+    }
+}
+
+/* Extra large screens */
+@media (min-width: 1200px) {
+    .main-header .container-fluid {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+/* Dark mode support (if needed) */
+@media (prefers-color-scheme: dark) {
+    .main-header {
+        background-color: #1f2937 !important;
+        border-bottom-color: #374151 !important;
+    }
+    
+    .breadcrumb-item a {
+        color: #60a5fa;
+    }
+    
+    .breadcrumb-item.active {
+        color: #d1d5db;
+    }
+    
+    .navbar-toggler-custom {
+        color: #d1d5db;
+    }
+    
+    .navbar-toggler-custom:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .main-header {
+        border-bottom: 2px solid #000 !important;
+    }
+    
+    .navbar-toggler-custom {
+        border: 1px solid #000;
+    }
+    
+    .dropdown-menu {
+        border: 2px solid #000 !important;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .main-content,
+    .navbar-toggler-custom,
+    .avatar-circle,
+    .dropdown-item {
+        transition: none !important;
+    }
+    
+    .animate-fade-in {
+        animation: none !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    .main-header {
+        display: none !important;
+    }
+    
+    .main-content {
+        padding-top: 0 !important;
+        margin-left: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}

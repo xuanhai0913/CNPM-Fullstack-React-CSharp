@@ -9,17 +9,163 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">    <link rel="stylesheet" href="~/lib/aos/aos.css" />    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/modern-style.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/sidebar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">    <link rel="stylesheet" href="~/lib/aos/aos.css" />    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />    <link rel="stylesheet" href="~/css/theme-2025.css" asp-append-version="true" />    <link rel="stylesheet" href="~/css/sidebar.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/main-content-fixes.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/responsive-fixes.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/main-content-centering.css" asp-append-version="true" />    <link rel="stylesheet" href="~/css/fixed-sidebar-layout.css" asp-append-version="true" />    <link rel="stylesheet" href="~/css/layout-zindex-fixes.css" asp-append-version="true" />    <link rel="stylesheet" href="~/css/header-minimalist.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/header-responsive.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/notifications.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/theme-system.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SPRM.WebMVC.styles.css" asp-append-version="true" />
         @await RenderSectionAsync("Styles", required: false)
 </head>
 @{
     var hasSidebar = User.Identity.IsAuthenticated;
 }
-<body class="d-flex flex-column min-vh-100 @(hasSidebar ? "has-sidebar" : "")">
+<body class="d-flex flex-column min-vh-100 @(hasSidebar ? "has-sidebar" : "")">    <!-- Header (thiết kế tối giản) -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand navbar-light bg-white shadow-sm border-bottom">
+            <div class="container-fluid px-4">
+                <!-- Sidebar toggle button (nếu đang đăng nhập) -->
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <button class="navbar-toggler-custom me-3" id="navbarSidebarToggle" onclick="sidebarUtils.toggle()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                }
+                
+                <!-- Breadcrumb hoặc navigation path -->
+                <div class="breadcrumb-wrapper">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0 py-2">
+                            <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
+                            @{
+                                var controller = ViewContext.RouteData.Values["Controller"]?.ToString();
+                                var action = ViewContext.RouteData.Values["Action"]?.ToString();
+                                
+                                if (!string.IsNullOrEmpty(controller) && controller != "Home")
+                                {
+                                    <li class="breadcrumb-item">@controller</li>
+                                }
+                                
+                                if (!string.IsNullOrEmpty(action) && action != "Index")
+                                {
+                                    <li class="breadcrumb-item active">@action</li>
+                                }
+                            }
+                            @if (!string.IsNullOrEmpty(ViewData["Title"]?.ToString()) && ViewData["Title"].ToString() != "Home")
+                            {
+                                <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                            }
+                        </ol>
+                    </nav>
+                </div>
+                  <!-- Phần bên phải (notifications, user menu) -->
+                <div class="ms-auto d-flex align-items-center">
+                    <!-- Dark/Light Mode Toggle -->
+                    <div class="theme-toggle me-3">
+                        <button class="btn btn-sm btn-outline-secondary theme-toggle-btn" id="themeToggle" title="Chuyển đổi giao diện">
+                            <i class="fas fa-moon" id="themeIcon"></i>
+                        </button>
+                    </div>
+                    
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <!-- Notifications -->
+                        <div class="dropdown notification-dropdown me-3">
+                            <a class="nav-link position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-bell"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    3 <span class="visually-hidden">unread messages</span>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end notifications-dropdown animate-fade-in">
+                                <h6 class="dropdown-header">Thông báo</h6>
+                                <div class="notifications-list">
+                                    <a href="#" class="dropdown-item d-flex notification-item">
+                                        <div class="icon-wrapper bg-light-primary me-3">
+                                            <i class="fas fa-file-alt text-primary"></i>
+                                        </div>
+                                        <div class="notification-content">
+                                            <p class="mb-0 fw-medium">Có đề tài mới chờ duyệt</p>
+                                            <small class="text-muted">30 phút trước</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item d-flex notification-item">
+                                        <div class="icon-wrapper bg-light-success me-3">
+                                            <i class="fas fa-check-circle text-success"></i>
+                                        </div>
+                                        <div class="notification-content">
+                                            <p class="mb-0 fw-medium">Đề tài của bạn đã được chấp nhận</p>
+                                            <small class="text-muted">2 giờ trước</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item d-flex notification-item">
+                                        <div class="icon-wrapper bg-light-warning me-3">
+                                            <i class="fas fa-exclamation-triangle text-warning"></i>
+                                        </div>
+                                        <div class="notification-content">
+                                            <p class="mb-0 fw-medium">Sắp đến hạn nộp báo cáo</p>
+                                            <small class="text-muted">1 ngày trước</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item text-center view-all">Xem tất cả thông báo</a>
+                            </div>
+                        </div>
+                        
+                        <!-- User Menu -->
+                        <div class="dropdown user-dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="avatar-circle me-2">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span class="d-none d-sm-inline">@(Context.Session.GetString("FullName") ?? Context.Session.GetString("UserName"))</span>
+                                <span class="badge bg-light text-primary ms-2 fw-medium d-none d-md-inline">@Context.Session.GetString("UserRole")</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end animate-fade-in">
+                                <li><h6 class="dropdown-header">
+                                    <i class="fas fa-user-circle me-1"></i> @(Context.Session.GetString("FullName") ?? Context.Session.GetString("UserName"))
+                                </h6></li>
+                                <li><small class="dropdown-item-text text-muted">
+                                    <i class="fas fa-id-badge me-1"></i> @Context.Session.GetString("UserRole")
+                                </small></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" asp-controller="Account" asp-action="Profile">
+                                    <i class="fas fa-user-circle me-2"></i> Hồ sơ cá nhân
+                                </a></li>
+                                <li><a class="dropdown-item" asp-controller="Account" asp-action="EditProfile">
+                                    <i class="fas fa-edit me-2"></i> Chỉnh sửa hồ sơ
+                                </a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="dropdown-item text-danger" onclick="return confirm('Bạn có chắc chắn muốn đăng xuất?');">
+                                            <i class="fas fa-sign-out-alt me-2"></i> Đăng xuất
+                                        </button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    }                    else
+                    {
+                        <div class="auth-buttons">
+                            <a class="btn btn-outline-primary btn-sm rounded-pill px-3 me-2" href="/Account/Login">
+                                <i class="fas fa-sign-in-alt me-1"></i> Đăng nhập
+                            </a>
+                            <a class="btn btn-success btn-sm rounded-pill px-3" asp-controller="Account" asp-action="Register">
+                                <i class="fas fa-user-plus me-1"></i> Đăng ký
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Sidebar (chỉ hiển thị khi đăng nhập) -->
     @if (hasSidebar)
     {
         <!-- Overlay for sidebar on mobile -->
@@ -27,80 +173,8 @@
         @await Html.PartialAsync("_Sidebar")
     }
     
-    <header class="main-header">
-        <nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top">            <div class="container">                <a class="navbar-brand fw-bold d-flex align-items-center" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="~/images/logoUTH.png" alt="UTH Logo" style="height: 45px; width: auto; margin-right: 12px;" />
-                    SPRM
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-lg-inline-flex justify-content-between">                    <!-- Left navigation -->
-                    <ul class="navbar-nav flex-grow-1">
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li class="nav-item d-none d-lg-block">
-                                <button class="nav-link btn btn-link text-white" id="navbarSidebarToggle" onclick="sidebarUtils.toggle()">
-                                    <i class="fas fa-bars me-1"></i>
-                                </button>
-                            </li>
-                        }
-                    </ul>
-                    <ul class="navbar-nav">
-                        @if (!User.Identity.IsAuthenticated)
-                        {
-                            <li class="nav-item me-2">
-                                <a class="nav-link btn btn-outline-light px-3" href="/Account/Login">
-                                    <i class="fas fa-sign-in-alt me-1"></i> Đăng nhập
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link btn btn-light text-primary px-3" asp-controller="Account" asp-action="Register">
-                                    <i class="fas fa-user-plus me-1"></i> Đăng ký
-                                </a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <div class="avatar-circle bg-white text-primary me-2">
-                                        <i class="fas fa-user"></i>
-                                    </div>
-                                    <span class="d-none d-sm-inline">@(Context.Session.GetString("FullName") ?? Context.Session.GetString("UserName"))</span>
-                                    <span class="badge bg-light text-primary ms-2">@Context.Session.GetString("UserRole")</span>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end">
-                                    <li><h6 class="dropdown-header">
-                                        <i class="fas fa-user-circle me-1"></i> @(Context.Session.GetString("FullName") ?? Context.Session.GetString("UserName"))
-                                    </h6></li>
-                                    <li><small class="dropdown-item-text text-muted">
-                                        <i class="fas fa-id-badge me-1"></i> @Context.Session.GetString("UserRole")
-                                    </small></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" asp-controller="Account" asp-action="Profile">
-                                        <i class="fas fa-user-circle me-2"></i> Hồ sơ cá nhân
-                                    </a></li>
-                                    <li><a class="dropdown-item" asp-controller="Account" asp-action="EditProfile">
-                                        <i class="fas fa-edit me-2"></i> Chỉnh sửa hồ sơ
-                                    </a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li>
-                                        <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
-                                            @Html.AntiForgeryToken()
-                                            <button type="submit" class="dropdown-item text-danger" onclick="return confirm('Bạn có chắc chắn muốn đăng xuất?');">
-                                                <i class="fas fa-sign-out-alt me-2"></i> Đăng xuất
-                                            </button>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        }
-                    </ul>
-                </div>            </div>        </nav>
-    </header>
-      <main class="flex-grow-1 main-content">
+    <!-- Main Content -->
+    <main class="flex-grow-1 main-content">
         <div class="container-fluid">
             @RenderBody()
         </div>
@@ -145,12 +219,15 @@
                 </div>
             </div>
         </div>
-    </footer>      <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    </footer>    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>    <script src="~/js/sidebar.js" asp-append-version="true"></script>
-    <script src="~/js/crud-helper.js" asp-append-version="true"></script>
-    <script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/sidebar.js" asp-append-version="true"></script>
+    <script src="~/js/navigation-handler.js" asp-append-version="true"></script>
+    <script src="~/js/non-sidebar-layout.js" asp-append-version="true"></script>    <script src="~/js/sidebar-content-fix.js" asp-append-version="true"></script>    <script src="~/js/layout-manager.js" asp-append-version="true"></script>
+    <script src="~/js/header-interactions.js" asp-append-version="true"></script>
+    <script src="~/js/theme-system.js" asp-append-version="true"></script>
+    <script src="~/js/crud-helper.js" asp-append-version="true"></script><script>
         // Initialize AOS animation library
         document.addEventListener('DOMContentLoaded', function() {
             AOS.init({
@@ -168,6 +245,15 @@
                     navbar.classList.remove('shadow');
                 }
             });
+            
+            // Ensure sidebar layout is correct after page fully loads
+            if (window.sidebarUtils && typeof window.sidebarUtils.refreshLayout === 'function') {
+                window.sidebarUtils.refreshLayout();
+                // Run again after images might have loaded
+                window.addEventListener('load', function() {
+                    setTimeout(window.sidebarUtils.refreshLayout, 100);
+                });
+            }
         });
     </script>
     @await RenderSectionAsync("Scripts", required: false)

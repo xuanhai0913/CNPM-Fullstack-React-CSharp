@@ -1,0 +1,58 @@
+/* Fixed sidebar layout - prevents content from being pushed off-screen */
+
+/* Add proper header spacing */
+.main-content {
+    padding-top: 60px; /* Height of the fixed header */
+    transition: margin-left 0.3s ease, width 0.3s ease, max-width 0.3s ease;
+}
+
+/* Remove body margin adjustments to prevent content shifting */
+body.sidebar-open, 
+body.sidebar-collapsed {
+    margin-left: 0 !important;
+}
+
+/* Proper fixed sidebar handling */
+.sidebar {
+    /* Keep sidebar fixed position */
+    position: fixed;
+    z-index: 1000;
+}
+
+/* Main content with sidebar - use margin-left instead of pushing body */
+body.has-sidebar .main-content {
+    width: calc(100% - 280px);
+    margin-left: 280px;
+    max-width: calc(100% - 280px);
+}
+
+/* Main content with collapsed sidebar */
+body.has-sidebar.sidebar-collapsed .main-content {
+    width: calc(100% - 80px);
+    margin-left: 80px;
+    max-width: calc(100% - 80px);
+}
+
+/* Mobile view - sidebar overlays content instead of pushing it */
+@media (max-width: 991.98px) {
+    body.has-sidebar .main-content {
+        width: 100% !important;
+        margin-left: 0 !important;
+        max-width: 100% !important;
+    }
+}
+
+/* Ensure proper z-index layering */
+.main-header {
+    z-index: 1030;
+}
+
+.sidebar-overlay {
+    z-index: 999;
+}
+
+/* Override any inline styles causing problems */
+body.has-sidebar.sidebar-open .main-content,
+body.has-sidebar.sidebar-collapsed .main-content {
+    transition: margin-left 0.3s ease, width 0.3s ease, max-width 0.3s ease !important;
+}

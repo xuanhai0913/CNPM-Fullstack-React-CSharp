@@ -9,13 +9,14 @@
     height: 100vh;
     background: linear-gradient(180deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
     color: white;
-    z-index: 1000;
+    z-index: 1040;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 4px 0 25px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
     backdrop-filter: blur(10px);
     border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 70px; /* Để tránh đè lên header */
 }
 
 .sidebar.collapsed {
@@ -28,12 +29,19 @@
 
 /* Sidebar header */
 .sidebar-header {
-    padding: 1.5rem 1rem;
+    padding: 1.25rem 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
     justify-content: space-between;
     min-height: 70px;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.sidebar.collapsed .sidebar-header {
+    justify-content: center;
+    padding: 1.25rem 0.5rem;
 }
 
 .logo {
@@ -42,12 +50,7 @@
     font-size: 1.5rem;
     font-weight: 700;
     color: white;
-}
-
-.logo i {
-    font-size: 2rem;
-    margin-right: 0.75rem;
-    color: #fbbf24;
+    transition: all 0.3s ease;
 }
 
 .logo-icon {
@@ -56,15 +59,18 @@
     margin-right: 0.75rem;
     transition: all 0.3s ease;
     object-fit: contain;
+    max-width: 100%;
 }
 
 .sidebar.collapsed .logo-icon {
     height: 2.5rem;
     margin-right: 0;
+    display: block;
 }
 
 .logo-text {
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
 }
 
 .sidebar.collapsed .logo-text {
@@ -354,12 +360,12 @@
 
 /* Body adjustments */
 body.sidebar-open {
-    margin-left: 280px;
+    margin-left: 0; /* Loại bỏ margin để không đẩy nội dung */
     transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body.sidebar-collapsed {
-    margin-left: 80px; /* Điều chỉnh theo width mới */
+    margin-left: 0; /* Loại bỏ margin để không đẩy nội dung */
 }
 
 body.sidebar-mobile {

@@ -94,18 +94,29 @@ class SidebarManager {
         const mainContent = document.querySelector('.main-content');
         if (!mainContent) return;
         
-        // Ensure main content has appropriate width and max-width
-        if (this.isMobile) {
+        // Check if body has sidebar class (user is authenticated)
+        const hasSidebar = document.body.classList.contains('has-sidebar');
+        
+        if (!hasSidebar) {
+            // For non-authenticated users (no sidebar)
+            mainContent.style.width = '100%';
+            mainContent.style.maxWidth = '100%';
+            mainContent.style.marginLeft = 'auto';
+            mainContent.style.marginRight = 'auto';
+        } else if (this.isMobile) {
+            // For mobile view with sidebar - don't push content, overlay instead
             mainContent.style.width = '100%';
             mainContent.style.maxWidth = '100%';
             mainContent.style.marginLeft = '0';
         } else if (this.isCollapsed) {
+            // For desktop with collapsed sidebar
             mainContent.style.width = 'calc(100% - 80px)';
-            mainContent.style.maxWidth = 'none';
+            mainContent.style.maxWidth = 'calc(100% - 80px)';
             mainContent.style.marginLeft = '80px';
         } else {
+            // For desktop with expanded sidebar
             mainContent.style.width = 'calc(100% - 280px)';
-            mainContent.style.maxWidth = 'none';
+            mainContent.style.maxWidth = 'calc(100% - 280px)';
             mainContent.style.marginLeft = '280px';
         }
         
@@ -113,10 +124,27 @@ class SidebarManager {
         const containers = mainContent.querySelectorAll('.container, .container-fluid');
         containers.forEach(container => {
             container.style.width = '100%';
-            container.style.maxWidth = '100%';
-            container.style.paddingLeft = '1rem';
-            container.style.paddingRight = '1rem';
+            
+            // Apply different container styles based on authentication state
+            if (!document.body.classList.contains('has-sidebar')) {
+                // For non-authenticated users, center containers with a max-width
+                if (container.classList.contains('container')) {
+                    container.style.maxWidth = '1200px';
+                } else if (container.classList.contains('container-fluid') && !container.classList.contains('full-width')) {
+                    container.style.maxWidth = '1400px';
+                }
+                container.style.marginLeft = 'auto';
+                container.style.marginRight = 'auto';
+            } else {
+                // For authenticated users with sidebar
+                container.style.maxWidth = '100%';
+                container.style.paddingLeft = this.isMobile ? '1rem' : '1.5rem';
+                container.style.paddingRight = this.isMobile ? '1rem' : '1.5rem';
+            }
         });
+        
+        // Force a reflow to ensure styles are applied
+        void mainContent.offsetHeight;
     }
     
     // Thêm method setup animation
@@ -163,6 +191,15 @@ class SidebarManager {
         if (this.isCollapsed) {
             this.closeAllSubmenus();
         }
+        
+        // Apply optimizations to main content with a slight delay
+        // Use multiple adjustments to ensure layout is properly updated
+        setTimeout(() => {
+            this.optimizeMainContent();
+            // Apply again to ensure it sticks
+            setTimeout(() => this.optimizeMainContent(), 100);
+            setTimeout(() => this.optimizeMainContent(), 300);
+        }, 10);
     }
     
     toggleMobileSidebar() {
@@ -404,5 +441,43 @@ window.sidebarUtils = {
     open: () => window.sidebarManager?.open(),
     close: () => window.sidebarManager?.close(),
     isOpen: () => window.sidebarManager?.isOpen(),
-    setActive: (controller, action) => window.sidebarManager?.setActiveNavItem(controller, action)
+    setActive: (controller, action) => window.sidebarManager?.setActiveNavItem(controller, action),
+    refreshLayout: () => {
+        if (window.sidebarManager) {
+            window.sidebarManager.optimizeMainContent();
+        }
+    }
 };
+
+// Initialize sidebar when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Create a new instance or reinitialize existing one
+    window.sidebarManager = new SidebarManager();
+    
+    // Ensure layout is refreshed when page loads
+    if (window.sidebarUtils && typeof window.sidebarUtils.refreshLayout === 'function') {
+        // Initial refresh
+        window.sidebarUtils.refreshLayout();
+        
+        // Also refresh on resize events
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(window.sidebarUtils.refreshLayout, 100);
+        });
+    }
+    
+    // Add CSS class to show the page is fully initialized
+    document.body.classList.add('sidebar-initialized');
+});
+
+// Use MutationObserver to detect DOM changes (SPA/partial page updates)
+const bodyObserver = new MutationObserver(() => {
+    window.sidebarUtils.refreshLayout();
+});
+
+// Start observing body for DOM changes
+bodyObserver.observe(document.body, { 
+    childList: true, 
+    subtree: true 
+});

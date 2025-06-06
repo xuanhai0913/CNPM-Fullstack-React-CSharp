@@ -1,0 +1,141 @@
+@{
+    ViewData["Title"] = "Theme Test";
+}
+
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">
+                        <i class="fas fa-palette me-2"></i>
+                        Theme System Test
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Color Samples</h5>
+                            <div class="p-3 mb-3 bg-primary text-white rounded">
+                                Primary Background
+                            </div>
+                            <div class="p-3 mb-3 bg-secondary text-white rounded">
+                                Secondary Background
+                            </div>
+                            <div class="p-3 mb-3 bg-success text-white rounded">
+                                Success Background
+                            </div>
+                            <div class="p-3 mb-3 bg-light text-dark rounded border">
+                                Light Background
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Button Samples</h5>
+                            <div class="mb-3">
+                                <button class="btn btn-primary me-2">Primary Button</button>
+                                <button class="btn btn-outline-primary">Outline Primary</button>
+                            </div>
+                            <div class="mb-3">
+                                <button class="btn btn-success me-2">Success Button</button>
+                                <button class="btn btn-outline-success">Outline Success</button>
+                            </div>
+                            <div class="mb-3">
+                                <button class="btn btn-secondary me-2">Secondary Button</button>
+                                <button class="btn btn-outline-secondary">Outline Secondary</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="row">
+                        <div class="col-12">
+                            <h5>Theme Toggle Instructions</h5>
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <strong>How to test the Dark/Light Mode:</strong>
+                                <ol class="mb-0 mt-2">
+                                    <li>Look for the theme toggle button in the header (moon/sun icon)</li>
+                                    <li>Click the button to switch between dark and light modes</li>
+                                    <li>Notice how the colors, backgrounds, and text change</li>
+                                    <li>The theme preference is saved in localStorage</li>
+                                    <li>Refresh the page - your theme choice should persist</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Form Elements</h5>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="testInput" class="form-label">Test Input</label>
+                                    <input type="text" class="form-control" id="testInput" placeholder="Type something...">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="testSelect" class="form-label">Test Select</label>
+                                    <select class="form-select" id="testSelect">
+                                        <option selected>Choose an option</option>
+                                        <option value="1">Option 1</option>
+                                        <option value="2">Option 2</option>
+                                        <option value="3">Option 3</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="testTextarea" class="form-label">Test Textarea</label>
+                                    <textarea class="form-control" id="testTextarea" rows="3" placeholder="Type a message..."></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Current Theme Status</h5>
+                            <div class="card">
+                                <div class="card-body">
+                                    <p><strong>Current Theme:</strong> <span id="currentTheme">Loading...</span></p>
+                                    <p><strong>System Preference:</strong> <span id="systemPreference">Loading...</span></p>
+                                    <p><strong>Stored Theme:</strong> <span id="storedTheme">Loading...</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Display current theme information
+    function updateThemeStatus() {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        const storedTheme = localStorage.getItem('sprm-theme') || 'not set';
+        
+        document.getElementById('currentTheme').textContent = currentTheme;
+        document.getElementById('systemPreference').textContent = systemPreference;
+        document.getElementById('storedTheme').textContent = storedTheme;
+    }
+    
+    // Update initially
+    updateThemeStatus();
+    
+    // Update when theme changes
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+                updateThemeStatus();
+            }
+        });
+    });
+    
+    observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['data-theme']
+    });
+    
+    // Listen for storage changes
+    window.addEventListener('storage', updateThemeStatus);
+});
+</script>

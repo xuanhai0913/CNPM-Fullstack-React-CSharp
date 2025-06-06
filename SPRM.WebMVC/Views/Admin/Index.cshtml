@@ -34,19 +34,33 @@
                             </a>
                         </div>
                         <div class="col-md-3 mb-3">
+                            <a href="@Url.Action("ManageProjects")" class="btn btn-outline-info w-100 h-100 d-flex flex-column justify-content-center">
+                                <i class="fas fa-project-diagram fa-2x mb-2"></i>
+                                <span>Quản lý dự án</span>
+                            </a>
+                        </div>
+                        <div class="col-md-3 mb-3">
                             <a href="@Url.Action("CreateUser")" class="btn btn-outline-success w-100 h-100 d-flex flex-column justify-content-center">
                                 <i class="fas fa-user-plus fa-2x mb-2"></i>
                                 <span>Tạo người dùng</span>
                             </a>
                         </div>
                         <div class="col-md-3 mb-3">
-                            <a href="@Url.Action("ImportUser")" class="btn btn-outline-info w-100 h-100 d-flex flex-column justify-content-center">
+                            <a href="@Url.Action("ImportUser")" class="btn btn-outline-warning w-100 h-100 d-flex flex-column justify-content-center">
                                 <i class="fas fa-file-import fa-2x mb-2"></i>
                                 <span>Import CSV</span>
                             </a>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-3 mb-3">
-                            <a href="@Url.Action("SystemSettings")" class="btn btn-outline-warning w-100 h-100 d-flex flex-column justify-content-center">
+                            <a href="@Url.Action("CreateProject")" class="btn btn-outline-primary w-100 h-100 d-flex flex-column justify-content-center">
+                                <i class="fas fa-plus-circle fa-2x mb-2"></i>
+                                <span>Tạo dự án mới</span>
+                            </a>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <a href="@Url.Action("SystemSettings")" class="btn btn-outline-secondary w-100 h-100 d-flex flex-column justify-content-center">
                                 <i class="fas fa-cog fa-2x mb-2"></i>
                                 <span>Cài đặt hệ thống</span>
                             </a>

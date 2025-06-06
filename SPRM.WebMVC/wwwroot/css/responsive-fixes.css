@@ -1,0 +1,75 @@
+/* CSS fix for header-logo class */
+.header-logo {
+    height: 45px;
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+/* Additional responsive fixes for sidebar and main content */
+body.has-sidebar {
+    overflow-x: hidden;
+}
+
+/* Ensure transitions are smooth */
+.main-content {
+    transition: margin-left 0.3s ease, width 0.3s ease, max-width 0.3s ease;
+}
+
+/* Ensure main content maintains proper width with CSS */
+@media (min-width: 992px) {
+    body.has-sidebar .main-content {
+        width: calc(100% - 280px) !important;
+        margin-left: 280px !important;
+        max-width: calc(100% - 280px) !important;
+    }
+    
+    body.has-sidebar.sidebar-collapsed .main-content {
+        width: calc(100% - 80px) !important;
+        margin-left: 80px !important;
+        max-width: calc(100% - 80px) !important;
+    }
+}
+
+/* Mobile specific fixes */
+@media (max-width: 991.98px) {
+    body.has-sidebar .main-content {
+        width: 100% !important;
+        margin-left: 0 !important;
+        max-width: 100% !important;
+    }
+    
+    .header-logo {
+        height: 40px;
+    }
+    
+    /* Improve mobile dropdown menu appearance */
+    .navbar-collapse {
+        background-color: var(--primary);
+        border-radius: 0.5rem;
+        margin-top: 0.5rem;
+        padding: 0.75rem;
+    }
+}
+
+/* Prevent horizontal scrolling due to content overflow */
+.container-fluid {
+    overflow-x: hidden;
+}
+
+/* Fix for tables and wide content */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Apply to all container types to ensure content fits */
+.main-content .container,
+.main-content .container-fluid,
+.main-content .container-sm,
+.main-content .container-md,
+.main-content .container-lg,
+.main-content .container-xl,
+.main-content .container-xxl {
+    width: 100% !important;
+    max-width: 100% !important;
+}

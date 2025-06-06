@@ -5,6 +5,30 @@
       "PackagePath": "staticwebassets/SPRM.WebMVC.4fh5zl1qk6.bundle.scp.css"
     },
     {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/fixed-sidebar-layout.css",
+      "PackagePath": "staticwebassets/css/fixed-sidebar-layout.css"
+    },
+    {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/header-minimalist.css",
+      "PackagePath": "staticwebassets/css/header-minimalist.css"
+    },
+    {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/header-optimized.css",
+      "PackagePath": "staticwebassets/css/header-optimized.css"
+    },
+    {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/header-responsive.css",
+      "PackagePath": "staticwebassets/css/header-responsive.css"
+    },
+    {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/layout-zindex-fixes.css",
+      "PackagePath": "staticwebassets/css/layout-zindex-fixes.css"
+    },
+    {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/main-content-centering.css",
+      "PackagePath": "staticwebassets/css/main-content-centering.css"
+    },
+    {
       "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/main-content-fixes.css",
       "PackagePath": "staticwebassets/css/main-content-fixes.css"
     },
@@ -13,12 +37,28 @@
       "PackagePath": "staticwebassets/css/modern-style.css"
     },
     {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/notifications.css",
+      "PackagePath": "staticwebassets/css/notifications.css"
+    },
+    {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/responsive-fixes.css",
+      "PackagePath": "staticwebassets/css/responsive-fixes.css"
+    },
+    {
       "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/sidebar.css",
       "PackagePath": "staticwebassets/css/sidebar.css"
     },
     {
       "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
+    },
+    {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/theme-2025.css",
+      "PackagePath": "staticwebassets/css/theme-2025.css"
+    },
+    {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/css/theme-system.css",
+      "PackagePath": "staticwebassets/css/theme-system.css"
     },
     {
       "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/favicon.ico",
@@ -33,12 +73,44 @@
       "PackagePath": "staticwebassets/js/crud-helper.js"
     },
     {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/header-interactions.js",
+      "PackagePath": "staticwebassets/js/header-interactions.js"
+    },
+    {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/layout-manager 2.js",
+      "PackagePath": "staticwebassets/js/layout-manager 2.js"
+    },
+    {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/layout-manager.js",
+      "PackagePath": "staticwebassets/js/layout-manager.js"
+    },
+    {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/layout-manager.js.new",
+      "PackagePath": "staticwebassets/js/layout-manager.js.new"
+    },
+    {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/navigation-handler.js",
+      "PackagePath": "staticwebassets/js/navigation-handler.js"
+    },
+    {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/non-sidebar-layout.js",
+      "PackagePath": "staticwebassets/js/non-sidebar-layout.js"
+    },
+    {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/sidebar-content-fix.js",
+      "PackagePath": "staticwebassets/js/sidebar-content-fix.js"
+    },
+    {
       "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/sidebar.js",
       "PackagePath": "staticwebassets/js/sidebar.js"
     },
     {
       "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
+    },
+    {
+      "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/js/theme-system.js",
+      "PackagePath": "staticwebassets/js/theme-system.js"
     },
     {
       "Id": "/Users/nguyenhai/Documents/GitHub/CNPM-Fullstack-React-CSharp/SPRM.WebMVC/wwwroot/lib/aos/aos.css",

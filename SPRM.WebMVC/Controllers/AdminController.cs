@@ -12,12 +12,14 @@ namespace SPRM.WebMVC.Controllers
     {
         private readonly IAdminService _adminService;
         private readonly IAccountService _accountService;
+        private readonly IProjectService _projectService;
         private readonly SPRMDbContext _context;
 
-        public AdminController(IAdminService adminService, IAccountService accountService, SPRMDbContext context)
+        public AdminController(IAdminService adminService, IAccountService accountService, IProjectService projectService, SPRMDbContext context)
         {
             _adminService = adminService;
             _accountService = accountService;
+            _projectService = projectService;
             _context = context;
         }
 
@@ -320,6 +322,148 @@ namespace SPRM.WebMVC.Controllers
 
             _context.Notifications.Add(notification);
             await _context.SaveChangesAsync();
+        }
+
+        // PROJECT MANAGEMENT METHODS
+
+        // GET: Admin/ManageProjects
+        public async Task<IActionResult> ManageProjects()
+        {
+            var projects = await _projectService.GetAllProjectsAsync();
+            return View(projects);
+        }
+
+        // GET: Admin/CreateProject
+        public async Task<IActionResult> CreateProject()
+        {
+            await PopulateUsersDropdown();
+            return View();
+        }
+
+        // POST: Admin/CreateProject
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateProject(CreateProjectDto createProjectDto)
+        {
+            if (ModelState.IsValid)
+            {
+                var projectDto = new ProjectDto
+                {
+                    Id = Guid.NewGuid(),
+                    Name = createProjectDto.Name,
+                    Description = createProjectDto.Description,
+                    PrincipalInvestigatorId = createProjectDto.PrincipalInvestigatorId,
+                    StartDate = createProjectDto.StartDate,
+                    EndDate = createProjectDto.EndDate,
+                    Budget = createProjectDto.Budget,
+                    Status = "Planning", // Default status for new projects
+                    PriorityLevel = createProjectDto.PriorityLevel,
+                    ProjectCategory = createProjectDto.ProjectCategory,
+                    FieldOfStudy = createProjectDto.FieldOfStudy
+                };
+
+                var result = await _projectService.CreateProjectAsync(projectDto);
+                if (result)
+                {
+                    TempData["SuccessMessage"] = "Dự án đã được tạo thành công.";
+                    return RedirectToAction(nameof(ManageProjects));
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "Có lỗi xảy ra khi tạo dự án.";
+                }
+            }
+            await PopulateUsersDropdown();
+            return View(createProjectDto);
+        }
+
+        // GET: Admin/EditProject/5
+        public async Task<IActionResult> EditProject(Guid id)
+        {
+            var project = await _projectService.GetProjectByIdAsync(id);
+            if (project == null)
+            {
+                return NotFound();
+            }
+            await PopulateUsersDropdown();
+            return View(project);
+        }
+
+        // POST: Admin/EditProject/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditProject(Guid id, ProjectDto projectDto)
+        {
+            if (id != projectDto.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                var result = await _projectService.UpdateProjectAsync(projectDto);
+                if (result)
+                {
+                    TempData["SuccessMessage"] = "Dự án đã được cập nhật thành công.";
+                    return RedirectToAction(nameof(ManageProjects));
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "Có lỗi xảy ra khi cập nhật dự án.";
+                }
+            }
+            await PopulateUsersDropdown();
+            return View(projectDto);
+        }
+
+        // GET: Admin/DetailProject/5
+        public async Task<IActionResult> DetailProject(Guid id)
+        {
+            var project = await _projectService.GetProjectByIdAsync(id);
+            if (project == null)
+            {
+                return NotFound();
+            }
+            return View(project);
+        }
+
+        // GET: Admin/DeleteProject/5
+        public async Task<IActionResult> DeleteProject(Guid id)
+        {
+            var project = await _projectService.GetProjectByIdAsync(id);
+            if (project == null)
+            {
+                return NotFound();
+            }
+            return View(project);
+        }
+
+        // POST: Admin/DeleteProject/5
+        [HttpPost, ActionName("DeleteProject")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteProjectConfirmed(Guid id)
+        {
+            var result = await _projectService.DeleteProjectAsync(id);
+            if (result)
+            {
+                TempData["SuccessMessage"] = "Dự án đã được xóa thành công.";
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Có lỗi xảy ra khi xóa dự án.";
+            }
+            return RedirectToAction(nameof(ManageProjects));
+        }
+
+        // Helper method to populate users dropdown for project forms
+        private async Task PopulateUsersDropdown()
+        {
+            var users = await _accountService.GetAllUsersAsync();
+            ViewBag.Users = users.Select(u => new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem
+            {
+                Value = u.Id.ToString(),
+                Text = $"{u.FullName} ({u.Email})"
+            }).ToList();
         }
     }
 

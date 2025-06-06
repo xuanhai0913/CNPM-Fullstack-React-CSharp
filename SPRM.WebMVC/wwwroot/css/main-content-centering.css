@@ -1,0 +1,52 @@
+/* Main content centering fixes - addressing the issue of content shifting to one side when no sidebar is present */
+
+/* For non-authenticated users without sidebar, ensure main content is centered */
+body:not(.has-sidebar) .main-content {
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 100% !important;
+}
+
+/* Set a max-width for container within non-sidebar layout for better aesthetics */
+body:not(.has-sidebar) .main-content .container {
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+}
+
+/* For all content-focused pages (no sidebar), ensure container is properly centered */
+body:not(.has-sidebar) .main-content .container-fluid {
+    max-width: 1400px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+}
+
+/* Specific fix for hero sections and full-width content on non-sidebar pages */
+body:not(.has-sidebar) .main-content > .container-fluid.full-width {
+    max-width: 100% !important;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 991.98px) {
+    body:not(.has-sidebar) .main-content .container,
+    body:not(.has-sidebar) .main-content .container-fluid {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
+
+/* Additional fix for any potential horizontal scrolling issues */
+body:not(.has-sidebar) {
+    overflow-x: hidden;
+}
+
+/* Ensure content is properly spaced from navbar */
+body:not(.has-sidebar) .main-content {
+    padding-top: 6rem;
+}

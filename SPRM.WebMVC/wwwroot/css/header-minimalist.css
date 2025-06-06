@@ -1,0 +1,275 @@
+/* CSS Custom Properties for Header Theme */
+:root {
+    --header-height: 60px;
+    --header-bg: #ffffff;
+    --header-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+    --header-border: #e5e7eb;
+    --breadcrumb-color: #666;
+    --breadcrumb-active-color: #333;
+    --notification-badge-bg: #dc3545;
+    --user-dropdown-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Header minimalist design */
+.main-header {
+    box-shadow: var(--header-shadow) !important;
+    background-color: var(--header-bg) !important;
+    border-bottom: 1px solid var(--header-border) !important;
+    height: var(--header-height);
+}
+
+.main-header .navbar {
+    height: 60px;
+    padding: 0;
+}
+
+.main-header .container-fluid {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* Better visual spacing and alignment */
+.main-header .navbar-brand {
+    margin-right: 0;
+}
+
+/* Ensure proper z-index for dropdowns */
+.main-header .dropdown-menu {
+    z-index: 1055;
+}
+
+/* Breadcrumb styling */
+.breadcrumb-wrapper {
+    margin-left: 5px;
+}
+
+.breadcrumb {
+    margin-bottom: 0;
+    background: transparent;
+    font-size: 0.9rem;
+}
+
+.breadcrumb-item a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.breadcrumb-item a:hover {
+    color: var(--primary-dark, #0056b3);
+}
+
+.breadcrumb-item.active {
+    color: var(--breadcrumb-active-color);
+    font-weight: 500;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: var(--breadcrumb-color);
+    content: ">";
+    font-weight: bold;
+}
+
+/* Navbar toggle button */
+.navbar-toggler-custom {
+    border: none;
+    background-color: transparent;
+    color: #666;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.25rem;
+    padding: 0;
+    transition: all 0.2s;
+    cursor: pointer;
+    position: relative;
+}
+
+.navbar-toggler-custom:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.navbar-toggler-custom:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.25rem rgba(var(--primary-rgb), 0.25);
+}
+
+.navbar-toggler-custom i {
+    font-size: 1.25rem;
+}
+
+/* User dropdown styling */
+.user-dropdown .dropdown-menu {
+    min-width: 250px;
+    padding: 0.5rem 0;
+    border: none;
+    box-shadow: var(--user-dropdown-shadow);
+    border-radius: 0.5rem;
+}
+
+.user-dropdown .dropdown-header {
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    color: var(--primary);
+    border-bottom: 1px solid #f1f3f4;
+    margin-bottom: 0.25rem;
+}
+
+.user-dropdown .dropdown-item {
+    padding: 0.625rem 1rem;
+    transition: all 0.2s;
+    border-radius: 0;
+}
+
+.user-dropdown .dropdown-item:hover {
+    background-color: #f8f9fa;
+    color: var(--primary);
+}
+
+.user-dropdown .dropdown-item.text-danger:hover {
+    background-color: #fdf2f2;
+    color: #dc3545;
+}
+
+.user-dropdown .dropdown-item i {
+    width: 16px;
+    text-align: center;
+}
+
+/* User avatar enhanced styling */
+.avatar-circle {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.25);
+    transition: all 0.2s;
+}
+
+.user-dropdown:hover .avatar-circle {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.35);
+}
+
+/* Notification styling */
+.notification-dropdown .dropdown-menu {
+    width: 320px;
+    padding: 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.notifications-dropdown .dropdown-header {
+    padding: 12px 16px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.notification-item {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.notification-item:hover {
+    background-color: #f8f9fa;
+}
+
+.notification-item .icon-wrapper {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.bg-light-primary {
+    background-color: rgba(var(--primary-rgb), 0.1);
+}
+
+.bg-light-success {
+    background-color: rgba(40, 167, 69, 0.1);
+}
+
+.bg-light-warning {
+    background-color: rgba(255, 193, 7, 0.1);
+}
+
+.notification-content p {
+    font-size: 0.875rem;
+    margin-bottom: 2px;
+}
+
+.notification-content small {
+    font-size: 0.75rem;
+}
+
+.view-all {
+    padding: 8px 16px;
+    font-size: 0.875rem;
+    color: var(--primary);
+}
+
+/* Authentication buttons */
+.auth-buttons .btn {
+    font-size: 0.875rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .notification-dropdown .dropdown-menu {
+        width: 280px;
+    }
+    
+    .breadcrumb-wrapper {
+        max-width: 180px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    .breadcrumb {
+        font-size: 0.85rem;
+    }
+    
+    .navbar-toggler-custom {
+        margin-right: 10px;
+    }
+    
+    .user-dropdown .user-name {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .notification-dropdown .dropdown-menu {
+        width: 250px;
+    }
+    
+    .breadcrumb-wrapper {
+        max-width: 150px;
+    }
+}
+
+/* Animation for dropdowns */
+.animate-fade-in {
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
