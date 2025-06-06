@@ -33,12 +33,12 @@ namespace SPRM.Data
 
             modelBuilder.Entity<TaskItem>()
                 .HasOne(t => t.Project)
-                .WithMany()
+                .WithMany(p => p.TaskItems)
                 .HasForeignKey(t => t.ProjectId);
 
             modelBuilder.Entity<Proposal>()
                 .HasOne(p => p.Project)
-                .WithMany()
+                .WithMany(p => p.Proposals)
                 .HasForeignKey(p => p.ProjectId);
 
             modelBuilder.Entity<Proposal>()
@@ -48,12 +48,12 @@ namespace SPRM.Data
 
             modelBuilder.Entity<Transaction>()
                 .HasOne(t => t.Project)
-                .WithMany()
+                .WithMany(p => p.Transactions)
                 .HasForeignKey(t => t.ProjectId);
 
             modelBuilder.Entity<Milestone>()
                 .HasOne(m => m.Project)
-                .WithMany()
+                .WithMany(p => p.Milestones)
                 .HasForeignKey(m => m.ProjectId);
 
             modelBuilder.Entity<UserRole>()

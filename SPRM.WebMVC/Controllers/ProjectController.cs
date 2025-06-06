@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using SPRM.Business.Interfaces;
 using SPRM.Business.DTOs;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SPRM.WebMVC.Controllers
 {
@@ -32,6 +34,7 @@ namespace SPRM.WebMVC.Controllers
         }
 
         // GET: Project/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -40,16 +43,30 @@ namespace SPRM.WebMVC.Controllers
         // POST: Project/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create(ProjectDto projectDto)
         {
             if (ModelState.IsValid)
             {
-                var result = await _projectService.CreateProjectAsync(projectDto);
-                if (result)
+                // Get current user ID from claims
+                var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+                if (userIdClaim != null && Guid.TryParse(userIdClaim.Value, out Guid userId))
                 {
-                    return RedirectToAction(nameof(Index));
+                    projectDto.PrincipalInvestigatorId = userId;
+                    projectDto.Id = Guid.NewGuid(); // Generate new ID
+                    
+                    var result = await _projectService.CreateProjectAsync(projectDto);
+                    if (result)
+                    {
+                        TempData["SuccessMessage"] = "Dự án đã được tạo thành công!";
+                        return RedirectToAction(nameof(Index));
+                    }
+                    ModelState.AddModelError("", "Không thể tạo dự án. Vui lòng thử lại.");
                 }
-                ModelState.AddModelError("", "Không thể tạo dự án. Vui lòng thử lại.");
+                else
+                {
+                    ModelState.AddModelError("", "Không thể xác định người dùng hiện tại.");
+                }
             }
             return View(projectDto);
         }

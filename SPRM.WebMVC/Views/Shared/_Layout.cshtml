@@ -16,7 +16,7 @@
         @await RenderSectionAsync("Styles", required: false)
 </head>
 @{
-    var hasSidebar = !string.IsNullOrEmpty(Context.Session.GetString("UserId"));
+    var hasSidebar = User.Identity.IsAuthenticated;
 }
 <body class="d-flex flex-column min-vh-100 @(hasSidebar ? "has-sidebar" : "")">
     @if (hasSidebar)
@@ -36,9 +36,8 @@
                 </button>
                 <div class="navbar-collapse collapse d-lg-inline-flex justify-content-between">                    <!-- Left navigation -->
                     <ul class="navbar-nav flex-grow-1">
-                        @if (!string.IsNullOrEmpty(Context.Session.GetString("UserId")))
+                        @if (User.Identity.IsAuthenticated)
                         {
-                            <!-- Sidebar toggle button for authenticated users -->
                             <li class="nav-item d-none d-lg-block">
                                 <button class="nav-link btn btn-link text-white" id="navbarSidebarToggle" onclick="sidebarUtils.toggle()">
                                     <i class="fas fa-bars me-1"></i>
@@ -47,10 +46,10 @@
                         }
                     </ul>
                     <ul class="navbar-nav">
-                        @if (string.IsNullOrEmpty(Context.Session.GetString("UserId")))
+                        @if (!User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item me-2">
-                                <a class="nav-link btn btn-outline-light px-3" asp-controller="Account" asp-action="Login">
+                                <a class="nav-link btn btn-outline-light px-3" href="/Account/Login">
                                     <i class="fas fa-sign-in-alt me-1"></i> Đăng nhập
                                 </a>
                             </li>
@@ -59,7 +58,8 @@
                                     <i class="fas fa-user-plus me-1"></i> Đăng ký
                                 </a>
                             </li>
-                        }                        else
+                        }
+                        else
                         {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -123,9 +123,9 @@
                 </div>
                 <div class="col-md-4 text-md-end">
                     <div class="mb-3">
-                        <a href="#" class="btn btn-sm btn-outline-secondary me-2"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/nguyenhai0913" class="btn btn-sm btn-outline-secondary me-2"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="btn btn-sm btn-outline-secondary me-2"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="btn btn-sm btn-outline-secondary"><i class="fab fa-github"></i></a>
+                        <a href="https://github.com/xuanhai0913" class="btn btn-sm btn-outline-secondary"><i class="fab fa-github"></i></a>
                     </div>
                     <p class="mb-1">&copy; 2025 - SPRM. Tất cả quyền được bảo lưu.</p>
                     <small class="text-muted">Phiên bản 1.0.0</small>

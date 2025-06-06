@@ -94,20 +94,17 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseRouting();
 app.UseSession();
 
 // Add authentication & authorization middleware
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseRouting();
-
-app.MapStaticAssets();
-
+// Use only one route registration method
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 // Initialize database with seed data
 using (var scope = app.Services.CreateScope())

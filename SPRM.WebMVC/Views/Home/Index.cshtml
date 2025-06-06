@@ -14,13 +14,13 @@
                 Nền tảng toàn diện để quản lý các dự án nghiên cứu, đề xuất và báo cáo của sinh viên. 
                 Hỗ trợ quy trình từ ý tưởng đến triển khai hoàn chỉnh.
             </p>
-            @if (string.IsNullOrEmpty(Context.Session.GetString("UserId")))
+            @if (!User.Identity.IsAuthenticated)
             {
                 <div class="d-flex gap-3 flex-wrap">
                     <a asp-controller="Account" asp-action="Register" class="btn btn-light btn-lg">
                         <i class="fas fa-user-plus me-2"></i> Đăng ký ngay
                     </a>
-                    <a asp-controller="Account" asp-action="Login" class="btn btn-outline-light btn-lg">
+                    <a href="/Account/Login" class="btn btn-outline-light btn-lg">
                         <i class="fas fa-sign-in-alt me-2"></i> Đăng nhập
                     </a>
                 </div>

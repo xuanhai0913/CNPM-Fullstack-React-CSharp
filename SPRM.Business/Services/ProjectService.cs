@@ -99,26 +99,46 @@ namespace SPRM.Business.Services
 
         public async Task<bool> CreateProjectAsync(ProjectDto projectDto)
         {
-            if (!Enum.TryParse<ProjectStatus>(projectDto.Status, out var status))
+            try
             {
-                status = ProjectStatus.Planning; // Default status
+                if (!Enum.TryParse<ProjectStatus>(projectDto.Status, out var status))
+                {
+                    status = ProjectStatus.Planning; // Default status
+                }
+
+                if (!Enum.TryParse<PriorityLevel>(projectDto.PriorityLevel, out var priority))
+                {
+                    priority = PriorityLevel.Medium; // Default priority
+                }
+
+                if (!Enum.TryParse<ProjectCategory>(projectDto.ProjectCategory, out var category))
+                {
+                    category = ProjectCategory.Research; // Default category
+                }
+
+                var project = new Project
+                {
+                    Id = Guid.NewGuid(),
+                    Name = projectDto.Name,
+                    Description = projectDto.Description,
+                    Status = status,
+                    Priority = priority,
+                    Category = category,
+                    FieldOfStudy = projectDto.FieldOfStudy,
+                    StartDate = projectDto.StartDate,
+                    EndDate = projectDto.EndDate,
+                    Budget = projectDto.Budget,
+                    PrincipalInvestigatorId = projectDto.PrincipalInvestigatorId,
+                    CreatedAt = DateTime.UtcNow
+                };
+
+                await _projectRepository.AddAsync(project);
+                return true;
             }
-
-            var project = new Project
+            catch (Exception)
             {
-                Id = Guid.NewGuid(),
-                Name = projectDto.Name,
-                Description = projectDto.Description,
-                Status = status,
-                StartDate = projectDto.StartDate,
-                EndDate = projectDto.EndDate,
-                Budget = projectDto.Budget,
-                PrincipalInvestigatorId = projectDto.PrincipalInvestigatorId,
-                CreatedAt = DateTime.UtcNow
-            };
-
-            await _projectRepository.AddAsync(project);
-            return true;
+                return false;
+            }
         }
 
         public async Task<bool> UpdateProjectAsync(ProjectDto projectDto)
